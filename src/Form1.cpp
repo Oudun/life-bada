@@ -36,6 +36,12 @@ Form1::OnInitializing(void)
 		__pButtonOk->AddActionEventListener(*this);
 	}
 
+	Button *pButton_seed = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));  
+	if (pButton_seed)
+	{
+		pButton_seed->SetActionId(1);
+		pButton_seed->AddActionEventListener(*this);
+	}
 	return r;
 }
 
@@ -62,6 +68,12 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	default:
 		break;
 	}
+
+	/*
+	 *
+	 *
+	 * */
+
 }
 
 
