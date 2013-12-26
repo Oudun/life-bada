@@ -1,19 +1,20 @@
-#include "Form1.h"
+#include "LifeForm.h"
+#include "Generation.h"
 
 using namespace Osp::Base;
 using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
 
-Form1::Form1(void)
+LifeForm::LifeForm(void)
 {
 }
 
-Form1::~Form1(void)
+LifeForm::~LifeForm(void)
 {
 }
 
 bool
-Form1::Initialize()
+LifeForm::Initialize()
 {
 	// Construct an XML form
 	Construct(L"IDF_FORM1");
@@ -22,9 +23,13 @@ Form1::Initialize()
 }
 
 result
-Form1::OnInitializing(void)
+LifeForm::OnInitializing(void)
 {
 	result r = E_SUCCESS;
+
+	Osp::Graphics::Rectangle rectangle = GetBounds();
+	Generation::Initialize(10, 10);
+	AppLog("Height is %d", rectangle.height);
 
 	// TODO: Add your initialization code here
 
@@ -42,11 +47,14 @@ Form1::OnInitializing(void)
 		pButton_seed->SetActionId(1);
 		pButton_seed->AddActionEventListener(*this);
 	}
+
+	Update();
+
 	return r;
 }
 
 result
-Form1::OnTerminating(void)
+LifeForm::OnTerminating(void)
 {
 	result r = E_SUCCESS;
 
@@ -56,7 +64,7 @@ Form1::OnTerminating(void)
 }
 
 void
-Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
+LifeForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 {
 	switch(actionId)
 	{
@@ -74,6 +82,26 @@ Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	 *
 	 * */
 
+}
+
+void
+LifeForm::Update(void) {
+
+	Osp::Graphics::Canvas* canvas;
+	Control* control = GetControl(L"IDF_FORM1");
+	canvas = control -> GetCanvasN();
+	canvas -> SetBackgroundColor(Osp::Graphics::Color::COLOR_RED);
+	canvas -> Clear();
+	canvas -> Show();
+	Draw();
+	Show();
+
+	for (int i=0; i < columns; i++) {
+		for (int j=0; j < rows; j++) {
+			//currentGeneration[i][j]
+
+		}
+	}
 }
 
 

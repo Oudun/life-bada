@@ -7,7 +7,7 @@
 
 
 #include "Life.h"
-#include "Form1.h"
+#include "LifeForm.h"
 
 using namespace Osp::App;
 using namespace Osp::Base;
@@ -17,6 +17,9 @@ using namespace Osp::Ui::Controls;
 
 Life::Life()
 {
+
+	AppLog("CONSTRUCTING");
+
 }
 
 Life::~Life()
@@ -26,6 +29,8 @@ Life::~Life()
 Application*
 Life::CreateInstance(void)
 {
+
+	AppLog("CREATING");
 	// Create the instance through the constructor.
 	return new Life();
 }
@@ -33,18 +38,11 @@ Life::CreateInstance(void)
 bool
 Life::OnAppInitializing(AppRegistry& appRegistry)
 {
-	// TODO:
-	// Initialize UI resources and application specific data.
-	// The application's permanent data and context can be obtained from the appRegistry.
-	//
-	// If this method is successful, return true; otherwise, return false.
-	// If this method returns false, the application will be terminated.
 
-	// Uncomment the following statement to listen to the screen on/off events.
-	//PowerManager::SetScreenEventListener(*this);
+	AppLog("INITIALIZING");
 
 	// Create a form
-	Form1 *pForm1 = new Form1();
+	LifeForm *pForm1 = new LifeForm();
 	pForm1->Initialize();
 
 	// Add the form to the frame
@@ -56,6 +54,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry)
 
 	// Draw and Show the form
 	pForm1->Draw();
+
 	pForm1->Show();
 
 	return true;

@@ -14,12 +14,14 @@ class Life :
 	public Osp::App::Application,
 	public Osp::System::IScreenEventListener
 {
+
 public:
 
 	/**
 	 * [Life] application must have a factory method that creates an instance of itself.
 	 */
-	static Osp::App::Application* CreateInstance(void);
+
+		static Osp::App::Application* CreateInstance(void);
 
 
 public:

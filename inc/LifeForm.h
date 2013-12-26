@@ -4,16 +4,17 @@
 #include <FBase.h>
 #include <FUi.h>
 
-class Form1 :
+class LifeForm :
 	public Osp::Ui::Controls::Form,
 	public Osp::Ui::IActionEventListener
 {
 
 // Construction
 public:
-	Form1(void);
-	virtual ~Form1(void);
+	LifeForm(void);
+	virtual ~LifeForm(void);
 	bool Initialize(void);
+	void Update(void);
 
 // Implementation
 protected:
