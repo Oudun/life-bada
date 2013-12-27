@@ -7,6 +7,8 @@ using namespace Osp::Ui::Controls;
 
 LifeForm::LifeForm(void)
 {
+	__seedSize = 20;
+
 }
 
 LifeForm::~LifeForm(void)
@@ -27,17 +29,13 @@ LifeForm::OnInitializing(void)
 {
 	result r = E_SUCCESS;
 
-	Osp::Graphics::Rectangle rectangle = GetBounds();
-	Generation::Initialize(10, 10);
-	AppLog("Height is %d", rectangle.height);
-
 	// TODO: Add your initialization code here
 
 	// Get a button via resource ID
-	__pButtonOk = static_cast<Button *>(GetControl(L"IDC_BUTTON_OK"));
+	__pButtonOk = static_cast<Button *>(GetControl(L"IDC_BUTTON_SEED"));
 	if (__pButtonOk != null)
 	{
-		__pButtonOk->SetActionId(ID_BUTTON_OK);
+		__pButtonOk->SetActionId(IDC_BUTTON_SEED);
 		__pButtonOk->AddActionEventListener(*this);
 	}
 
@@ -48,9 +46,20 @@ LifeForm::OnInitializing(void)
 		pButton_seed->AddActionEventListener(*this);
 	}
 
-	Update();
-
 	return r;
+	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
+	if (pButton1)
+	{
+		pButton1->SetActionId(2);
+		pButton1->AddActionEventListener(*this);
+	}
+	Button *pButton_start = static_cast<Button *>(GetControl("IDC_BUTTON_START"));  
+	if (pButton_start)
+	{
+		pButton_start->SetActionId(2);
+		pButton_start->AddActionEventListener(*this);
+	}
+
 }
 
 result
@@ -66,11 +75,24 @@ LifeForm::OnTerminating(void)
 void
 LifeForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 {
+
+	AppLog("Button ID is %d\n", actionId);
+
 	switch(actionId)
 	{
-	case ID_BUTTON_OK:
+	case IDC_BUTTON_SEED:
 		{
-			AppLog("OK Button is clicked! \n");
+			Generation::Initialize(
+					GetBounds().width/__seedSize,
+					GetBounds().height/__seedSize
+					);
+			Update();
+		}
+		break;
+	case IDC_BUTTON_START:
+		{
+			AppLog("Start?");
+			Osp::App::Application::GetInstance() -> SendUserEvent(START_BUTTON_PRESSED, null);
 		}
 		break;
 	default:
@@ -87,21 +109,30 @@ LifeForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 void
 LifeForm::Update(void) {
 
+	AppLog("!!!Updating");
+
 	Osp::Graphics::Canvas* canvas;
 	Control* control = GetControl(L"IDF_FORM1");
 	canvas = control -> GetCanvasN();
-	canvas -> SetBackgroundColor(Osp::Graphics::Color::COLOR_RED);
-	canvas -> Clear();
-	canvas -> Show();
-	Draw();
-	Show();
+	canvas -> FillRectangle(Osp::Graphics::Color::COLOR_BLACK, GetBounds());
 
-	for (int i=0; i < columns; i++) {
-		for (int j=0; j < rows; j++) {
-			//currentGeneration[i][j]
-
+	for (int i=0; i < Generation::GetColumns(); i++) {
+		for (int j=0; j < Generation::GetRows(); j++) {
+			if(Generation::IsOccupied(i, j)) {
+				canvas -> FillRectangle(Osp::Graphics::Color::COLOR_GREEN, Osp::Graphics::Rectangle(
+						i*__seedSize,
+						j*__seedSize,
+						__seedSize,
+						__seedSize
+				));
+			}
 		}
 	}
+
+	AppLog("!!!Showing now");
+
+	canvas -> Show();
+
 }
 
 

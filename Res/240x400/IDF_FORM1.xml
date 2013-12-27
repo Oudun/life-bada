@@ -7,8 +7,8 @@
 <Scene Bversion="2.0.3.v20111206" Dversion="20100701">
     <Form id="IDF_FORM1">
         <property BGColor="#000000" BGColorOpacity="100" Orientation="Automatic" softKey0NormalIcon="" softKey0PressedIcon="" softKey0Text="" softKey1NormalIcon="" softKey1PressedIcon="" softKey1Text="" title="" titleAlign="ALIGN_CENTER" titleIcon="" translucentFooter="FALSE" translucentHeader="FALSE" translucentIndicator="FALSE"/>
-        <layout mode="Portrait" style="FORM_STYLE_INDICATOR|FORM_STYLE_HEADER" type="LAYOUT_RELATIVE"/>
-        <layout mode="Landscape" style="FORM_STYLE_INDICATOR|FORM_STYLE_HEADER" type="LAYOUT_RELATIVE"/>
+        <layout mode="Portrait" style="FORM_STYLE_INDICATOR" type="NONE"/>
+        <layout mode="Landscape" style="FORM_STYLE_INDICATOR" type="NONE"/>
     </Form>
     <Footer>
         <property BGBitmapPath="" color="" colorOpacity="100" disabledButtonColor="" disabledButtonColorOpacity="100" disabledButtonTextColor="" disabledItemColor="" disabledItemColorOpacity="100" disabledItemTextColor="" footerStyle="FOOTER_STYLE_TAB" highlightedButtonColor="" highlightedButtonColorOpacity="100" highlightedButtonTextColor="" highlightedItemColor="" highlightedItemColorOpacity="100" highlightedItemTextColor="" normalButtonColor="" normalButtonColorOpacity="100" normalButtonTextColor="" normalItemColor="" normalItemColorOpacity="100" normalItemTextColor="" pressedButtonColor="" pressedButtonColorOpacity="100" pressedButtonTextColor="" pressedItemColor="" pressedItemColorOpacity="100" pressedItemTextColor="" selectedItemColor="" selectedItemColorOpacity="100" selectedItemTextColor="" showBackButton="FALSE"/>
@@ -20,7 +20,17 @@
     </Header>
     <Button id="IDC_BUTTON_SEED" parent="IDF_FORM1">
         <property disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBGBitmapPath="" normalBitmapPath="" normalColor="#008040" normalColorOpacity="100" normalTextColor="#00FF00" pressedBGBitmapPath="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="SEED" textSize="16" vAlign="ALIGN_MIDDLE"/>
-        <layout bottomRelation="" bottomRelationType="" centerHorizontal="FALSE" centerVertical="FALSE" height="45" horizontalFitPolicy="FIT_POLICY_FIXED" leftRelation="" leftRelationType="" marginBottom="0" marginLeft="0" marginRight="0" marginTop="0" mode="Portrait" rightRelation="" rightRelationType="" topRelation="" topRelationType="" verticalFitPolicy="FIT_POLICY_FIXED" width="131" x="0" y="300"/>
-        <layout bottomRelation="" bottomRelationType="" centerHorizontal="TRUE" centerVertical="TRUE" height="51" horizontalFitPolicy="FIT_POLICY_FIXED" leftRelation="" leftRelationType="" marginBottom="0" marginLeft="0" marginRight="0" marginTop="0" mode="Landscape" rightRelation="" rightRelationType="" topRelation="" topRelationType="" verticalFitPolicy="FIT_POLICY_FIXED" width="200" x="0" y="0"/>
+        <layout height="40" mode="Portrait" width="101" x="11" y="332"/>
+        <layout height="51" mode="Landscape" width="200" x="0" y="36"/>
     </Button>
+    <Button id="IDC_BUTTON_START" parent="IDF_FORM1">
+        <property disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBGBitmapPath="" normalBitmapPath="" normalColor="#008040" normalColorOpacity="100" normalTextColor="#00FF00" pressedBGBitmapPath="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="START" textSize="16" vAlign="ALIGN_MIDDLE"/>
+        <layout height="40" mode="Portrait" width="101" x="130" y="332"/>
+        <layout height="24" mode="Landscape" width="75" x="325" y="125"/>
+    </Button>
+    <Label id="IDC_LABEL_GENERATION" parent="IDF_FORM1">
+        <property BGBitmapPath="" BGColor="#008040" BGColorOpacity="100" hAlign="ALIGN_CENTER" text="Life is not started yet" textColor="#00FF00" textSize="10" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_MIDDLE"/>
+        <layout height="20" mode="Portrait" width="220" x="10" y="11"/>
+        <layout height="19" mode="Landscape" width="166" x="16" y="0"/>
+    </Label>
 </Scene>

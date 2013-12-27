@@ -7,7 +7,6 @@
 
 
 #include "Life.h"
-#include "LifeForm.h"
 
 using namespace Osp::App;
 using namespace Osp::Base;
@@ -36,28 +35,32 @@ Life::CreateInstance(void)
 }
 
 bool
-Life::OnAppInitializing(AppRegistry& appRegistry)
-{
+Life::OnAppInitializing(AppRegistry& appRegistry) {
 
 	AppLog("INITIALIZING");
 
 	// Create a form
-	LifeForm *pForm1 = new LifeForm();
-	pForm1->Initialize();
+	LifeForm *lifeForm = new LifeForm();
+	lifeForm->Initialize();
 
 	// Add the form to the frame
-	Frame *pFrame = GetAppFrame()->GetFrame();
-	pFrame->AddControl(*pForm1);
+	Frame *lifeFrame = GetAppFrame()->GetFrame();
+	lifeFrame->AddControl(*lifeForm);
 
 	// Set the current form
-	pFrame->SetCurrentForm(*pForm1);
+	lifeFrame->SetCurrentForm(*lifeForm);
 
 	// Draw and Show the form
-	pForm1->Draw();
+	lifeFrame->Draw();
 
-	pForm1->Show();
+	lifeFrame->Show();
+
+	evolution = new Evolution();
 
 	return true;
+
+
+
 }
 
 bool
@@ -112,4 +115,20 @@ Life::OnScreenOff (void)
 	//  Unless there is a strong reason to do otherwise, release resources (such as 3D, media, and sensors) to allow the device to enter the sleep mode to save the battery.
 	// Invoking a lengthy asynchronous method within this listener method can be risky, because it is not guaranteed to invoke a callback before the device enters the sleep mode.
 	// Similarly, do not perform lengthy operations in this listener method. Any operation must be a quick one.
+}
+
+void
+Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs) {
+
+	switch (requestId) {
+		case LifeForm::START_BUTTON_PRESSED: {
+			AppLog("Start button pressed");
+			break;
+		}
+
+		default: {
+			AppLog("Something no% is happening", requestId);
+		}
+	}
+
 }

@@ -17,7 +17,9 @@ public:
 	Generation();
 	virtual ~Generation();
 	static void Initialize(int columns, int rows);
-
+	static int GetColumns(void);
+	static int GetRows(void);
+	static bool IsOccupied(int column, int row);
 };
 
 static int columns;

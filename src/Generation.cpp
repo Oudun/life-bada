@@ -20,6 +20,7 @@ void
 Generation::Initialize(int aColumns, int aRows) {
 	AppLog("Initializing Generation width %d height %d", aColumns, aRows);
 	columns = aColumns;
+	AppLog("Columns number set to %d", columns);
 	rows = aRows;
 	currentGeneration = new bool*[columns];
 	nextGeneration = new bool*[columns];
@@ -32,7 +33,22 @@ Generation::Initialize(int aColumns, int aRows) {
 			currentGeneration[i][j] = Osp::Base::Utility::Math::Rand()
 			< (Osp::Base::Utility::Math::RAND_VALUE_MAX / 2);
 		}
-//		nextGeneration[i]= new bool[rows];
 	}
 	counter = 1;
 }
+
+int
+Generation::GetColumns(void) {
+	return columns;
+}
+
+int
+Generation::GetRows(void) {
+	return rows;
+}
+
+bool
+Generation::IsOccupied(int column, int row) {
+	return currentGeneration[column][row];
+}
+
