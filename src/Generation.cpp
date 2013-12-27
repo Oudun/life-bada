@@ -28,13 +28,18 @@ Generation::Initialize(int aColumns, int aRows) {
 		currentGeneration[i]= new bool[rows];
 		nextGeneration[i]= new bool[rows];
 	}
+	Seed();
+	counter = 1;
+}
+
+void
+Generation::Seed(void) {
 	for (int i=0; i<columns; i++) {
 		for (int j=0; j<rows; j++) {
 			currentGeneration[i][j] = Osp::Base::Utility::Math::Rand()
 			< (Osp::Base::Utility::Math::RAND_VALUE_MAX / 2);
 		}
 	}
-	counter = 1;
 }
 
 int

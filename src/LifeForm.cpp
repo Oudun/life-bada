@@ -46,19 +46,14 @@ LifeForm::OnInitializing(void)
 		pButton_seed->AddActionEventListener(*this);
 	}
 
-	return r;
-	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
-	if (pButton1)
-	{
-		pButton1->SetActionId(2);
-		pButton1->AddActionEventListener(*this);
-	}
 	Button *pButton_start = static_cast<Button *>(GetControl("IDC_BUTTON_START"));  
 	if (pButton_start)
 	{
-		pButton_start->SetActionId(2);
+		pButton_start->SetActionId(IDC_BUTTON_START);
 		pButton_start->AddActionEventListener(*this);
 	}
+
+	return r;
 
 }
 

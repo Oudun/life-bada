@@ -123,6 +123,12 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 	switch (requestId) {
 		case LifeForm::START_BUTTON_PRESSED: {
 			AppLog("Start button pressed");
+			evolution -> Start();
+			break;
+		}
+		case Evolution::NEXT_GENERATION_BORN: {
+			AppLog("Next generation born");
+//			lifeForm -> Update();
 			break;
 		}
 

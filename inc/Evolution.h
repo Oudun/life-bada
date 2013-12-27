@@ -9,6 +9,8 @@
 #define EVOLUTION_H_
 
 #include <FBase.h>
+#include <FBaseRt.h>
+#include <FApp.h>
 
 class Evolution:public Osp::Base::Runtime::Thread
 {
@@ -27,7 +29,7 @@ public:
 public:
 	bool isResumed;
 	int delay;
-
+	static const int NEXT_GENERATION_BORN = 2;
 
 };
 
