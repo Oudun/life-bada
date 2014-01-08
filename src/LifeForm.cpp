@@ -7,7 +7,7 @@ using namespace Osp::Ui::Controls;
 
 LifeForm::LifeForm(void)
 {
-	__seedSize = 20;
+	__seedSize = 10;
 
 }
 
@@ -19,7 +19,7 @@ bool
 LifeForm::Initialize()
 {
 	// Construct an XML form
-	Construct(L"IDF_FORM1");
+	Construct(L"LIFE_FORM");
 
 	return true;
 }
@@ -31,19 +31,30 @@ LifeForm::OnInitializing(void)
 
 	// TODO: Add your initialization code here
 
-	Button *pButton_seed = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));  
-	if (pButton_seed)
+	__seedButton = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));
+	if (__seedButton)
 	{
-		pButton_seed->SetActionId(1);
-		pButton_seed->AddActionEventListener(*this);
+		__seedButton->SetActionId(IDC_BUTTON_SEED);
+		__seedButton->AddActionEventListener(*this);
 	}
 
-	Button *pButton_start = static_cast<Button *>(GetControl("IDC_BUTTON_START"));  
-	if (pButton_start)
+	__startButton = static_cast<Button *>(GetControl("IDC_BUTTON_START"));
+	if (__startButton)
 	{
-		pButton_start->SetActionId(IDC_BUTTON_START);
-		pButton_start->AddActionEventListener(*this);
+		__startButton->SetActionId(IDC_BUTTON_START);
+		__startButton->AddActionEventListener(*this);
 	}
+
+	__settingsButton = static_cast<Button *>(GetControl("IDC_BUTTON_SETTINGS"));
+	if (__settingsButton)
+	{
+		__settingsButton->SetActionId(IDC_BUTTON_SETTINGS);
+		__settingsButton->AddActionEventListener(*this);
+	}
+
+	__counterLabel = static_cast<Label *>(GetControl("IDC_LABEL_GENERATION"));
+
+//	Label *_counterLabel
 
 	Generation::Initialize(
 			GetBounds().width/__seedSize,
@@ -51,6 +62,12 @@ LifeForm::OnInitializing(void)
 			);
 
 	return r;
+	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
+	if (pButton1)
+	{
+		pButton1->SetActionId(3);
+		pButton1->AddActionEventListener(*this);
+	}
 
 }
 
@@ -74,16 +91,21 @@ LifeForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	{
 	case IDC_BUTTON_SEED:
 		{
-			Generation::Seed();
-			Update();
+			Osp::App::Application::GetInstance() -> SendUserEvent(SEED_BUTTON_PRESSED, null);
+			break;
 		}
-		break;
 	case IDC_BUTTON_START:
 		{
 			AppLog("Start?");
 			Osp::App::Application::GetInstance() -> SendUserEvent(START_BUTTON_PRESSED, null);
+			break;
 		}
-		break;
+	case IDC_BUTTON_SETTINGS:
+		{
+			AppLog("Start?");
+			Osp::App::Application::GetInstance() -> SendUserEvent(SETTINGS_BUTTON_PRESSED, null);
+			break;
+		}
 	default:
 		break;
 	}
@@ -118,12 +140,28 @@ LifeForm::Update(void) {
 		}
 	}
 
-	Generation::Calculate();
-
 	AppLog("!!!Showing now");
 
 	canvas -> Show();
 
 }
 
+void
+LifeForm::UpdateGenerationNumber(void) {
+	if (Generation::GetCounter() > 0) {
+		String counterStr;
+		counterStr.Format(40, L"Generation number %d", Generation::GetCounter());
+		__counterLabel -> SetText(counterStr.GetPointer());
+	} else {
+		String defaultStr("Evolution is not started yet.");
+		__counterLabel -> SetText(defaultStr.GetPointer());
+	}
+	__counterLabel -> RequestRedraw(true);
+}
+
+void
+LifeForm::SetStartLabel(Osp::Base::String &labelText) {
+	__startButton -> SetText(labelText);
+	__startButton -> RequestRedraw(true);
+}
 

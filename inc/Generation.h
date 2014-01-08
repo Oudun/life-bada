@@ -22,6 +22,9 @@ public:
 	static bool IsOccupied(int column, int row);
 	static void Seed(void);
 	static void Calculate(void);
+	static void IncreaseCounter(void);
+	static void ResetCounter(void);
+	static int GetCounter(void);
 };
 
 static int columns;

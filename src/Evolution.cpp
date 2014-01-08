@@ -20,18 +20,20 @@ Evolution::~Evolution() {
 
 void
 Evolution::Resume(void) {
-
+	isSuspended = false;
 }
 
 
 void
 Evolution::Suspend(void) {
-
+	isSuspended = true;
 }
 
 bool
 Evolution::OnStart(void) {
 	AppLog("OnStart");
+	isStarted = true;
+	isSuspended = false;
 	SendUserEvent(1, null);
 	return true;
 }
@@ -43,9 +45,19 @@ Evolution::OnStop(void) {
 
 void
 Evolution::OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs) {
-	AppLog("Event received");
-	Thread::GetCurrentThread()->Sleep(1000);
-//	Generation::Seed();
-	Osp::App::Application::GetInstance() -> SendUserEvent(NEXT_GENERATION_BORN, null);
+	Thread::GetCurrentThread()->Sleep(100);
+	if (!isSuspended) {
+		Osp::App::Application::GetInstance() -> SendUserEvent(NEXT_GENERATION_BORN, null);
+	}
 	SendUserEvent(1, null);
+}
+
+bool
+Evolution::IsStarted(void) {
+	return isStarted;
+}
+
+bool
+Evolution::IsSuspended(void) {
+	return isSuspended;
 }

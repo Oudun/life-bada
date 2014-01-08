@@ -28,8 +28,6 @@ Generation::Initialize(int aColumns, int aRows) {
 		currentGeneration[i]= new bool[rows];
 		nextGeneration[i]= new bool[rows];
 	}
-	Seed();
-	counter = 1;
 }
 
 void
@@ -38,9 +36,9 @@ Generation::Seed(void) {
 		for (int j=0; j<rows; j++) {
 			currentGeneration[i][j] = Osp::Base::Utility::Math::Rand()
 			< (Osp::Base::Utility::Math::RAND_VALUE_MAX / 2);
-			AppLog("%d", (int)currentGeneration[i][j]);
 		}
 	}
+	ResetCounter();
 }
 
 
@@ -74,6 +72,7 @@ Generation::Calculate(void) {
 				currentGeneration[i][j] = nextGeneration[i][j];
 		}
 	}
+	IncreaseCounter();
 	AppLog("Calculation ended");
 }
 
@@ -92,3 +91,17 @@ Generation::IsOccupied(int column, int row) {
 	return currentGeneration[column][row];
 }
 
+void
+Generation::IncreaseCounter(void){
+	counter += 1;
+}
+
+void
+Generation::ResetCounter(void) {
+	counter = 0;
+}
+
+int
+Generation::GetCounter(void){
+	return counter;
+}

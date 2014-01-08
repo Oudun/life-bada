@@ -7,6 +7,7 @@
 
 
 #include "Life.h"
+#include "Generation.h"
 
 using namespace Osp::App;
 using namespace Osp::Base;
@@ -121,14 +122,40 @@ void
 Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs) {
 
 	switch (requestId) {
+
+		case LifeForm::SEED_BUTTON_PRESSED: {
+			if (evolution -> IsStarted()&&!evolution -> IsSuspended()) {
+				evolution -> Suspend();
+				String resumeString(L"RESUME");
+				lifeForm -> SetStartLabel(resumeString);
+			}
+			Generation::Seed();
+			lifeForm -> Update();
+			lifeForm -> UpdateGenerationNumber();
+			break;
+		}
 		case LifeForm::START_BUTTON_PRESSED: {
 			AppLog("Start button pressed");
-			evolution -> Start();
+			if (!evolution -> IsStarted()) {
+				evolution -> Start();
+				String suspendString(L"SUSPEND");
+				lifeForm -> SetStartLabel(suspendString);
+			} else if (evolution -> IsStarted() && evolution -> IsSuspended()) {
+				evolution -> Resume();
+				String suspendString(L"SUSPEND");
+				lifeForm -> SetStartLabel(suspendString);
+			} else {
+				evolution -> Suspend();
+				String resumeString(L"RESUME");
+				lifeForm -> SetStartLabel(resumeString);
+			}
 			break;
 		}
 		case Evolution::NEXT_GENERATION_BORN: {
 			AppLog("Next generation born");
+			Generation::Calculate();
 			lifeForm -> Update();
+			lifeForm -> UpdateGenerationNumber();
 			break;
 		}
 

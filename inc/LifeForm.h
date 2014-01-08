@@ -16,21 +16,33 @@ public:
 	virtual ~LifeForm(void);
 	bool Initialize(void);
 	void Update(void);
+	void UpdateGenerationNumber(void);
+	void SetStartLabel(Osp::Base::String &labelText);
 
 // Implementation
 protected:
 	static const int IDC_BUTTON_SEED = 1;
 	static const int IDC_BUTTON_START = 2;
+	static const int IDC_BUTTON_SETTINGS = 3;
 	Osp::Ui::Controls::Button *__pButtonOk;
 	int __seedSize;
 
+private:
+	Osp::Ui::Controls::Button* __startButton;
+	Osp::Ui::Controls::Button* __seedButton;
+	Osp::Ui::Controls::Button* __settingsButton;
+	Osp::Ui::Controls::Label* __counterLabel;
+
 public:
-	static const int START_BUTTON_PRESSED = 1;
+	static const int START_BUTTON_PRESSED = 11;
+	static const int SEED_BUTTON_PRESSED = 12;
+	static const int SETTINGS_BUTTON_PRESSED = 13;
 
 public:
 	virtual result OnInitializing(void);
 	virtual result OnTerminating(void);
 	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
+
 
 };
 
