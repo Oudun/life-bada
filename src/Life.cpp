@@ -40,7 +40,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	AppLog("INITIALIZING");
 
 	// Create a form
-	LifeForm *lifeForm = new LifeForm();
+	lifeForm = new LifeForm();
 	lifeForm->Initialize();
 
 	// Add the form to the frame
@@ -128,7 +128,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 		}
 		case Evolution::NEXT_GENERATION_BORN: {
 			AppLog("Next generation born");
-//			lifeForm -> Update();
+			lifeForm -> Update();
 			break;
 		}
 

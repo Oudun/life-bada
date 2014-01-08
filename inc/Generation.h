@@ -21,6 +21,7 @@ public:
 	static int GetRows(void);
 	static bool IsOccupied(int column, int row);
 	static void Seed(void);
+	static void Calculate(void);
 };
 
 static int columns;

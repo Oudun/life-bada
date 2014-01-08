@@ -38,8 +38,43 @@ Generation::Seed(void) {
 		for (int j=0; j<rows; j++) {
 			currentGeneration[i][j] = Osp::Base::Utility::Math::Rand()
 			< (Osp::Base::Utility::Math::RAND_VALUE_MAX / 2);
+			AppLog("%d", (int)currentGeneration[i][j]);
 		}
 	}
+}
+
+
+//If the cell is alive, then it stays alive if it has either 2 or 3 live neighbors
+//If the cell is dead, then it springs to life only in the case that it has 3 live neighbors
+void
+Generation::Calculate(void) {
+	AppLog("Calculation started");
+	for (int i=0; i<columns; i++) {
+		for (int j=0; j<rows; j++) {
+			int siblingNum = 0;
+			siblingNum += (int)currentGeneration[(columns+i-1)%columns][(rows+j-1)%rows];
+			siblingNum += (int)currentGeneration[(columns+i-1)%columns][j];
+			siblingNum += (int)currentGeneration[(columns+i-1)%columns][(rows+j+1)%rows];
+			siblingNum += (int)currentGeneration[i][(rows+j-1)%rows];
+			siblingNum += (int)currentGeneration[i][(rows+j+1)%rows];
+			siblingNum += (int)currentGeneration[(columns+i+1)%columns][(rows+j-1)%rows];
+			siblingNum += (int)currentGeneration[(columns+i+1)%columns][j];
+			siblingNum += (int)currentGeneration[(columns+i+1)%columns][(rows+j+1)%rows];
+			if (currentGeneration[i][j]&&(siblingNum==2||siblingNum==3)) {
+				nextGeneration[i][j] = true;
+			} else if (!currentGeneration[i][j]&&siblingNum==3) {
+				nextGeneration[i][j] = true;
+			} else {
+				nextGeneration[i][j] = false;
+			}
+		}
+	}
+	for (int i=0; i<columns; i++) {
+		for (int j=0; j<rows; j++) {
+				currentGeneration[i][j] = nextGeneration[i][j];
+		}
+	}
+	AppLog("Calculation ended");
 }
 
 int

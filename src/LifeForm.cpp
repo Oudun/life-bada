@@ -31,14 +31,6 @@ LifeForm::OnInitializing(void)
 
 	// TODO: Add your initialization code here
 
-	// Get a button via resource ID
-	__pButtonOk = static_cast<Button *>(GetControl(L"IDC_BUTTON_SEED"));
-	if (__pButtonOk != null)
-	{
-		__pButtonOk->SetActionId(IDC_BUTTON_SEED);
-		__pButtonOk->AddActionEventListener(*this);
-	}
-
 	Button *pButton_seed = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));  
 	if (pButton_seed)
 	{
@@ -52,6 +44,11 @@ LifeForm::OnInitializing(void)
 		pButton_start->SetActionId(IDC_BUTTON_START);
 		pButton_start->AddActionEventListener(*this);
 	}
+
+	Generation::Initialize(
+			GetBounds().width/__seedSize,
+			GetBounds().height/__seedSize
+			);
 
 	return r;
 
@@ -77,10 +74,7 @@ LifeForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	{
 	case IDC_BUTTON_SEED:
 		{
-			Generation::Initialize(
-					GetBounds().width/__seedSize,
-					GetBounds().height/__seedSize
-					);
+			Generation::Seed();
 			Update();
 		}
 		break;
@@ -123,6 +117,8 @@ LifeForm::Update(void) {
 			}
 		}
 	}
+
+	Generation::Calculate();
 
 	AppLog("!!!Showing now");
 
