@@ -123,7 +123,7 @@ LifeForm::Update(void) {
 	AppLog("!!!Updating");
 
 	Osp::Graphics::Canvas* canvas;
-	Control* control = GetControl(L"IDF_FORM1");
+	Control* control = GetControl(L"LIFE_FORM");
 	canvas = control -> GetCanvasN();
 	canvas -> FillRectangle(Osp::Graphics::Color::COLOR_BLACK, GetBounds());
 
