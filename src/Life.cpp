@@ -17,9 +17,9 @@ using namespace Osp::Ui::Controls;
 
 Life::Life()
 {
-
 	AppLog("CONSTRUCTING");
-
+//	suspendString(L"SUSPEND");
+//	resumeString(L"SUSPEND");
 }
 
 Life::~Life()

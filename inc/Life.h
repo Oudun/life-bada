@@ -60,6 +60,10 @@ private:
 	LifeForm* lifeForm;
 	Evolution* evolution;
 
+private:
+//	Osp::Base::String& suspendString;//(L"SUSPEND");
+//	Osp::Base::String& resumeString;//(L"SUSPEND");
+
 };
 
 #endif
