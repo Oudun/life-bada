@@ -1,5 +1,6 @@
 #include "LifeForm.h"
 #include "Generation.h"
+#include "Constants.h"
 
 using namespace Osp::Base;
 using namespace Osp::Ui;
@@ -29,6 +30,14 @@ LifeForm::OnInitializing(void)
 {
 	result r = E_SUCCESS;
 
+	Osp::Graphics::Canvas __buttonCanvas;
+	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
+	Osp::Graphics::Bitmap __buttonBitmap;
+
+	__buttonCanvas.Construct(__buttonRectangle);
+	__buttonCanvas.FillRectangle(CONTROL_NORMAL_BACKGROUND, __buttonRectangle);
+	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
+
 	// TODO: Add your initialization code here
 
 	__seedButton = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));
@@ -36,6 +45,7 @@ LifeForm::OnInitializing(void)
 	{
 		__seedButton->SetActionId(IDC_BUTTON_SEED);
 		__seedButton->AddActionEventListener(*this);
+		__seedButton->SetNormalBackgroundBitmap(__buttonBitmap);
 	}
 
 	__startButton = static_cast<Button *>(GetControl("IDC_BUTTON_START"));
@@ -43,6 +53,7 @@ LifeForm::OnInitializing(void)
 	{
 		__startButton->SetActionId(IDC_BUTTON_START);
 		__startButton->AddActionEventListener(*this);
+		__startButton->SetNormalBackgroundBitmap(__buttonBitmap);
 	}
 
 	__settingsButton = static_cast<Button *>(GetControl("IDC_BUTTON_SETTINGS"));
@@ -50,24 +61,30 @@ LifeForm::OnInitializing(void)
 	{
 		__settingsButton->SetActionId(IDC_BUTTON_SETTINGS);
 		__settingsButton->AddActionEventListener(*this);
+		__settingsButton->SetNormalBackgroundBitmap(__buttonBitmap);
 	}
 
 	__counterLabel = static_cast<Label *>(GetControl("IDC_LABEL_GENERATION"));
 
+	//this->SetBackgroundColor(Osp::Graphics::Color::COLOR_BLACK);
+	SetBackgroundColor(FORM_BACKGROUND);
+
 //	Label *_counterLabel
 
+	Control* control = GetControl(L"LIFE_FORM");
+	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 320);
+
 	Generation::Initialize(
-			GetBounds().width/__seedSize,
-			GetBounds().height/__seedSize
+			__lifeFieldCanvas->GetBounds().width/__seedSize,
+			__lifeFieldCanvas->GetBounds().height/__seedSize
 			);
 
+//	Generation::Initialize(
+//			GetBounds().width/__seedSize,
+//			GetBounds().height/__seedSize
+//			);
+
 	return r;
-	Button *pButton1 = static_cast<Button *>(GetControl("IDC_BUTTON1"));  
-	if (pButton1)
-	{
-		pButton1->SetActionId(3);
-		pButton1->AddActionEventListener(*this);
-	}
 
 }
 
@@ -122,40 +139,22 @@ LifeForm::Update(void) {
 
 	AppLog("!!!Updating");
 
-	Osp::Graphics::Canvas* canvas;
+//	Osp::Graphics::Canvas* canvas;
+//	Control* control = GetControl(L"LIFE_FORM");
+//	canvas = control -> GetCanvasN();
 
-	AppLog("Update 1");
-
-	Control* control = GetControl(L"LIFE_FORM");
-
-	AppLog("Update 2");
-
-	AppLog("Canvas coordinates are X:%d Y:%d W:%d H:%d",
-			control->GetBounds().x,
-			control->GetBounds().y,
-			control->GetBounds().width,
-			control->GetBounds().height);
-
-	canvas = control -> GetCanvasN();
-
-	AppLog("Canvas coordinates are X:%d Y:%d W:%d H:%d",
-			canvas->GetBounds().x,
-			canvas->GetBounds().y,
-			canvas->GetBounds().width,
-			canvas->GetBounds().height);
-
-	result r = canvas -> FillRectangle(Osp::Graphics::Color::COLOR_BLACK, GetBounds());
+	result r = __lifeFieldCanvas -> FillRectangle(FORM_BACKGROUND, GetBounds());
 
 	AppLog("Canvas filling result is %S", GetErrorMessage(r));
 
 	for (int i=0; i < Generation::GetColumns(); i++) {
 		for (int j=0; j < Generation::GetRows(); j++) {
 			if(Generation::IsOccupied(i, j)) {
-				canvas -> FillRectangle(Osp::Graphics::Color::COLOR_GREEN, Osp::Graphics::Rectangle(
+				__lifeFieldCanvas -> FillRectangle(CELL_COLOR, Osp::Graphics::Rectangle(
 						i*__seedSize,
 						j*__seedSize,
-						__seedSize,
-						__seedSize
+						__seedSize-1,
+						__seedSize-1
 				));
 			}
 		}
@@ -163,8 +162,8 @@ LifeForm::Update(void) {
 
 	AppLog("!!!Showing now");
 
-	canvas -> Show();
-	canvas -> ~Canvas();
+	__lifeFieldCanvas -> Show();
+//	__lifeFieldCanvas -> ~Canvas();
 
 }
 

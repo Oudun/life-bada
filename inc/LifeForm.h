@@ -32,6 +32,7 @@ private:
 	Osp::Ui::Controls::Button* __seedButton;
 	Osp::Ui::Controls::Button* __settingsButton;
 	Osp::Ui::Controls::Label* __counterLabel;
+	Osp::Graphics::Canvas* __lifeFieldCanvas;
 
 public:
 	static const int START_BUTTON_PRESSED = 11;

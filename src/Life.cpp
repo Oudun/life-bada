@@ -18,8 +18,10 @@ using namespace Osp::Ui::Controls;
 Life::Life()
 {
 	AppLog("CONSTRUCTING");
-//	suspendString(L"SUSPEND");
-//	resumeString(L"SUSPEND");
+//	FORM_BACKGROUND(0, 0, 0);
+//	static Osp::Graphics::Color CONTROL_NORMAL_BACKGROUND;
+//	static Osp::Graphics::Color CONTROL_PRESSED_BACKGROUND;
+//	static Osp::Graphics::Color TEXT_COLOR;
 }
 
 Life::~Life()

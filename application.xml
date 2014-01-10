@@ -8,18 +8,14 @@
     <Vendor/>
     <Description/>
     <Icons>
-        <MainMenu>Life_type4.png<Type1>Life_type3.png</Type1>
-            <Type2/>
-        </MainMenu>
+        <MainMenu>Life_type5.png</MainMenu>
         <Setting/>
         <Ticker/>
         <QuickPanel/>
-        <LaunchImage>Splash_type4.png<Type1>Splash_type4.png</Type1>
-            <Type2/>
-        </LaunchImage>
+        <LaunchImage>Splash_type4.png</LaunchImage>
     </Icons>
     <AutoScaling>
         <Enabled>true</Enabled>
-        <BaseResolution>NormalSize</BaseResolution>
+		<BaseResolution>240x400</BaseResolution>
     </AutoScaling>
 </Application>
