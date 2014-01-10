@@ -123,9 +123,30 @@ LifeForm::Update(void) {
 	AppLog("!!!Updating");
 
 	Osp::Graphics::Canvas* canvas;
+
+	AppLog("Update 1");
+
 	Control* control = GetControl(L"LIFE_FORM");
+
+	AppLog("Update 2");
+
+	AppLog("Canvas coordinates are X:%d Y:%d W:%d H:%d",
+			control->GetBounds().x,
+			control->GetBounds().y,
+			control->GetBounds().width,
+			control->GetBounds().height);
+
 	canvas = control -> GetCanvasN();
-	canvas -> FillRectangle(Osp::Graphics::Color::COLOR_BLACK, GetBounds());
+
+	AppLog("Canvas coordinates are X:%d Y:%d W:%d H:%d",
+			canvas->GetBounds().x,
+			canvas->GetBounds().y,
+			canvas->GetBounds().width,
+			canvas->GetBounds().height);
+
+	result r = canvas -> FillRectangle(Osp::Graphics::Color::COLOR_BLACK, GetBounds());
+
+	AppLog("Canvas filling result is %S", GetErrorMessage(r));
 
 	for (int i=0; i < Generation::GetColumns(); i++) {
 		for (int j=0; j < Generation::GetRows(); j++) {
@@ -143,6 +164,7 @@ LifeForm::Update(void) {
 	AppLog("!!!Showing now");
 
 	canvas -> Show();
+	canvas -> ~Canvas();
 
 }
 
