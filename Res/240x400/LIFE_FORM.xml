@@ -6,7 +6,7 @@
 
 <Scene Bversion="2.0.3.v20111206" Dversion="20100701">
     <Form id="LIFE_FORM">
-        <property BGColor="#000000" BGColorOpacity="100" Orientation="Portrait" softKey0NormalIcon="" softKey0PressedIcon="" softKey0Text="" softKey1NormalIcon="" softKey1PressedIcon="" softKey1Text="" title="" titleAlign="ALIGN_CENTER" titleIcon=""/>
+        <property BGColor="#000000" BGColorOpacity="100" Orientation="Automatic" softKey0NormalIcon="" softKey0PressedIcon="" softKey0Text="" softKey1NormalIcon="" softKey1PressedIcon="" softKey1Text="" title="" titleAlign="ALIGN_CENTER" titleIcon=""/>
         <layout mode="Portrait" style="FORM_STYLE_NORMAL"/>
         <layout mode="Landscape" style="FORM_STYLE_NORMAL"/>
     </Form>

@@ -42,27 +42,88 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 
 	AppLog("INITIALIZING");
 
-	// Create a form
+	// Creating forms
+
 	lifeForm = new LifeForm();
-	lifeForm->Initialize();
+	lifeForm -> Initialize();
+
+	settingsForm = new SettingsForm();
+	settingsForm -> Initialize();
 
 	// Add the form to the frame
-	Frame *lifeFrame = GetAppFrame()->GetFrame();
-	lifeFrame->AddControl(*lifeForm);
+
+	lifeFrame = GetAppFrame()->GetFrame();
+	lifeFrame -> AddControl(*lifeForm);
+	lifeFrame -> AddControl(*settingsForm);
 
 	// Set the current form
-	lifeFrame->SetCurrentForm(*lifeForm);
+	lifeFrame -> SetCurrentForm(*lifeForm);
 
 	// Draw and Show the form
-	lifeFrame->Draw();
-
-	lifeFrame->Show();
+	lifeFrame -> Draw();
+	lifeFrame -> Show();
 
 	evolution = new Evolution();
 
 	return true;
 
 
+
+}
+
+
+void
+Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs) {
+
+	switch (requestId) {
+
+		case LifeForm::SEED_BUTTON_PRESSED: {
+			if (evolution -> IsStarted()&&!evolution -> IsSuspended()) {
+				evolution -> Suspend();
+				String resumeString(L"RESUME");
+				lifeForm -> SetStartLabel(resumeString);
+			}
+			Generation::Seed();
+			lifeForm -> Update();
+			lifeForm -> UpdateGenerationNumber();
+			break;
+		}
+		case LifeForm::START_BUTTON_PRESSED: {
+			AppLog("Start button pressed");
+			if (!evolution -> IsStarted()) {
+				evolution -> Start();
+				String suspendString(L"SUSPEND");
+				lifeForm -> SetStartLabel(suspendString);
+			} else if (evolution -> IsStarted() && evolution -> IsSuspended()) {
+				evolution -> Resume();
+				String suspendString(L"SUSPEND");
+				lifeForm -> SetStartLabel(suspendString);
+			} else {
+				evolution -> Suspend();
+				String resumeString(L"RESUME");
+				lifeForm -> SetStartLabel(resumeString);
+			}
+			break;
+		}
+		case Evolution::NEXT_GENERATION_BORN: {
+			AppLog("Next generation born");
+			Generation::Calculate();
+			lifeForm -> Update();
+			lifeForm -> UpdateGenerationNumber();
+			break;
+		}
+		case LifeForm::SETTINGS_BUTTON_PRESSED: {
+			AppLog("Showing settings form");
+			lifeFrame -> SetCurrentForm(*settingsForm);
+			settingsForm -> RequestRedraw(true);
+			AppLog("ended -> Showing settings form");
+			break;
+		}
+
+		default: {
+			AppLog("Something no% is happening", requestId);
+		}
+	}
 
 }
 
@@ -118,52 +179,4 @@ Life::OnScreenOff (void)
 	//  Unless there is a strong reason to do otherwise, release resources (such as 3D, media, and sensors) to allow the device to enter the sleep mode to save the battery.
 	// Invoking a lengthy asynchronous method within this listener method can be risky, because it is not guaranteed to invoke a callback before the device enters the sleep mode.
 	// Similarly, do not perform lengthy operations in this listener method. Any operation must be a quick one.
-}
-
-void
-Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *pArgs) {
-
-	switch (requestId) {
-
-		case LifeForm::SEED_BUTTON_PRESSED: {
-			if (evolution -> IsStarted()&&!evolution -> IsSuspended()) {
-				evolution -> Suspend();
-				String resumeString(L"RESUME");
-				lifeForm -> SetStartLabel(resumeString);
-			}
-			Generation::Seed();
-			lifeForm -> Update();
-			lifeForm -> UpdateGenerationNumber();
-			break;
-		}
-		case LifeForm::START_BUTTON_PRESSED: {
-			AppLog("Start button pressed");
-			if (!evolution -> IsStarted()) {
-				evolution -> Start();
-				String suspendString(L"SUSPEND");
-				lifeForm -> SetStartLabel(suspendString);
-			} else if (evolution -> IsStarted() && evolution -> IsSuspended()) {
-				evolution -> Resume();
-				String suspendString(L"SUSPEND");
-				lifeForm -> SetStartLabel(suspendString);
-			} else {
-				evolution -> Suspend();
-				String resumeString(L"RESUME");
-				lifeForm -> SetStartLabel(resumeString);
-			}
-			break;
-		}
-		case Evolution::NEXT_GENERATION_BORN: {
-			AppLog("Next generation born");
-			Generation::Calculate();
-			lifeForm -> Update();
-			lifeForm -> UpdateGenerationNumber();
-			break;
-		}
-
-		default: {
-			AppLog("Something no% is happening", requestId);
-		}
-	}
-
 }

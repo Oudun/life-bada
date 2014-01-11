@@ -7,6 +7,7 @@
 #include <FUi.h>
 
 #include "LifeForm.h"
+#include "SettingsForm.h"
 #include "Evolution.h"
 
 /**
@@ -57,7 +58,9 @@ private:
 
 
 private:
+	Osp::Ui::Controls::Frame* lifeFrame;
 	LifeForm* lifeForm;
+	SettingsForm* settingsForm;
 	Evolution* evolution;
 
 private:

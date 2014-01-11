@@ -72,7 +72,7 @@ LifeForm::OnInitializing(void)
 //	Label *_counterLabel
 
 	Control* control = GetControl(L"LIFE_FORM");
-	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 320);
+	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 340);
 
 	Generation::Initialize(
 			__lifeFieldCanvas->GetBounds().width/__seedSize,
