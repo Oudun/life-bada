@@ -37,7 +37,7 @@ SettingsForm::OnInitializing(void) {
 	__settingsList -> Construct(
 			Rectangle(0, 0, 240, 400),
 			LIST_STYLE_NORMAL,
-			LIST_ITEM_SINGLE_IMAGE_TEXT, 40, 40, 40, 200);
+			LIST_ITEM_SINGLE_IMAGE_TEXT, 60, 60, 60, 180);
 
 	String __stringOne("One");
 	String __stringTwo("Two");
@@ -46,6 +46,7 @@ SettingsForm::OnInitializing(void) {
 	Bitmap* __bitmapOne = pAppResource->GetBitmapN(L"Surface.png");
 
 	__settingsList -> AddItem(&__stringOne, &__stringTwo, __bitmapOne, __bitmapOne, null);
+	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, TEXT_COLOR);
 
 	AddControl(*__settingsList);
 
