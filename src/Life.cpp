@@ -8,6 +8,7 @@
 
 #include "Life.h"
 #include "Generation.h"
+#include "Constants.h"
 
 using namespace Osp::App;
 using namespace Osp::Base;
@@ -41,6 +42,18 @@ bool
 Life::OnAppInitializing(AppRegistry& appRegistry) {
 
 	AppLog("INITIALIZING");
+
+	// Initializing constants
+
+	AppLog("BEFORE STRING_SUSPEND is %s", STRING_SUSPEND.GetPointer());
+
+	Osp::App::AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
+	result r = appResource -> GetString(L"SUSPEND", STRING_SUSPEND);
+	AppLog("Getting SUSPEND sting, result is %S", GetErrorMessage(r));
+	AppLog("Stirng is %s and %S", STRING_SUSPEND.GetPointer(), STRING_SUSPEND.GetPointer());
+
+	Constants::Init();
+	AppLog("AFTER STRING_SUSPEND is %s", STRING_SUSPEND.GetPointer());
 
 	// Creating forms
 
@@ -92,16 +105,15 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("Start button pressed");
 			if (!evolution -> IsStarted()) {
 				evolution -> Start();
-				String suspendString(L"SUSPEND");
-				lifeForm -> SetStartLabel(suspendString);
+				AppLog("STRING_SUSPEND is %S", STRING_SUSPEND.GetPointer());
+				AppLog("STRING_SUSPEND is %s", STRING_SUSPEND.GetPointer());
+				lifeForm -> SetStartLabel(STRING_SUSPEND);
 			} else if (evolution -> IsStarted() && evolution -> IsSuspended()) {
 				evolution -> Resume();
-				String suspendString(L"SUSPEND");
-				lifeForm -> SetStartLabel(suspendString);
+				lifeForm -> SetStartLabel(STRING_SUSPEND);
 			} else {
 				evolution -> Suspend();
-				String resumeString(L"RESUME");
-				lifeForm -> SetStartLabel(resumeString);
+				lifeForm -> SetStartLabel(STRING_RESUME);
 			}
 			break;
 		}

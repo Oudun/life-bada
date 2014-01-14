@@ -35,7 +35,7 @@ LifeForm::OnInitializing(void)
 	Osp::Graphics::Bitmap __buttonBitmap;
 
 	__buttonCanvas.Construct(__buttonRectangle);
-	__buttonCanvas.FillRectangle(CONTROL_NORMAL_BACKGROUND, __buttonRectangle);
+	__buttonCanvas.FillRectangle(COLOR_CONTROL_NORMAL_BACKGROUND, __buttonRectangle);
 	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
 
 	// TODO: Add your initialization code here
@@ -67,7 +67,7 @@ LifeForm::OnInitializing(void)
 	__counterLabel = static_cast<Label *>(GetControl("IDC_LABEL_GENERATION"));
 
 	//this->SetBackgroundColor(Osp::Graphics::Color::COLOR_BLACK);
-	SetBackgroundColor(FORM_BACKGROUND);
+	SetBackgroundColor(COLOR_FORM_BACKGROUND);
 
 //	Label *_counterLabel
 
@@ -143,14 +143,14 @@ LifeForm::Update(void) {
 //	Control* control = GetControl(L"LIFE_FORM");
 //	canvas = control -> GetCanvasN();
 
-	result r = __lifeFieldCanvas -> FillRectangle(FORM_BACKGROUND, GetBounds());
+	result r = __lifeFieldCanvas -> FillRectangle(COLOR_FORM_BACKGROUND, GetBounds());
 
 	AppLog("Canvas filling result is %S", GetErrorMessage(r));
 
 	for (int i=0; i < Generation::GetColumns(); i++) {
 		for (int j=0; j < Generation::GetRows(); j++) {
 			if(Generation::IsOccupied(i, j)) {
-				__lifeFieldCanvas -> FillRectangle(CELL_COLOR, Osp::Graphics::Rectangle(
+				__lifeFieldCanvas -> FillRectangle(COLOR_CELL, Osp::Graphics::Rectangle(
 						i*__seedSize,
 						j*__seedSize,
 						__seedSize-1,

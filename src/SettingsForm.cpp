@@ -46,7 +46,8 @@ SettingsForm::OnInitializing(void) {
 	Bitmap* __bitmapOne = pAppResource->GetBitmapN(L"Surface.png");
 
 	__settingsList -> AddItem(&__stringOne, &__stringTwo, __bitmapOne, __bitmapOne, null);
-	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, TEXT_COLOR);
+	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_TEXT);
+	__settingsList -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
 
 	AddControl(*__settingsList);
 
