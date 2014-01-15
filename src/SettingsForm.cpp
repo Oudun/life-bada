@@ -37,15 +37,18 @@ SettingsForm::OnInitializing(void) {
 	__settingsList -> Construct(
 			Rectangle(0, 0, 240, 400),
 			LIST_STYLE_NORMAL,
-			LIST_ITEM_SINGLE_IMAGE_TEXT, 60, 60, 60, 180);
+			LIST_ITEM_SINGLE_IMAGE_TEXT, 64, 64, 64, 176);
 
 	String __stringOne("One");
 	String __stringTwo("Two");
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-	Bitmap* __bitmapOne = pAppResource->GetBitmapN(L"Surface.png");
+	Bitmap* __bitmapSurface = pAppResource->GetBitmapN(L"Surface.png");
+	Bitmap* __bitmapConway = pAppResource->GetBitmapN(L"Conway.png");
 
-	__settingsList -> AddItem(&__stringOne, &__stringTwo, __bitmapOne, __bitmapOne, null);
+	__settingsList -> AddItem(&__stringOne, &__stringTwo, __bitmapConway, __bitmapConway, null);
+	__settingsList -> AddItem(&__stringOne, &__stringTwo, __bitmapSurface, __bitmapSurface, null);
+
 	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_TEXT);
 	__settingsList -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
 

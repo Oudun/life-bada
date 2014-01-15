@@ -17,7 +17,7 @@ public:
 	bool Initialize(void);
 	void Update(void);
 	void UpdateGenerationNumber(void);
-	void SetStartLabel(Osp::Base::String &labelText);
+	void SetStartLabel(Osp::Base::String labelText);
 
 // Implementation
 protected:

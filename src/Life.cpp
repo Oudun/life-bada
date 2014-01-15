@@ -45,15 +45,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 
 	// Initializing constants
 
-	AppLog("BEFORE STRING_SUSPEND is %s", STRING_SUSPEND.GetPointer());
-
-	Osp::App::AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
-	result r = appResource -> GetString(L"SUSPEND", STRING_SUSPEND);
-	AppLog("Getting SUSPEND sting, result is %S", GetErrorMessage(r));
-	AppLog("Stirng is %s and %S", STRING_SUSPEND.GetPointer(), STRING_SUSPEND.GetPointer());
-
-	Constants::Init();
-	AppLog("AFTER STRING_SUSPEND is %s", STRING_SUSPEND.GetPointer());
+	AppLog("Stirng is %s and %S address is %d", STRING_SUSPEND.GetPointer(), STRING_SUSPEND.GetPointer(), &STRING_SUSPEND);
 
 	// Creating forms
 
@@ -93,8 +85,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 		case LifeForm::SEED_BUTTON_PRESSED: {
 			if (evolution -> IsStarted()&&!evolution -> IsSuspended()) {
 				evolution -> Suspend();
-				String resumeString(L"RESUME");
-				lifeForm -> SetStartLabel(resumeString);
+				lifeForm -> SetStartLabel(Constants::GetString(STRING_RESUME));
 			}
 			Generation::Seed();
 			lifeForm -> Update();
@@ -105,15 +96,13 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("Start button pressed");
 			if (!evolution -> IsStarted()) {
 				evolution -> Start();
-				AppLog("STRING_SUSPEND is %S", STRING_SUSPEND.GetPointer());
-				AppLog("STRING_SUSPEND is %s", STRING_SUSPEND.GetPointer());
-				lifeForm -> SetStartLabel(STRING_SUSPEND);
+				lifeForm -> SetStartLabel(Constants::GetString(STRING_SUSPEND));
 			} else if (evolution -> IsStarted() && evolution -> IsSuspended()) {
 				evolution -> Resume();
-				lifeForm -> SetStartLabel(STRING_SUSPEND);
+				lifeForm -> SetStartLabel(Constants::GetString(STRING_SUSPEND));
 			} else {
 				evolution -> Suspend();
-				lifeForm -> SetStartLabel(STRING_RESUME);
+				lifeForm -> SetStartLabel(Constants::GetString(STRING_RESUME));
 			}
 			break;
 		}

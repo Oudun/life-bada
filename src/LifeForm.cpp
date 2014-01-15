@@ -46,14 +46,16 @@ LifeForm::OnInitializing(void)
 		__seedButton->SetActionId(IDC_BUTTON_SEED);
 		__seedButton->AddActionEventListener(*this);
 		__seedButton->SetNormalBackgroundBitmap(__buttonBitmap);
+		__seedButton -> SetText(Constants::GetString(STRING_SEED));
 	}
 
 	__startButton = static_cast<Button *>(GetControl("IDC_BUTTON_START"));
 	if (__startButton)
 	{
-		__startButton->SetActionId(IDC_BUTTON_START);
-		__startButton->AddActionEventListener(*this);
-		__startButton->SetNormalBackgroundBitmap(__buttonBitmap);
+		__startButton -> SetActionId(IDC_BUTTON_START);
+		__startButton -> AddActionEventListener(*this);
+		__startButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+		__startButton -> SetText(Constants::GetString(STRING_START));
 	}
 
 	__settingsButton = static_cast<Button *>(GetControl("IDC_BUTTON_SETTINGS"));
@@ -65,6 +67,7 @@ LifeForm::OnInitializing(void)
 	}
 
 	__counterLabel = static_cast<Label *>(GetControl("IDC_LABEL_GENERATION"));
+	__counterLabel -> SetText(Constants::GetString(STRING_GENERATION_ZERO));
 
 	//this->SetBackgroundColor(Osp::Graphics::Color::COLOR_BLACK);
 	SetBackgroundColor(COLOR_FORM_BACKGROUND);
@@ -170,18 +173,19 @@ LifeForm::Update(void) {
 void
 LifeForm::UpdateGenerationNumber(void) {
 	if (Generation::GetCounter() > 0) {
-		String counterStr;
-		counterStr.Format(40, L"Generation number %d", Generation::GetCounter());
-		__counterLabel -> SetText(counterStr.GetPointer());
+		String __counterStr = Constants::GetString(STRING_GENERATION_NUM);
+		__counterStr.Append(Generation::GetCounter());
+		AppLog("Generation label is %S", __counterStr.GetPointer());
+		__counterLabel -> SetText(__counterStr.GetPointer());
+		__counterStr.~String();
 	} else {
-		String defaultStr("Evolution is not started yet.");
-		__counterLabel -> SetText(defaultStr.GetPointer());
+		__counterLabel -> SetText(Constants::GetString(STRING_GENERATION_ZERO).GetPointer());
 	}
 	__counterLabel -> RequestRedraw(true);
 }
 
 void
-LifeForm::SetStartLabel(Osp::Base::String &labelText) {
+LifeForm::SetStartLabel(Osp::Base::String labelText) {
 	__startButton -> SetText(labelText);
 	__startButton -> RequestRedraw(true);
 }
