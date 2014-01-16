@@ -32,47 +32,77 @@ SettingsForm::Initialize(void) {
 result
 SettingsForm::OnInitializing(void) {
 
-	SetTitleText(Constants::GetString(STRING_EXTRA), ALIGNMENT_CENTER);
+//	SetTitleText(Constants::GetString(STRING_EXTRA), ALIGNMENT_CENTER);
+	SetBackgroundColor(COLOR_FORM_BACKGROUND);
 
 	__settingsList = new List();
 
-	__settingsList -> Construct(
-			Rectangle(0, 0, 240, 400),
-			LIST_STYLE_NORMAL,
-			LIST_ITEM_SINGLE_IMAGE_TEXT, 50, 50, 50, 190);
+//	__settingsList -> Construct(
+//			Rectangle(0, 0, 240, 400),
+//			LIST_STYLE_NORMAL,
+//			LIST_ITEM_SINGLE_IMAGE_TEXT, 50, 50, 50, 190);
 
-	String __stringOne("One");
-	String __stringTwo("Two");
+//	__settingsList -> Construct(
+//			Rectangle(20, 60, 200, 200),
+//			LIST_STYLE_NORMAL,
+//			LIST_ITEM_SINGLE_TEXT, 20, 0, 200, 0);
+
+	__settingsList = static_cast<List *>(GetControl("SETTINGS_LIST"));
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-	Bitmap* __bitmapSurface = pAppResource->GetBitmapN(L"Surface.png");
-	Bitmap* __bitmapConway = pAppResource->GetBitmapN(L"Conway.png");
+//	Bitmap* __bitmapSurface = pAppResource->GetBitmapN(L"Surface.png");
+//	Bitmap* __bitmapConway = pAppResource->GetBitmapN(L"Conway.png");
+	Bitmap* __bgImage = pAppResource->GetBitmapN(L"Splash_type3.png");
 
-	__settingsList -> AddItem(&Constants::GetString(STRING_ABOUT_GAME), null, __bitmapConway, null, INDEX_ABOUT_GAME);
-	__settingsList -> AddItem(&Constants::GetString(STRING_SURFACE), null, __bitmapSurface, null, INDEX_SURFACE);
-	__settingsList -> AddItem(&Constants::GetString(STRING_CELL_SIZE), null, __bitmapConway, null, INDEX_CELL_SIZE);
-	__settingsList -> AddItem(&Constants::GetString(STRING_COLOR_SCHEME), null, __bitmapConway, null, INDEX_COLOR_SCHEME);
-	__settingsList -> AddItem(&Constants::GetString(STRING_GAME_RULES), null, __bitmapConway, null, INDEX_GAME_RULES);
-	__settingsList -> AddItem(&Constants::GetString(STRING_SPEED), null, __bitmapConway, null, INDEX_SPEED);
-	__settingsList -> AddItem(&Constants::GetString(STRING_BACK), null, __bitmapConway, null, INDEX_BACK);
-
-//	static String STRING_SETTINGS("SETTINGS");
-//	static String STRING_ABOUT_GAME("ABOUT_GAME");
-//	static String STRING_COLOR_SCHEME("COLOR_SCHEME");
-//	static String STRING_GAME_RULES("GAME_RULES");
-//	static String STRING_CELL_SIZE("CELL_SIZE");
-//	static String STRING_SPEED("SPEED");
-//	static String STRING_DONE("DONE");
+	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SURFACE), null, null, null, INDEX_SURFACE);
+	__settingsList -> AddItem(Constants::GetStringPointer(STRING_CELL_SIZE), null, null, null, INDEX_CELL_SIZE);
+	__settingsList -> AddItem(Constants::GetStringPointer(STRING_COLOR_SCHEME), null, null, null, INDEX_COLOR_SCHEME);
+	__settingsList -> AddItem(Constants::GetStringPointer(STRING_GAME_RULES), null, null, null, INDEX_GAME_RULES);
+	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SPEED), null, null, null, INDEX_SPEED);
 
 	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_TEXT);
-
 	__settingsList -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
+	__settingsList -> AddItemEventListener(*this);
 
 	AddControl(*__settingsList);
 
 	__settingsList -> RequestRedraw(true);
 
+	Label *__settingsLabel = static_cast<Label *>(GetControl("SETTINGS_LABEL"));
+	__settingsLabel -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
+	__settingsLabel -> SetTextColor(COLOR_TEXT);
+	__settingsLabel -> SetText(Constants::GetString(STRING_EXTRA));
+
+	Osp::Graphics::Canvas __buttonCanvas;
+	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
+	Osp::Graphics::Bitmap __buttonBitmap;
+
+	__buttonCanvas.Construct(__buttonRectangle);
+	__buttonCanvas.FillRectangle(COLOR_CONTROL_NORMAL_BACKGROUND, __buttonRectangle);
+	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
+
+	Button *__backButton = static_cast<Button *>(GetControl("IDC_BUTTON_BACK"));
+	if (__backButton)
+	{
+		__backButton -> SetActionId(IDC_BUTTON_BACK);
+		__backButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+		__backButton -> SetText(Constants::GetString(STRING_BACK));
+		__backButton -> SetTextColor(COLOR_TEXT);
+		__backButton -> AddActionEventListener(*this);
+	}
+
+	Button *__aboutButton = static_cast<Button *>(GetControl("IDC_BUTTON_ABOUT"));
+	if (__aboutButton)
+	{
+		__aboutButton -> SetActionId(IDC_BUTTON_ABOUT);
+		__aboutButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+		__aboutButton -> SetText(Constants::GetString(STRING_ABOUT_GAME));
+		__aboutButton -> SetTextColor(COLOR_TEXT);
+		__aboutButton -> AddActionEventListener(*this);
+	}
+
 	return E_SUCCESS;
+
 }
 
 result
@@ -81,6 +111,45 @@ SettingsForm::OnTerminating(void) {
 }
 
 void
-SettingsForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
+SettingsForm::OnItemStateChanged(
+		const Osp::Ui::Control& source,
+		int index,
+		int itemId,
+		Osp::Ui::ItemStatus status)
+{
+	AppLog("Index is %d id is %d", index, itemId);
+	switch(itemId) {
+	case INDEX_BACK:
+		{
+			Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_BACK, null);
+			break;
+		}
+	default:
+		{
+			break;
+		}
+	}
+}
 
+void
+SettingsForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId) {
+	switch(actionId) {
+		case IDC_BUTTON_BACK: {
+			Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_BACK, null);
+			break;
+		}
+		case IDC_BUTTON_ABOUT: {
+			Control* control = GetControl(L"SETTINGS_FORM");
+			Canvas* __bgCanvas = control -> GetCanvasN(0, 0, 240, 400);
+			//__bgCanvas -> DrawBitmap(Rectangle(0, 0, 240, 400), *__bgImage);
+			__bgCanvas -> Clear();
+			__bgCanvas -> FillRectangle(Color::COLOR_RED, Rectangle(0,0,240,400));
+			RequestRedraw(true);
+			Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_ABOUT_GAME, null);
+			break;
+		}
+		default: {
+			break;
+		}
+	}
 }

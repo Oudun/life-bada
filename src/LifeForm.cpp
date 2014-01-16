@@ -28,6 +28,9 @@ LifeForm::Initialize()
 result
 LifeForm::OnInitializing(void)
 {
+
+	AppLog("Initializing Life Form");
+
 	result r = E_SUCCESS;
 
 	Osp::Graphics::Canvas __buttonCanvas;
@@ -72,20 +75,13 @@ LifeForm::OnInitializing(void)
 	//this->SetBackgroundColor(Osp::Graphics::Color::COLOR_BLACK);
 	SetBackgroundColor(COLOR_FORM_BACKGROUND);
 
-//	Label *_counterLabel
-
 	Control* control = GetControl(L"LIFE_FORM");
 	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 340);
 
 	Generation::Initialize(
-			__lifeFieldCanvas->GetBounds().width/__seedSize,
-			__lifeFieldCanvas->GetBounds().height/__seedSize
-			);
-
-//	Generation::Initialize(
-//			GetBounds().width/__seedSize,
-//			GetBounds().height/__seedSize
-//			);
+		__lifeFieldCanvas->GetBounds().width/__seedSize,
+		__lifeFieldCanvas->GetBounds().height/__seedSize
+	);
 
 	return r;
 
@@ -130,11 +126,6 @@ LifeForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 		break;
 	}
 
-	/*
-	 *
-	 *
-	 * */
-
 }
 
 void
@@ -148,7 +139,10 @@ LifeForm::Update(void) {
 
 	result r = __lifeFieldCanvas -> FillRectangle(COLOR_FORM_BACKGROUND, GetBounds());
 
-	AppLog("Canvas filling result is %S", GetErrorMessage(r));
+	if (__lifeFieldCanvas == null) {
+		AppLog("Canvas is null");
+	}
+	AppLog("Canvas filling result is %s", GetErrorMessage(r));
 
 	for (int i=0; i < Generation::GetColumns(); i++) {
 		for (int j=0; j < Generation::GetRows(); j++) {
@@ -165,8 +159,13 @@ LifeForm::Update(void) {
 
 	AppLog("!!!Showing now");
 
-	__lifeFieldCanvas -> Show();
-//	__lifeFieldCanvas -> ~Canvas();
+	r = __lifeFieldCanvas -> Show();
+	AppLog("Canvas show result is %s", GetErrorMessage(r));
+	AppLog("Canvas is %d %d %d %d",
+			__lifeFieldCanvas -> GetBounds().x,
+			__lifeFieldCanvas -> GetBounds().y,
+			__lifeFieldCanvas -> GetBounds().width,
+			__lifeFieldCanvas -> GetBounds().height);
 
 }
 

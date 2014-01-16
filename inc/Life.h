@@ -6,6 +6,7 @@
 #include <FSystem.h>
 #include <FUi.h>
 
+#include "AboutForm.h"
 #include "LifeForm.h"
 #include "SettingsForm.h"
 #include "Evolution.h"
@@ -61,6 +62,7 @@ private:
 	Osp::Ui::Controls::Frame* lifeFrame;
 	LifeForm* lifeForm;
 	SettingsForm* settingsForm;
+	AboutForm* aboutForm;
 	Evolution* evolution;
 
 private:

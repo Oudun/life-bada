@@ -55,11 +55,15 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	settingsForm = new SettingsForm();
 	settingsForm -> Initialize();
 
+	aboutForm = new AboutForm();
+	aboutForm -> Initialize();
+
 	// Add the form to the frame
 
 	lifeFrame = GetAppFrame()->GetFrame();
 	lifeFrame -> AddControl(*lifeForm);
 	lifeFrame -> AddControl(*settingsForm);
+	lifeFrame -> AddControl(*aboutForm);
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -120,7 +124,22 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("ended -> Showing settings form");
 			break;
 		}
-
+		case SettingsForm::SELECTED_BACK: {
+			AppLog("Showing main form");
+			lifeFrame -> SetCurrentForm(*lifeForm);
+			lifeForm -> Draw();
+			lifeForm -> Show();
+			lifeForm -> Update();
+			AppLog("ended -> Showing life form");
+			break;
+		}
+		case SettingsForm::SELECTED_ABOUT_GAME: {
+			AppLog("Showing about");
+			lifeFrame -> SetCurrentForm(*aboutForm);
+			aboutForm -> RequestRedraw(true);
+			AppLog("ended -> Showing about form");
+			break;
+		}
 		default: {
 			AppLog("Something no% is happening", requestId);
 		}

@@ -12,7 +12,7 @@
     </Form>
     <Button id="IDC_BUTTON_SEED" parent="LIFE_FORM">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="#008040" normalColorOpacity="100" normalTextColor="#00FF00" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="SEED" textSize="16" vAlign="ALIGN_MIDDLE"/>
-        <layout height="30" mode="Portrait" width="80" x="0" y="370"/>
+        <layout height="30" mode="Portrait" width="81" x="0" y="370"/>
         <layout height="51" mode="Landscape" width="200" x="0" y="55"/>
     </Button>
     <Button id="IDC_BUTTON_START" parent="LIFE_FORM">
@@ -27,7 +27,7 @@
     </Label>
     <Button id="IDC_BUTTON_SETTINGS" parent="LIFE_FORM">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="#008040" normalColorOpacity="100" normalTextColor="#00FF00" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text=". . ." textSize="16" vAlign="ALIGN_MIDDLE"/>
-        <layout height="30" mode="Portrait" width="80" x="80" y="370"/>
+        <layout height="30" mode="Portrait" width="61" x="90" y="370"/>
         <layout height="24" mode="Landscape" width="166" x="178" y="161"/>
     </Button>
 </Scene>

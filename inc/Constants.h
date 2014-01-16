@@ -18,6 +18,7 @@ public:
 	Constants();
 	virtual ~Constants();
 	static String GetString(String& id);
+	static String* GetStringPointer(String& id);
 };
 
 static Color COLOR_FORM_BACKGROUND(0,0,0);
