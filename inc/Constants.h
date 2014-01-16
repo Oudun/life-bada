@@ -33,5 +33,15 @@ static String STRING_SEED("SEED");
 static String STRING_GENERATION_NUM("GENERATION_NUM");
 static String STRING_START("START");
 
+static String STRING_EXTRA("EXTRA");
+static String STRING_ABOUT_GAME("ABOUT_GAME");
+static String STRING_SURFACE("SURFACE");
+static String STRING_COLOR_SCHEME("COLOR_SCHEME");
+static String STRING_GAME_RULES("GAME_RULES");
+static String STRING_CELL_SIZE("CELL_SIZE");
+static String STRING_SPEED("SPEED");
+static String STRING_BACK("BACK");
+
+
 
 #endif /* CONSTANTS_H_ */

@@ -27,6 +27,13 @@ public:
 	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 private:
 	Osp::Ui::Controls::List* __settingsList;
+	static const int INDEX_ABOUT_GAME = 1;
+	static const int INDEX_SURFACE = 2;
+	static const int INDEX_CELL_SIZE = 3;
+	static const int INDEX_COLOR_SCHEME = 4;
+	static const int INDEX_GAME_RULES = 5;
+	static const int INDEX_SPEED = 6;
+	static const int INDEX_BACK = 7;
 
 };
 
