@@ -19,10 +19,7 @@ using namespace Osp::Ui::Controls;
 Life::Life()
 {
 	AppLog("CONSTRUCTING");
-//	FORM_BACKGROUND(0, 0, 0);
-//	static Osp::Graphics::Color CONTROL_NORMAL_BACKGROUND;
-//	static Osp::Graphics::Color CONTROL_PRESSED_BACKGROUND;
-//	static Osp::Graphics::Color TEXT_COLOR;
+
 }
 
 Life::~Life()
@@ -57,6 +54,21 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 
 	aboutForm = new AboutForm();
 	aboutForm -> Initialize();
+
+	cellSizeForm = new CellSizeForm();
+	cellSizeForm -> Initialize();
+
+	colorForm = new ColorForm();
+	colorForm -> Initialize();
+
+	surfaceForm = new SurfaceForm();
+	surfaceForm -> Initialize();
+
+	rulesForm = new RulesForm();
+	rulesForm -> Initialize();
+
+	speedForm = new SpeedForm();
+	speedForm -> Initialize();
 
 	// Add the form to the frame
 
@@ -139,6 +151,14 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			aboutForm -> Draw();
 			aboutForm -> Show();
 			AppLog("ended -> Showing about form");
+			break;
+		}
+		case AboutForm::SELECTED_BACK: {
+			AppLog("Showing again settings form");
+			lifeFrame -> SetCurrentForm(*settingsForm);
+			settingsForm -> Draw();
+			settingsForm -> Show();
+			AppLog("ended -> Showing settings form");
 			break;
 		}
 		default: {

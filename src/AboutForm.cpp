@@ -37,33 +37,19 @@ AboutForm::OnInitializing(void) {
 	Bitmap* __bitmapConway = pAppResource->GetBitmapN(L"Conway.png");
 	Bitmap* __bitmapButton = pAppResource->GetBitmapN(L"Button.png");
 
-	EditArea* __textArea0 = static_cast<EditArea *>(GetControl("IDC_EDITAREA_ABOUT_0"));
-	__textArea0 -> SetTextSize(12);
-	__textArea0 -> SetEnabled(false);
-	__textArea0 -> SetColor(EDIT_STATUS_DISABLED, COLOR_FORM_BACKGROUND);
-	__textArea0 -> SetTextColor(EDIT_TEXT_COLOR_DISABLED, COLOR_TEXT);
-	__textArea0 -> SetText(
-			L"  The Game of Life, also known simply as Life, is a cellular automaton "
-			"devised by the British mathematician John Horton Conway in 1970.\n "
-			);
+	Label* __textIntroLabel = static_cast<Label *>(GetControl("IDC_ABOUT_INTRO_LABEL"));
+	__textIntroLabel -> SetEnabled(false);
+	__textIntroLabel -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
+	__textIntroLabel -> SetTextColor(COLOR_TEXT);
+	__textIntroLabel -> SetText(Constants::GetString(STRING_ABOUT_INTRO_TEXT));
 
-	EditArea* __textArea = static_cast<EditArea *>(GetControl("IDC_EDITAREA_ABOUT"));
-	__textArea -> SetTextSize(12);
-	__textArea -> SetEnabled(false);
-	__textArea -> SetColor(EDIT_STATUS_DISABLED, COLOR_FORM_BACKGROUND);
-	__textArea -> SetTextColor(EDIT_TEXT_COLOR_DISABLED, COLOR_TEXT);
-	__textArea -> SetText(
-			L"  The \"game\" is a zero-player game, meaning that its evolution is determined by its "
-			"initial state, requiring no further input. One interacts with the Game of Life by "
-			"creating an initial configuration and observing how it evolves.\n"
-			"  Conway was interested in a problem presented in the 1940s by mathematician John von Neumann, "
-			"who attempted to find a hypothetical machine that could build copies of itself and succeeded "
-			"when he found a mathematical model for such a machine with very complicated rules "
-			"on a rectangular grid.\n"
-			"  The Game of Life emerged as Conway's successful attempt to drastically "
-			"simplify von Neumann's ideas.");
+	Label* __textLabel = static_cast<Label *>(GetControl("IDC_ABOUT_LABEL"));
+	__textLabel -> SetEnabled(false);
+	__textLabel -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
+	__textLabel -> SetTextColor(COLOR_TEXT);
+	__textLabel -> SetText(Constants::GetString(STRING_ABOUT_TEXT));
 
-	Button *pButton_about_back = static_cast<Button *>(GetControl("IDC_BUTTON_ABOUT_BACK"));  
+	Button *pButton_about_back = static_cast<Button *>(GetControl("IDC_BUTTON_ABOUT_BACK"));
 	if (pButton_about_back)
 	{
 		pButton_about_back -> SetActionId(1);
@@ -80,7 +66,6 @@ AboutForm::OnInitializing(void) {
 		__labelConway -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
 	}
 
-
 	return E_SUCCESS;
 
 }
@@ -88,5 +73,5 @@ AboutForm::OnInitializing(void) {
 void
 AboutForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId)
 {
-
+	Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_BACK, null);
 }

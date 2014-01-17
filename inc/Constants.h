@@ -34,6 +34,7 @@ static String STRING_SEED("SEED");
 static String STRING_GENERATION_NUM("GENERATION_NUM");
 static String STRING_START("START");
 
+static String STRING_SETTINGS("SETTINGS");
 static String STRING_EXTRA("EXTRA");
 static String STRING_ABOUT_GAME("ABOUT_GAME");
 static String STRING_SURFACE("SURFACE");
@@ -43,6 +44,7 @@ static String STRING_CELL_SIZE("CELL_SIZE");
 static String STRING_SPEED("SPEED");
 static String STRING_BACK("BACK");
 
-
+static String STRING_ABOUT_INTRO_TEXT("ABOUT_INTRO_TEXT");
+static String STRING_ABOUT_TEXT("ABOUT_TEXT");
 
 #endif /* CONSTANTS_H_ */

@@ -11,6 +11,12 @@
 #include "SettingsForm.h"
 #include "Evolution.h"
 
+#include "SurfaceForm.h"
+#include "CellSizeForm.h"
+#include "RulesForm.h"
+#include "SpeedForm.h"
+#include "ColorForm.h"
+
 /**
  * [Life] application must inherit from Application class
  * which provides basic features necessary to define an application.
@@ -63,6 +69,12 @@ private:
 	LifeForm* lifeForm;
 	SettingsForm* settingsForm;
 	AboutForm* aboutForm;
+	SurfaceForm* surfaceForm;
+	CellSizeForm* cellSizeForm;
+	RulesForm* rulesForm;
+	SpeedForm* speedForm;
+	ColorForm* colorForm;
+
 	Evolution* evolution;
 
 private:

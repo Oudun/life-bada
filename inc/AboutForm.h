@@ -21,6 +21,9 @@ class AboutForm :
 		bool Initialize(void);
 		virtual void OnActionPerformed(const Osp::Ui::Control &source, int actionId);
 
+	public:
+		static const int SELECTED_BACK = 41;
+
 };
 
 #endif /* ABOUTFORM_H_ */

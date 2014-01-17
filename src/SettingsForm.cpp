@@ -32,14 +32,15 @@ SettingsForm::Initialize(void) {
 result
 SettingsForm::OnInitializing(void) {
 
-
+	AppLog("1");
 	SetBackgroundColor(COLOR_FORM_BACKGROUND);
-
+	AppLog("2");
 	__settingsList = new List();
-
+	AppLog("3");
 	__settingsList = static_cast<List *>(GetControl("SETTINGS_LIST"));
-
+	AppLog("4");
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
+	AppLog("5");
 	Bitmap* __bgImage = pAppResource->GetBitmapN(L"Splash_type3.png");
 
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SURFACE), null, null, null, INDEX_SURFACE);
@@ -57,7 +58,7 @@ SettingsForm::OnInitializing(void) {
 	Label *__settingsLabel = static_cast<Label *>(GetControl("SETTINGS_LABEL"));
 	__settingsLabel -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
 	__settingsLabel -> SetTextColor(COLOR_TEXT);
-	__settingsLabel -> SetText(Constants::GetString(STRING_EXTRA));
+	__settingsLabel -> SetText(Constants::GetString(STRING_SETTINGS));
 
 	Osp::Graphics::Canvas __buttonCanvas;
 	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
