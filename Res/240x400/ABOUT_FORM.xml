@@ -10,14 +10,24 @@
         <layout mode="Portrait" style="FORM_STYLE_NORMAL"/>
         <layout mode="Landscape" style="FORM_STYLE_NORMAL"/>
     </Form>
-    <Label id="IDC_LABEL_ABOUT" parent="ABOUT_FORM">
-        <property BGBitmapPath="" BGColor="" BGColorOpacity="100" hAlign="ALIGN_LEFT" text="" textColor="" textSize="22" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_TOP"/>
-        <layout height="41" mode="Portrait" width="180" x="31" y="30"/>
-        <layout height="19" mode="Landscape" width="166" x="51" y="18"/>
-    </Label>
     <Button id="IDC_BUTTON_ABOUT_BACK" parent="ABOUT_FORM">
         <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
         <layout height="29" mode="Portrait" width="180" x="31" y="370"/>
         <layout height="24" mode="Landscape" width="166" x="78" y="216"/>
     </Button>
+    <Label id="IDC_LABEL_CONWAY" parent="ABOUT_FORM">
+        <property BGBitmapPath="\240x400\Conway.png" BGColor="" BGColorOpacity="100" hAlign="ALIGN_LEFT" text="" textColor="" textSize="22" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_TOP"/>
+        <layout height="92" mode="Portrait" width="90" x="11" y="20"/>
+        <layout height="19" mode="Landscape" width="166" x="180" y="9"/>
+    </Label>
+    <EditArea id="IDC_EDITAREA_ABOUT" parent="ABOUT_FORM">
+        <property InputStyle="INPUT_STYLE_FULLSCREEN" LimitLength="1000" disabledBGBitmapPath="" disabledColor="" disabledColorOpacity="100" disabledTextColor="" guideText="" guideTextColor="" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" horizontalMargin="10" keypadAction="" keypadStyle="KEYPAD_STYLE_NORMAL" linkTextColor="" lowerCaseMode="FALSE" normalBGBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBGBitmapPath="" pressedColor="" pressedColorOpacity="100" text="?" textHorizontalAlignment="ALIGNMENT_LEFT" textSize="18" verticalMargin="10" viewMode="FALSE"/>
+        <layout height="242" mode="Portrait" width="206" x="24" y="120"/>
+        <layout height="40" mode="Landscape" width="166" x="53" y="60"/>
+    </EditArea>
+    <EditArea id="IDC_EDITAREA_ABOUT_0" parent="ABOUT_FORM">
+        <property InputStyle="INPUT_STYLE_FULLSCREEN" LimitLength="1000" disabledBGBitmapPath="" disabledColor="" disabledColorOpacity="100" disabledTextColor="" guideText="" guideTextColor="" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" horizontalMargin="10" keypadAction="" keypadStyle="KEYPAD_STYLE_NORMAL" linkTextColor="" lowerCaseMode="FALSE" normalBGBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBGBitmapPath="" pressedColor="" pressedColorOpacity="100" text="!" textHorizontalAlignment="ALIGNMENT_LEFT" textSize="18" verticalMargin="10" viewMode="FALSE"/>
+        <layout height="98" mode="Portrait" width="132" x="86" y="22"/>
+        <layout height="49" mode="Landscape" width="176" x="183" y="12"/>
+    </EditArea>
 </Scene>

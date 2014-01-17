@@ -136,7 +136,8 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 		case SettingsForm::SELECTED_ABOUT_GAME: {
 			AppLog("Showing about");
 			lifeFrame -> SetCurrentForm(*aboutForm);
-			aboutForm -> RequestRedraw(true);
+			aboutForm -> Draw();
+			aboutForm -> Show();
 			AppLog("ended -> Showing about form");
 			break;
 		}
@@ -150,9 +151,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 bool
 Life::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 {
-	// TODO:
-	// Deallocate resources allocated by this application for termination.
-	// The application's permanent data and context can be saved via appRegistry.
+	evolution -> Stop();
 	return true;
 }
 

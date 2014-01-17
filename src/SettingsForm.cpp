@@ -32,26 +32,14 @@ SettingsForm::Initialize(void) {
 result
 SettingsForm::OnInitializing(void) {
 
-//	SetTitleText(Constants::GetString(STRING_EXTRA), ALIGNMENT_CENTER);
+
 	SetBackgroundColor(COLOR_FORM_BACKGROUND);
 
 	__settingsList = new List();
 
-//	__settingsList -> Construct(
-//			Rectangle(0, 0, 240, 400),
-//			LIST_STYLE_NORMAL,
-//			LIST_ITEM_SINGLE_IMAGE_TEXT, 50, 50, 50, 190);
-
-//	__settingsList -> Construct(
-//			Rectangle(20, 60, 200, 200),
-//			LIST_STYLE_NORMAL,
-//			LIST_ITEM_SINGLE_TEXT, 20, 0, 200, 0);
-
 	__settingsList = static_cast<List *>(GetControl("SETTINGS_LIST"));
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-//	Bitmap* __bitmapSurface = pAppResource->GetBitmapN(L"Surface.png");
-//	Bitmap* __bitmapConway = pAppResource->GetBitmapN(L"Conway.png");
 	Bitmap* __bgImage = pAppResource->GetBitmapN(L"Splash_type3.png");
 
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SURFACE), null, null, null, INDEX_SURFACE);
@@ -63,8 +51,6 @@ SettingsForm::OnInitializing(void) {
 	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_TEXT);
 	__settingsList -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
 	__settingsList -> AddItemEventListener(*this);
-
-	AddControl(*__settingsList);
 
 	__settingsList -> RequestRedraw(true);
 
