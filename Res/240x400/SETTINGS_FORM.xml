@@ -16,7 +16,7 @@
         <layout height="36" mode="Landscape" style="LIST_STYLE_NORMAL" width="166" x="146" y="81"/>
     </List>
     <Label id="SETTINGS_LABEL" parent="SETTINGS_FORM">
-        <property BGBitmapPath="" BGColor="" BGColorOpacity="100" hAlign="ALIGN_CENTER" text="" textColor="" textSize="16" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_MIDDLE"/>
+        <property BGBitmapPath="" BGColor="" BGColorOpacity="100" hAlign="ALIGN_CENTER" text="" textColor="" textSize="22" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_MIDDLE"/>
         <layout height="32" mode="Portrait" width="160" x="40" y="70"/>
         <layout height="19" mode="Landscape" width="166" x="68" y="20"/>
     </Label>

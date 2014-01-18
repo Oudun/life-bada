@@ -17,30 +17,17 @@ Constants::~Constants() {
 
 String
 Constants::GetString(String& id) {
-	if (id==null) {
-		AppLog("Id is NULL");
-	}
 	String localResult;
-	AppLog("Getting localized version of %S", id.GetPointer());
 	Osp::App::AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
-	result r = appResource -> GetString(id, localResult);
-	AppLog("Getting resource %S result is %s string is %S", STRING_SUSPEND.GetPointer(), GetErrorMessage(r), localResult.GetPointer());
+	appResource -> GetString(id, localResult);
 	return localResult;
 }
 
 String*
 Constants::GetStringPointer(String& id) {
-	if (id==null) {
-		AppLog("Id is NULL");
-	}
 	String* localResult = new String();
-	AppLog("Getting localized version of %S", id.GetPointer());
 	Osp::App::AppResource* appResource = Osp::App::Application::GetInstance()->GetAppResource();
-	result r = appResource -> GetString(id, *localResult);
-	AppLog("Getting resource %S result is %s string is %S",
-			STRING_SUSPEND.GetPointer(),
-			GetErrorMessage(r),
-			localResult -> GetPointer());
+	appResource -> GetString(id, *localResult);
 	return localResult;
 }
 

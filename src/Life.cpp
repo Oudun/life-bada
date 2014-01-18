@@ -42,7 +42,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 
 	// Initializing constants
 
-	AppLog("Stirng is %s and %S address is %d", STRING_SUSPEND.GetPointer(), STRING_SUSPEND.GetPointer(), &STRING_SUSPEND);
+	AppLog("String is %s and %S address is %d", STRING_SUSPEND.GetPointer(), STRING_SUSPEND.GetPointer(), &STRING_SUSPEND);
 
 	// Creating forms
 
@@ -58,17 +58,17 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	cellSizeForm = new CellSizeForm();
 	cellSizeForm -> Initialize();
 
-	colorForm = new ColorForm();
-	colorForm -> Initialize();
-
-	surfaceForm = new SurfaceForm();
-	surfaceForm -> Initialize();
-
-	rulesForm = new RulesForm();
-	rulesForm -> Initialize();
-
-	speedForm = new SpeedForm();
-	speedForm -> Initialize();
+//	colorForm = new ColorForm();
+//	colorForm -> Initialize();
+//
+//	surfaceForm = new SurfaceForm();
+//	surfaceForm -> Initialize();
+//
+//	rulesForm = new RulesForm();
+//	rulesForm -> Initialize();
+//
+//	speedForm = new SpeedForm();
+//	speedForm -> Initialize();
 
 	// Add the form to the frame
 
@@ -76,6 +76,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*lifeForm);
 	lifeFrame -> AddControl(*settingsForm);
 	lifeFrame -> AddControl(*aboutForm);
+	lifeFrame -> AddControl(*cellSizeForm);
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -161,8 +162,16 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("ended -> Showing settings form");
 			break;
 		}
+		case SettingsForm::SELECTED_COLOR_SCHEME: {
+			AppLog("Showing cellSizeForm");
+			lifeFrame -> SetCurrentForm(*cellSizeForm);
+			cellSizeForm -> Draw();
+			cellSizeForm -> Show();
+			AppLog("ended -> Showing cellSizeForm form");
+			break;
+		}
 		default: {
-			AppLog("Something no% is happening", requestId);
+			AppLog("Something #%d is happening", requestId);
 		}
 	}
 
@@ -171,7 +180,9 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 bool
 Life::OnAppTerminating(AppRegistry& appRegistry, bool forcedTermination)
 {
-	evolution -> Stop();
+	if(evolution -> IsStarted()) {
+		evolution -> Stop();
+	}
 	return true;
 }
 

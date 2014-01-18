@@ -32,15 +32,10 @@ SettingsForm::Initialize(void) {
 result
 SettingsForm::OnInitializing(void) {
 
-	AppLog("1");
 	SetBackgroundColor(COLOR_FORM_BACKGROUND);
-	AppLog("2");
 	__settingsList = new List();
-	AppLog("3");
 	__settingsList = static_cast<List *>(GetControl("SETTINGS_LIST"));
-	AppLog("4");
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-	AppLog("5");
 	Bitmap* __bgImage = pAppResource->GetBitmapN(L"Splash_type3.png");
 
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SURFACE), null, null, null, INDEX_SURFACE);
@@ -52,8 +47,6 @@ SettingsForm::OnInitializing(void) {
 	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_TEXT);
 	__settingsList -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
 	__settingsList -> AddItemEventListener(*this);
-
-	__settingsList -> RequestRedraw(true);
 
 	Label *__settingsLabel = static_cast<Label *>(GetControl("SETTINGS_LABEL"));
 	__settingsLabel -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
@@ -109,6 +102,11 @@ SettingsForm::OnItemStateChanged(
 	case INDEX_BACK:
 		{
 			Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_BACK, null);
+			break;
+		}
+	case INDEX_COLOR_SCHEME:
+		{
+			Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_COLOR_SCHEME, null);
 			break;
 		}
 	default:
