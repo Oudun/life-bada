@@ -7,6 +7,7 @@
 
 #include "Evolution.h"
 #include "Generation.h"
+#include "Constants.h"
 
 Evolution::Evolution() {
 	result r = E_SUCCESS;
@@ -47,7 +48,7 @@ void
 Evolution::OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs) {
 	Thread::GetCurrentThread()->Sleep(100);
 	if (!isSuspended) {
-		Osp::App::Application::GetInstance() -> SendUserEvent(NEXT_GENERATION_BORN, null);
+		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_NEXT_GENERATION, null);
 	}
 	SendUserEvent(1, null);
 }

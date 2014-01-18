@@ -1,5 +1,5 @@
 /*
- * CellSizeForm.h
+ * ColorForm.h
  *
  *  Created on: 17.01.2014
  *      Author: ddreval
@@ -20,4 +20,4 @@ public:
 	virtual result OnInitializing(void);
 };
 
-#endif /* CELLSIZEFORM_H_ */
+#endif /* COLORFORM_H_ */

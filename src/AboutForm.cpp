@@ -73,5 +73,5 @@ AboutForm::OnInitializing(void) {
 void
 AboutForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId)
 {
-	Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_BACK, null);
+	Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_SETTINGS, null);
 }

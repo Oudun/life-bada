@@ -55,12 +55,12 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	aboutForm = new AboutForm();
 	aboutForm -> Initialize();
 
-	cellSizeForm = new CellSizeForm();
-	cellSizeForm -> Initialize();
+//	cellSizeForm = new CellSizeForm();
+//	cellSizeForm -> Initialize();
 
-//	colorForm = new ColorForm();
-//	colorForm -> Initialize();
-//
+	colorForm = new ColorForm();
+	colorForm -> Initialize();
+
 //	surfaceForm = new SurfaceForm();
 //	surfaceForm -> Initialize();
 //
@@ -76,7 +76,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*lifeForm);
 	lifeFrame -> AddControl(*settingsForm);
 	lifeFrame -> AddControl(*aboutForm);
-	lifeFrame -> AddControl(*cellSizeForm);
+	lifeFrame -> AddControl(*colorForm);
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -99,7 +99,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 
 	switch (requestId) {
 
-		case LifeForm::SEED_BUTTON_PRESSED: {
+		case EVENT_SEED: {
 			if (evolution -> IsStarted()&&!evolution -> IsSuspended()) {
 				evolution -> Suspend();
 				lifeForm -> SetStartLabel(Constants::GetString(STRING_RESUME));
@@ -109,7 +109,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			lifeForm -> UpdateGenerationNumber();
 			break;
 		}
-		case LifeForm::START_BUTTON_PRESSED: {
+		case EVENT_START: {
 			AppLog("Start button pressed");
 			if (!evolution -> IsStarted()) {
 				evolution -> Start();
@@ -123,21 +123,23 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			}
 			break;
 		}
-		case Evolution::NEXT_GENERATION_BORN: {
+		case EVENT_NEXT_GENERATION: {
 			AppLog("Next generation born");
 			Generation::Calculate();
 			lifeForm -> Update();
 			lifeForm -> UpdateGenerationNumber();
 			break;
 		}
-		case LifeForm::SETTINGS_BUTTON_PRESSED: {
+		case EVENT_SHOW_SETTINGS: {
 			AppLog("Showing settings form");
 			lifeFrame -> SetCurrentForm(*settingsForm);
-			settingsForm -> RequestRedraw(true);
+			//settingsForm -> RequestRedraw(true);
+			settingsForm -> Draw();
+			settingsForm -> Show();
 			AppLog("ended -> Showing settings form");
 			break;
 		}
-		case SettingsForm::SELECTED_BACK: {
+		case EVENT_SHOW_BACK: {
 			AppLog("Showing main form");
 			lifeFrame -> SetCurrentForm(*lifeForm);
 			lifeForm -> Draw();
@@ -146,7 +148,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("ended -> Showing life form");
 			break;
 		}
-		case SettingsForm::SELECTED_ABOUT_GAME: {
+		case EVENT_SHOW_ABOUT_GAME: {
 			AppLog("Showing about");
 			lifeFrame -> SetCurrentForm(*aboutForm);
 			aboutForm -> Draw();
@@ -154,20 +156,20 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("ended -> Showing about form");
 			break;
 		}
-		case AboutForm::SELECTED_BACK: {
-			AppLog("Showing again settings form");
-			lifeFrame -> SetCurrentForm(*settingsForm);
-			settingsForm -> Draw();
-			settingsForm -> Show();
-			AppLog("ended -> Showing settings form");
-			break;
-		}
-		case SettingsForm::SELECTED_COLOR_SCHEME: {
-			AppLog("Showing cellSizeForm");
-			lifeFrame -> SetCurrentForm(*cellSizeForm);
-			cellSizeForm -> Draw();
-			cellSizeForm -> Show();
-			AppLog("ended -> Showing cellSizeForm form");
+//		case AboutForm::SELECTED_BACK: {
+//			AppLog("Showing again settings form");
+//			lifeFrame -> SetCurrentForm(*settingsForm);
+//			settingsForm -> Draw();
+//			settingsForm -> Show();
+//			AppLog("ended -> Showing settings form");
+//			break;
+//		}
+		case EVENT_SHOW_COLOR_SCHEME: {
+			AppLog("Showing colorForm");
+			lifeFrame -> SetCurrentForm(*colorForm);
+			colorForm -> Draw();
+			colorForm -> Show();
+			AppLog("ended -> Showing colorForm form");
 			break;
 		}
 		default: {

@@ -31,6 +31,15 @@ Constants::GetStringPointer(String& id) {
 	return localResult;
 }
 
+void
+Constants::SetColorScheme(int id) {
+	COLOR_FORM_BACKGROUND = Color::COLOR_RED;
+	COLOR_CONTROL_NORMAL_BACKGROUND = Color::COLOR_RED;
+	COLOR_CONTROL_PRESSED_BACKGROUND = Color::COLOR_RED;
+	COLOR_TEXT = Color::COLOR_RED;
+	COLOR_CELL = Color::COLOR_RED;
+}
+
 
 
 

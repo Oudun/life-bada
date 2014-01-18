@@ -107,19 +107,19 @@ LifeForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
 	{
 	case IDC_BUTTON_SEED:
 		{
-			Osp::App::Application::GetInstance() -> SendUserEvent(SEED_BUTTON_PRESSED, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SEED, null);
 			break;
 		}
 	case IDC_BUTTON_START:
 		{
 			AppLog("Start?");
-			Osp::App::Application::GetInstance() -> SendUserEvent(START_BUTTON_PRESSED, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_START, null);
 			break;
 		}
 	case IDC_BUTTON_SETTINGS:
 		{
 			AppLog("Start?");
-			Osp::App::Application::GetInstance() -> SendUserEvent(SETTINGS_BUTTON_PRESSED, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_SETTINGS, null);
 			break;
 		}
 	default:

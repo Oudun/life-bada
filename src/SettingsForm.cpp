@@ -101,12 +101,12 @@ SettingsForm::OnItemStateChanged(
 	switch(itemId) {
 	case INDEX_BACK:
 		{
-			Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_BACK, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_BACK, null);
 			break;
 		}
 	case INDEX_COLOR_SCHEME:
 		{
-			Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_COLOR_SCHEME, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_COLOR_SCHEME, null);
 			break;
 		}
 	default:
@@ -120,7 +120,7 @@ void
 SettingsForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId) {
 	switch(actionId) {
 		case IDC_BUTTON_BACK: {
-			Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_BACK, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_BACK, null);
 			break;
 		}
 		case IDC_BUTTON_ABOUT: {
@@ -130,7 +130,7 @@ SettingsForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId) {
 			__bgCanvas -> Clear();
 			__bgCanvas -> FillRectangle(Color::COLOR_RED, Rectangle(0,0,240,400));
 			RequestRedraw(true);
-			Osp::App::Application::GetInstance() -> SendUserEvent(SELECTED_ABOUT_GAME, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_ABOUT_GAME, null);
 			break;
 		}
 		default: {

@@ -10,6 +10,8 @@
     <text id="SEED">Seed</text>
     <text id="GENERATION_NUM">Generation number </text>
     <text id="START">Start</text>
+	<text id="APPLY">Apply</text>
+	<text id="CANCEL">Cancel</text>
 
     <text id="SETTINGS">Settings</text>
     <text id="EXTRA">Extra</text>
@@ -23,6 +25,5 @@
 
     <text id="ABOUT_INTRO_TEXT">  The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.\n</text>
     <text id="ABOUT_TEXT">  The "game" is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by	creating an initial configuration and observing how it evolves.\n Conway was interested in a problem presented in the 1940s by mathematician John von Neumann, who attempted to find a hypothetical machine that could build copies of itself and succeeded	when he found a mathematical model for such a machine with very complicated rules on a rectangular grid.\n The Game of Life emerged as Conway's successful attempt to drastically simplify von Neumann's ideas. </text>
-
 
 </string_table>

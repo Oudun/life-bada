@@ -35,11 +35,6 @@ private:
 	Osp::Graphics::Canvas* __lifeFieldCanvas;
 
 public:
-	static const int START_BUTTON_PRESSED = 11;
-	static const int SEED_BUTTON_PRESSED = 12;
-	static const int SETTINGS_BUTTON_PRESSED = 13;
-
-public:
 	virtual result OnInitializing(void);
 	virtual result OnTerminating(void);
 	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
