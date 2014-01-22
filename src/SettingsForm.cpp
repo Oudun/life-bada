@@ -109,6 +109,11 @@ SettingsForm::OnItemStateChanged(
 			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_COLOR_SCHEME, null);
 			break;
 		}
+	case INDEX_CELL_SIZE:
+		{
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_CELL_SIZE, null);
+			break;
+		}
 	default:
 		{
 			break;

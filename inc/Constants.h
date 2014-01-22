@@ -38,6 +38,8 @@ static const int EVENT_SHOW_GAME_RULES = 35;
 static const int EVENT_SHOW_SPEED = 36;
 static const int EVENT_SHOW_BACK = 37;
 
+static const int EVENT_APPLY_CELL_SIZE = 41;
+
 
 // Color schemes
 

@@ -18,6 +18,9 @@ public:
 	void Update(void);
 	void UpdateGenerationNumber(void);
 	void SetStartLabel(Osp::Base::String labelText);
+	void SetCellSize(int size);
+	int GetCellSize(void);
+	void InitializeField(void);
 
 // Implementation
 protected:
@@ -43,3 +46,4 @@ public:
 };
 
 #endif	//_FORM1_H_
+

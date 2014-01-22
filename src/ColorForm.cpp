@@ -39,7 +39,7 @@ ColorForm::OnInitializing(void) {
 	Bitmap* __bitmapButton = pAppResource->GetBitmapN(L"Button.png");
 
 	__listColor =  static_cast<List *>(GetControl("IDC_LIST_COLOR"));
-
+//todo
 	String __greenScheme("Green");
 	String __amberScheme("Amber");
 	String __xrayScheme("X-Ray");
@@ -91,11 +91,10 @@ ColorForm::OnItemStateChanged(const Osp::Ui::Control& source, int index, int ite
 		}
 		case INDEX_AMBER: {
 			AppLog("Amber");
-//			Constants::SetColorScheme(COLOR_SCHEME_AMBER);
-//			__listColor -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
-//			__labelColor -> SetBackgroundColor(COLOR_CONTROL_NORMAL_BACKGROUND);
-//			__labelColor -> SetTextColor(COLOR_TEXT);
-//			RequestRedraw(true);
+			Color assignedColor = __labelColor -> GetTextColor();
+			Color storedColor = COLOR_TEXT;
+			AppLog("Assigned color is %d", &assignedColor);
+			AppLog("Stored color is %d", &storedColor);
 			break;
 		}
 		case INDEX_XRAY: {

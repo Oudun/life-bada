@@ -55,8 +55,8 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	aboutForm = new AboutForm();
 	aboutForm -> Initialize();
 
-//	cellSizeForm = new CellSizeForm();
-//	cellSizeForm -> Initialize();
+	cellSizeForm = new CellSizeForm(lifeForm -> GetCellSize());
+	cellSizeForm -> Initialize();
 
 	colorForm = new ColorForm();
 	colorForm -> Initialize();
@@ -77,6 +77,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*settingsForm);
 	lifeFrame -> AddControl(*aboutForm);
 	lifeFrame -> AddControl(*colorForm);
+	lifeFrame -> AddControl(*cellSizeForm);
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -170,6 +171,28 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			colorForm -> Draw();
 			colorForm -> Show();
 			AppLog("ended -> Showing colorForm form");
+			break;
+		}
+		case EVENT_SHOW_CELL_SIZE: {
+			AppLog("Showing cellSizeForm");
+			lifeFrame -> SetCurrentForm(*cellSizeForm);
+			cellSizeForm -> Draw();
+			cellSizeForm -> Show();
+			AppLog("ended -> Showing cellSizeForm");
+			break;
+		}
+		case EVENT_APPLY_CELL_SIZE: {
+			AppLog("Show Life Form with updated size");
+			Integer* size = (Integer*)(pArgs -> GetAt(0));
+			lifeForm -> SetCellSize(size -> ToInt());
+			lifeForm -> InitializeField();
+			Generation::Seed();
+			lifeForm -> Update();
+			lifeForm -> UpdateGenerationNumber();
+			lifeFrame -> SetCurrentForm(*lifeForm);
+			lifeFrame -> Draw();
+			lifeFrame -> Show();
+			AppLog("ended -> Showing cellSizeForm");
 			break;
 		}
 		default: {

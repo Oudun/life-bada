@@ -78,10 +78,7 @@ LifeForm::OnInitializing(void)
 	Control* control = GetControl(L"LIFE_FORM");
 	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 340);
 
-	Generation::Initialize(
-		__lifeFieldCanvas->GetBounds().width/__seedSize,
-		__lifeFieldCanvas->GetBounds().height/__seedSize
-	);
+	InitializeField();
 
 	return r;
 
@@ -189,3 +186,20 @@ LifeForm::SetStartLabel(Osp::Base::String labelText) {
 	__startButton -> RequestRedraw(true);
 }
 
+void
+LifeForm::SetCellSize(int size) {
+	__seedSize = size;
+}
+
+int
+LifeForm::GetCellSize(void) {
+	return __seedSize;
+}
+
+void
+LifeForm::InitializeField(void) {
+	Generation::Initialize(
+		__lifeFieldCanvas->GetBounds().width/__seedSize,
+		__lifeFieldCanvas->GetBounds().height/__seedSize
+	);
+}
