@@ -10,7 +10,9 @@
 
 #include <FUi.h>
 
-class SpeedForm : public Osp::Ui::Controls::Form {
+class SpeedForm : public Osp::Ui::Controls::Form,
+	public Osp::Ui::IItemEventListener,
+	public Osp::Ui::IActionEventListener {
 
 public:
 	SpeedForm();
@@ -19,6 +21,21 @@ public:
 
 public:
 	virtual result OnInitializing(void);
+	virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
+	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
+
+private:
+	int delay;
+	Osp::Ui::Controls::List* __listSpeed;
+
+private:
+	const static int IDC_BUTTON_CANCEL = 1;
+	const static int IDC_BUTTON_APPLY = 2;
+	const static int INDEX_FASTEST = 0;
+	const static int INDEX_FIVE = 200;
+	const static int INDEX_TEN = 100;
+	const static int INDEX_ONE = 1000;
+
 };
 
 #endif /* SPEEDFORM_H_ */

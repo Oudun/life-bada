@@ -30,6 +30,10 @@
 							<builder buildPath="${workspace_loc:/Life/.Target-Debug}" command="cs-make" id="cdt.managedbuild.target.osp.gnu.target.builder.exe.debug.714447849" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="bada Builder" superClass="cdt.managedbuild.target.osp.gnu.target.builder.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.osp.gnu.arm.archiver.base.1898716536" name="bada Archiver" superClass="cdt.managedbuild.tool.osp.gnu.arm.archiver.base"/>
 							<tool id="cdt.managedbuild.tool.osp.gnu.target.cpp.compiler.exe.debug.1703058155" name="bada C++ Compiler" superClass="cdt.managedbuild.tool.osp.gnu.target.cpp.compiler.exe.debug">
+								<option id="osp.gnu.target.cpp.compiler.debug.exe.option.include.paths.1239132910" name="Include paths (-I)" superClass="osp.gnu.target.cpp.compiler.debug.exe.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${SDKROOT}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${PROJECT_ROOT}/inc&quot;"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.osp.gnu.cpp.compiler.input.983010773" superClass="cdt.managedbuild.tool.osp.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.osp.gnu.target.c.compiler.exe.debug.1121774206" name="bada C Compiler" superClass="cdt.managedbuild.tool.osp.gnu.target.c.compiler.exe.debug">

@@ -9,7 +9,6 @@
 #define CELLSIZEFORM_H_
 
 #include <FUi.h>
-#include <FApp.h>
 
 class CellSizeForm :
 	public Osp::Ui::Controls::Form,

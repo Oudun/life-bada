@@ -26,6 +26,7 @@ public:
 	bool IsSuspended(void);
 	virtual bool OnStart(void);
 	virtual void OnStop(void);
+	virtual void SetDelay(int);
 	virtual void OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs);
 
 public:

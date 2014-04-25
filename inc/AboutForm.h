@@ -9,6 +9,7 @@
 #define ABOUTFORM_H_
 
 #include <FUi.h>
+#include <FApp.h>
 
 class AboutForm :
  	public Osp::Ui::IActionEventListener,

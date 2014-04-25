@@ -67,8 +67,8 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 //	rulesForm = new RulesForm();
 //	rulesForm -> Initialize();
 //
-//	speedForm = new SpeedForm();
-//	speedForm -> Initialize();
+	speedForm = new SpeedForm();
+	speedForm -> Initialize();
 
 	// Add the form to the frame
 
@@ -78,6 +78,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*aboutForm);
 	lifeFrame -> AddControl(*colorForm);
 	lifeFrame -> AddControl(*cellSizeForm);
+	lifeFrame -> AddControl(*speedForm);
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -181,6 +182,14 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("ended -> Showing cellSizeForm");
 			break;
 		}
+		case EVENT_SHOW_SPEED: {
+			AppLog("Showing speedForm");
+			lifeFrame -> SetCurrentForm(*speedForm);
+			speedForm -> Draw();
+			speedForm -> Show();
+			AppLog("ended -> Showing speedForm");
+			break;
+		}
 		case EVENT_APPLY_CELL_SIZE: {
 			AppLog("Show Life Form with updated size");
 			Integer* size = (Integer*)(pArgs -> GetAt(0));
@@ -193,6 +202,16 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			lifeFrame -> Draw();
 			lifeFrame -> Show();
 			AppLog("ended -> Showing cellSizeForm");
+			break;
+		}
+		case EVENT_APPLY_SPEED: {
+			AppLog("Show Life Form with updated speed");
+			Integer* delay = (Integer*)(pArgs -> GetAt(0));
+			evolution -> SetDelay(delay -> ToInt());
+			lifeFrame -> SetCurrentForm(*lifeForm);
+			lifeFrame -> Draw();
+			lifeFrame -> Show();
+			AppLog("ended -> Showing speedForm");
 			break;
 		}
 		default: {

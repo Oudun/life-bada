@@ -114,6 +114,11 @@ SettingsForm::OnItemStateChanged(
 			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_CELL_SIZE, null);
 			break;
 		}
+	case INDEX_SPEED:
+		{
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_SPEED, null);
+			break;
+		}
 	default:
 		{
 			break;

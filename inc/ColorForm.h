@@ -10,6 +10,7 @@
 
 #include <FUi.h>
 
+
 class ColorForm :
 	public Osp::Ui::Controls::Form,
 	public Osp::Ui::IItemEventListener,

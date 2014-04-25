@@ -8,7 +8,11 @@
 #ifndef CONSTANTS_H_
 #define CONSTANTS_H_
 
+#include <FBase.h>
 #include <FApp.h>
+#include <FApp.h>
+
+#include <FUi.h>
 
 using Osp::Graphics::Color;
 using Osp::Base::String;
@@ -39,6 +43,7 @@ static const int EVENT_SHOW_SPEED = 36;
 static const int EVENT_SHOW_BACK = 37;
 
 static const int EVENT_APPLY_CELL_SIZE = 41;
+static const int EVENT_APPLY_SPEED = 51;
 
 
 // Color schemes
@@ -87,6 +92,14 @@ static String STRING_SPEED("SPEED");
 static String STRING_BACK("BACK");
 static String STRING_APPLY("APPLY");
 static String STRING_CANCEL("CANCEL");
+
+static String STRING_SPEED_FASTEST("FASTEST");
+static String STRING_SPEED_TEN_FPS("TEN");
+static String STRING_SPEED_FIVE_FPS("FIVE");
+static String STRING_SPEED_ONE_FPS("ONE");
+static String STRING_SPEED_LABEL("SPEED_LABEL");
+
+
 
 static String STRING_ABOUT_INTRO_TEXT("ABOUT_INTRO_TEXT");
 static String STRING_ABOUT_TEXT("ABOUT_TEXT");

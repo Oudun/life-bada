@@ -10,6 +10,7 @@
 #include "Constants.h"
 
 Evolution::Evolution() {
+	delay = 100;
 	result r = E_SUCCESS;
 	r = Thread::Construct(Osp::Base::Runtime::THREAD_TYPE_EVENT_DRIVEN);
 	AppLog("Created");
@@ -46,7 +47,7 @@ Evolution::OnStop(void) {
 
 void
 Evolution::OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs) {
-	Thread::GetCurrentThread()->Sleep(100);
+	Thread::GetCurrentThread()->Sleep(delay);
 	if (!isSuspended) {
 		Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_NEXT_GENERATION, null);
 	}
@@ -62,3 +63,10 @@ bool
 Evolution::IsSuspended(void) {
 	return isSuspended;
 }
+
+
+void
+Evolution::SetDelay(int aDelay) {
+	delay = aDelay;
+}
+
