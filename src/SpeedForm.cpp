@@ -95,6 +95,5 @@ SpeedForm::OnActionPerformed(const Osp::Ui::Control& source, int actionId) {
 			break;
 		}
 	}
-
 }
 

@@ -61,12 +61,12 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	colorForm = new ColorForm();
 	colorForm -> Initialize();
 
-//	surfaceForm = new SurfaceForm();
-//	surfaceForm -> Initialize();
-//
-//	rulesForm = new RulesForm();
-//	rulesForm -> Initialize();
-//
+	surfaceForm = new SurfaceForm();
+	surfaceForm -> Initialize();
+
+	rulesForm = new RulesForm();
+	rulesForm -> Initialize();
+
 	speedForm = new SpeedForm();
 	speedForm -> Initialize();
 
@@ -79,6 +79,9 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*colorForm);
 	lifeFrame -> AddControl(*cellSizeForm);
 	lifeFrame -> AddControl(*speedForm);
+	lifeFrame -> AddControl(*surfaceForm);
+	lifeFrame -> AddControl(*rulesForm);
+
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -158,14 +161,6 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("ended -> Showing about form");
 			break;
 		}
-//		case AboutForm::SELECTED_BACK: {
-//			AppLog("Showing again settings form");
-//			lifeFrame -> SetCurrentForm(*settingsForm);
-//			settingsForm -> Draw();
-//			settingsForm -> Show();
-//			AppLog("ended -> Showing settings form");
-//			break;
-//		}
 		case EVENT_SHOW_COLOR_SCHEME: {
 			AppLog("Showing colorForm");
 			lifeFrame -> SetCurrentForm(*colorForm);
@@ -188,6 +183,22 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			speedForm -> Draw();
 			speedForm -> Show();
 			AppLog("ended -> Showing speedForm");
+			break;
+		}
+		case EVENT_SHOW_SURFACE: {
+			AppLog("Showing surfaceForm");
+			lifeFrame -> SetCurrentForm(*surfaceForm);
+			surfaceForm -> Draw();
+			surfaceForm -> Show();
+			AppLog("ended -> Showing surfaceForm");
+			break;
+		}
+		case EVENT_SHOW_GAME_RULES: {
+			AppLog("Showing rulesForm");
+			lifeFrame -> SetCurrentForm(*rulesForm);
+			rulesForm -> Draw();
+			rulesForm -> Show();
+			AppLog("ended -> Showing rulesForm");
 			break;
 		}
 		case EVENT_APPLY_CELL_SIZE: {

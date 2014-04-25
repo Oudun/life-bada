@@ -10,4 +10,14 @@
         <layout mode="Portrait" style="FORM_STYLE_NORMAL"/>
         <layout mode="Landscape" style="FORM_STYLE_NORMAL"/>
     </Form>
+    <Button id="IDC_BUTTON_CANCEL" parent="RULES_FORM">
+        <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
+        <layout height="30" mode="Portrait" width="115" x="0" y="370"/>
+        <layout height="24" mode="Landscape" width="166" x="88" y="115"/>
+    </Button>
+    <Button id="IDC_BUTTON_APPLY" parent="RULES_FORM">
+        <property NormalBGBitmapPath="" PressedBGBitmapPath="" disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="14" vAlign="ALIGN_MIDDLE"/>
+        <layout height="30" mode="Portrait" width="115" x="125" y="370"/>
+        <layout height="24" mode="Landscape" width="166" x="166" y="93"/>
+    </Button>
 </Scene>

@@ -10,7 +10,9 @@
 
 #include <FUi.h>
 
-class RulesForm : public Osp::Ui::Controls::Form {
+class RulesForm : public Osp::Ui::Controls::Form ,
+	public Osp::Ui::IItemEventListener,
+	public Osp::Ui::IActionEventListener {
 
 public:
 	RulesForm();
@@ -19,6 +21,13 @@ public:
 
 public:
 	virtual result OnInitializing(void);
+	virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
+	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
+
+private:
+	const static int IDC_BUTTON_CANCEL = 1;
+	const static int IDC_BUTTON_APPLY = 2;
+
 };
 
 #endif /* RULESFORM_H_ */

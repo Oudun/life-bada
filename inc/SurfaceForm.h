@@ -10,7 +10,10 @@
 
 #include <FUi.h>
 
-class SurfaceForm : public Osp::Ui::Controls::Form {
+class SurfaceForm : public Osp::Ui::Controls::Form,
+	public Osp::Ui::IItemEventListener,
+	public Osp::Ui::IActionEventListener {
+
 public:
 	SurfaceForm();
 	virtual ~SurfaceForm();
@@ -18,6 +21,13 @@ public:
 
 public:
 	virtual result OnInitializing(void);
+	virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
+	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
+
+private:
+	const static int IDC_BUTTON_CANCEL = 1;
+	const static int IDC_BUTTON_APPLY = 2;
+
 };
 
 #endif /* SURFACEFORM_H_ */
