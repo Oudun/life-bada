@@ -50,6 +50,23 @@ Generation::Calculate(void) {
 	for (int i=0; i<columns; i++) {
 		for (int j=0; j<rows; j++) {
 			int siblingNum = 0;
+
+//
+//			PLANE
+//
+//			siblingNum += (int)currentGeneration[(columns+i-1)%columns][(rows+j-1)%rows];
+//			siblingNum += (int)currentGeneration[(columns+i-1)%columns][j];
+//			siblingNum += (int)currentGeneration[(columns+i-1)%columns][(rows+j+1)%rows];
+//			siblingNum += (int)currentGeneration[i][(rows+j-1)%rows];
+//			siblingNum += (int)currentGeneration[i][(rows+j+1)%rows];
+//			siblingNum += (int)currentGeneration[(columns+i+1)%columns][(rows+j-1)%rows];
+//			siblingNum += (int)currentGeneration[(columns+i+1)%columns][j];
+//			siblingNum += (int)currentGeneration[(columns+i+1)%columns][(rows+j+1)%rows];
+//
+
+
+//			PLANE
+
 			siblingNum += (int)currentGeneration[(columns+i-1)%columns][(rows+j-1)%rows];
 			siblingNum += (int)currentGeneration[(columns+i-1)%columns][j];
 			siblingNum += (int)currentGeneration[(columns+i-1)%columns][(rows+j+1)%rows];
@@ -58,6 +75,9 @@ Generation::Calculate(void) {
 			siblingNum += (int)currentGeneration[(columns+i+1)%columns][(rows+j-1)%rows];
 			siblingNum += (int)currentGeneration[(columns+i+1)%columns][j];
 			siblingNum += (int)currentGeneration[(columns+i+1)%columns][(rows+j+1)%rows];
+
+
+
 			if (currentGeneration[i][j]&&(siblingNum==2||siblingNum==3)) {
 				nextGeneration[i][j] = true;
 			} else if (!currentGeneration[i][j]&&siblingNum==3) {

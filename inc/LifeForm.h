@@ -21,6 +21,7 @@ public:
 	void SetCellSize(int size);
 	int GetCellSize(void);
 	void InitializeField(void);
+	void RePaint(void);
 
 // Implementation
 protected:

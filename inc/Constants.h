@@ -5,8 +5,11 @@
  *      Author: ddreval
  */
 
+
 #ifndef CONSTANTS_H_
 #define CONSTANTS_H_
+
+
 
 #include <FBase.h>
 #include <FApp.h>
@@ -24,6 +27,8 @@ public:
 	static String GetString(String& id);
 	static String* GetStringPointer(String& id);
 	static void SetColorScheme(int id);
+	static Color* GetColor(int id);
+
 };
 
 // Events
@@ -44,6 +49,7 @@ static const int EVENT_SHOW_BACK = 37;
 
 static const int EVENT_APPLY_CELL_SIZE = 41;
 static const int EVENT_APPLY_SPEED = 51;
+static const int EVENT_APPLY_COLOR = 61;
 
 
 // Color schemes
@@ -52,7 +58,25 @@ static int COLOR_SCHEME_GREEN = 1;
 static int COLOR_SCHEME_AMBER = 2;
 static int COLOR_SCHEME_XRAY = 3;
 
+static const int COLOR_FORM_BACKGROUND_ID = 1;
+static const int COLOR_CONTROL_NORMAL_BACKGROUND_ID = 2;
+static const int COLOR_CONTROL_PRESSED_BACKGROUND_ID = 3;
+static const int COLOR_TEXT_ID = 4;
+static const int COLOR_CELL_ID = 5;
+
 // Colors
+
+static Color COLOR_FORM_BACKGROUND_XRAY(0,0,0);
+static Color COLOR_CONTROL_NORMAL_BACKGROUND_XRAY(0,0,0);
+static Color COLOR_CONTROL_PRESSED_BACKGROUND_XRAY(0,0,0);
+static Color COLOR_TEXT_XRAY(0,0,0);
+static Color COLOR_CELL_XRAY(0,0,0);
+
+static Color COLOR_FORM_BACKGROUND_AMBER(255,126,0);
+static Color COLOR_CONTROL_NORMAL_BACKGROUND_AMBER(255,126,0);
+static Color COLOR_CONTROL_PRESSED_BACKGROUND_AMBER(255,126,0);
+static Color COLOR_TEXT_AMBER(255,126,0);
+static Color COLOR_CELL_AMBER(255,126,0);
 
 static Color COLOR_FORM_BACKGROUND_GREEN(0,0,0);
 static Color COLOR_CONTROL_NORMAL_BACKGROUND_GREEN(0,128,64);
@@ -60,17 +84,12 @@ static Color COLOR_CONTROL_PRESSED_BACKGROUND_GREEN(0,128,64);
 static Color COLOR_TEXT_GREEN(0,255,0);
 static Color COLOR_CELL_GREEN(0,255,0);
 
-static Color COLOR_FORM_BACKGROUND_AMBER(0,0,0);
-static Color COLOR_CONTROL_NORMAL_BACKGROUND_AMBER(0,128,64);
-static Color COLOR_CONTROL_PRESSED_BACKGROUND_AMBER(0,128,64);
-static Color COLOR_TEXTAMBER(0,255,0);
-static Color COLOR_CELLAMBER(0,255,0);
+static Color* COLOR_FORM_BACKGROUND = &COLOR_FORM_BACKGROUND_GREEN;
+static Color* COLOR_CONTROL_NORMAL_BACKGROUND = &COLOR_CONTROL_NORMAL_BACKGROUND_GREEN;
+static Color* COLOR_CONTROL_PRESSED_BACKGROUND = &COLOR_CONTROL_PRESSED_BACKGROUND_GREEN;
+static Color* COLOR_TEXT = &COLOR_TEXT_GREEN;
+static Color* COLOR_CELL = &COLOR_CELL_GREEN;
 
-static Color COLOR_FORM_BACKGROUND(0,0,0);
-static Color COLOR_CONTROL_NORMAL_BACKGROUND(0,128,64);
-static Color COLOR_CONTROL_PRESSED_BACKGROUND(0,128,64);
-static Color COLOR_TEXT(0,255,0);
-static Color COLOR_CELL(0,255,0);
 
 // Strings
 
@@ -98,8 +117,6 @@ static String STRING_SPEED_TEN_FPS("TEN");
 static String STRING_SPEED_FIVE_FPS("FIVE");
 static String STRING_SPEED_ONE_FPS("ONE");
 static String STRING_SPEED_LABEL("SPEED_LABEL");
-
-
 
 static String STRING_ABOUT_INTRO_TEXT("ABOUT_INTRO_TEXT");
 static String STRING_ABOUT_TEXT("ABOUT_TEXT");

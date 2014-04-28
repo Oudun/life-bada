@@ -31,7 +31,7 @@ AboutForm::Initialize(void) {
 result
 AboutForm::OnInitializing(void) {
 
-	SetBackgroundColor(COLOR_FORM_BACKGROUND);
+	SetBackgroundColor(*COLOR_FORM_BACKGROUND);
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 	Bitmap* __bitmapConway = pAppResource->GetBitmapN(L"Conway.png");
@@ -39,14 +39,14 @@ AboutForm::OnInitializing(void) {
 
 	Label* __textIntroLabel = static_cast<Label *>(GetControl("IDC_ABOUT_INTRO_LABEL"));
 	__textIntroLabel -> SetEnabled(false);
-	__textIntroLabel -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
-	__textIntroLabel -> SetTextColor(COLOR_TEXT);
+	__textIntroLabel -> SetBackgroundColor(*COLOR_FORM_BACKGROUND);
+	__textIntroLabel -> SetTextColor(*COLOR_TEXT);
 	__textIntroLabel -> SetText(Constants::GetString(STRING_ABOUT_INTRO_TEXT));
 
 	Label* __textLabel = static_cast<Label *>(GetControl("IDC_ABOUT_LABEL"));
 	__textLabel -> SetEnabled(false);
-	__textLabel -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
-	__textLabel -> SetTextColor(COLOR_TEXT);
+	__textLabel -> SetBackgroundColor(*COLOR_FORM_BACKGROUND);
+	__textLabel -> SetTextColor(*COLOR_TEXT);
 	__textLabel -> SetText(Constants::GetString(STRING_ABOUT_TEXT));
 
 	Button *pButton_about_back = static_cast<Button *>(GetControl("IDC_BUTTON_ABOUT_BACK"));
@@ -55,7 +55,7 @@ AboutForm::OnInitializing(void) {
 		pButton_about_back -> SetActionId(1);
 		pButton_about_back -> AddActionEventListener(*this);
 		pButton_about_back -> SetNormalBackgroundBitmap(*__bitmapButton);
-		pButton_about_back -> SetTextColor(COLOR_TEXT);
+		pButton_about_back -> SetTextColor(*COLOR_TEXT);
 		pButton_about_back -> SetText(Constants::GetString(STRING_BACK));
 	}
 
@@ -63,7 +63,7 @@ AboutForm::OnInitializing(void) {
 	if (__labelConway)
 	{
 		__labelConway -> SetBackgroundBitmap(*__bitmapConway);
-		__labelConway -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
+		__labelConway -> SetBackgroundColor(*COLOR_FORM_BACKGROUND);
 	}
 
 	return E_SUCCESS;

@@ -225,6 +225,15 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("ended -> Showing speedForm");
 			break;
 		}
+		case EVENT_APPLY_COLOR: {
+			AppLog("Show Life Form with updated color");
+			lifeForm -> RePaint();
+			lifeFrame -> SetCurrentForm(*lifeForm);
+			lifeFrame -> Draw();
+			lifeFrame -> Show();
+			AppLog("ended -> Showing speedForm");
+			break;
+		}
 		default: {
 			AppLog("Something #%d is happening", requestId);
 		}

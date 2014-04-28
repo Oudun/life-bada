@@ -30,15 +30,19 @@ SpeedForm::Initialize(void) {
 
 result
 SpeedForm::OnInitializing(void) {
-	SetBackgroundColor(COLOR_FORM_BACKGROUND);
+	//SetBackgroundColor(COLOR_FORM_BACKGROUND);
+	//Constants* c = new Constants();
+	SetBackgroundColor(*COLOR_FORM_BACKGROUND);
+	//SetBackgroundColor(*(new Color(255,126,0)));
+
 
 	__listSpeed = static_cast<List *>(GetControl("IDC_LIST_SPEED"));
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 	Bitmap* __bitmapButton = pAppResource->GetBitmapN(L"Button.png");
 
-	__listSpeed -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
-	__listSpeed -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_TEXT);
+	__listSpeed -> SetBackgroundColor(*COLOR_FORM_BACKGROUND);
+	__listSpeed -> SetItemTextColor(LIST_ITEM_TEXT1, *COLOR_TEXT);
 	__listSpeed -> AddItem(Constants::GetStringPointer(STRING_SPEED_FASTEST), null, null, null, INDEX_FASTEST);
 	__listSpeed -> AddItem(Constants::GetStringPointer(STRING_SPEED_TEN_FPS), null, null, null, INDEX_TEN);
 	__listSpeed -> AddItem(Constants::GetStringPointer(STRING_SPEED_FIVE_FPS), null, null, null, INDEX_FIVE);
@@ -52,7 +56,7 @@ SpeedForm::OnInitializing(void) {
 	{
 		__buttonCancel -> SetNormalBackgroundBitmap(*__bitmapButton);
 		__buttonCancel -> SetActionId(IDC_BUTTON_CANCEL);
-		__buttonCancel -> SetTextColor(COLOR_TEXT);
+		__buttonCancel -> SetTextColor(*COLOR_TEXT);
 		__buttonCancel -> SetText(Constants::GetString(STRING_CANCEL));
 		__buttonCancel -> AddActionEventListener(*this);
 	}
@@ -62,7 +66,7 @@ SpeedForm::OnInitializing(void) {
 	{
 		__buttonApply -> SetNormalBackgroundBitmap(*__bitmapButton);
 		__buttonApply -> SetActionId(IDC_BUTTON_APPLY);
-		__buttonApply -> SetTextColor(COLOR_TEXT);
+		__buttonApply -> SetTextColor(*COLOR_TEXT);
 		__buttonApply -> SetText(Constants::GetString(STRING_APPLY));
 		__buttonApply -> AddActionEventListener(*this);
 	}
@@ -70,8 +74,8 @@ SpeedForm::OnInitializing(void) {
 	Label *__labelSpeed = static_cast<Label *>(GetControl("IDC_LABEL_SPEED_FORM"));
 	if (__labelSpeed)
 	{
-		__labelSpeed -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
-		__labelSpeed -> SetTextColor(COLOR_TEXT);
+		__labelSpeed -> SetBackgroundColor(*COLOR_FORM_BACKGROUND);
+		__labelSpeed -> SetTextColor(*COLOR_TEXT);
 		__labelSpeed -> SetText(Constants::GetString(STRING_SPEED_LABEL));
 	}
 

@@ -50,7 +50,7 @@ RulesForm::OnInitializing(void) {
 	{
 		__buttonCancel -> SetNormalBackgroundBitmap(*__bitmapButton);
 		__buttonCancel -> SetActionId(IDC_BUTTON_CANCEL);
-		__buttonCancel -> SetTextColor(COLOR_TEXT);
+		__buttonCancel -> SetTextColor(*COLOR_TEXT);
 		__buttonCancel -> SetText(Constants::GetString(STRING_CANCEL));
 		__buttonCancel -> AddActionEventListener(*this);
 	}
@@ -60,7 +60,7 @@ RulesForm::OnInitializing(void) {
 	{
 		__buttonApply -> SetNormalBackgroundBitmap(*__bitmapButton);
 		__buttonApply -> SetActionId(IDC_BUTTON_APPLY);
-		__buttonApply -> SetTextColor(COLOR_TEXT);
+		__buttonApply -> SetTextColor(*COLOR_TEXT);
 		__buttonApply -> SetText(Constants::GetString(STRING_APPLY));
 		__buttonApply -> AddActionEventListener(*this);
 	}

@@ -38,7 +38,7 @@ LifeForm::OnInitializing(void)
 	Osp::Graphics::Bitmap __buttonBitmap;
 
 	__buttonCanvas.Construct(__buttonRectangle);
-	__buttonCanvas.FillRectangle(COLOR_CONTROL_NORMAL_BACKGROUND, __buttonRectangle);
+	__buttonCanvas.FillRectangle(*COLOR_CONTROL_NORMAL_BACKGROUND, __buttonRectangle);
 	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
 
 	// TODO: Add your initialization code here
@@ -73,7 +73,9 @@ LifeForm::OnInitializing(void)
 	__counterLabel -> SetText(Constants::GetString(STRING_GENERATION_ZERO));
 
 	//this->SetBackgroundColor(Osp::Graphics::Color::COLOR_BLACK);
-	SetBackgroundColor(COLOR_FORM_BACKGROUND);
+
+	AppLog("Initializing LifeForm - Color Object reference is %d", &COLOR_FORM_BACKGROUND);
+	SetBackgroundColor(*COLOR_FORM_BACKGROUND);
 
 	Control* control = GetControl(L"LIFE_FORM");
 	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 340);
@@ -134,7 +136,7 @@ LifeForm::Update(void) {
 //	Control* control = GetControl(L"LIFE_FORM");
 //	canvas = control -> GetCanvasN();
 
-	result r = __lifeFieldCanvas -> FillRectangle(COLOR_FORM_BACKGROUND, GetBounds());
+	result r = __lifeFieldCanvas -> FillRectangle(*COLOR_FORM_BACKGROUND, GetBounds());
 
 	if (__lifeFieldCanvas == null) {
 		AppLog("Canvas is null");
@@ -144,7 +146,7 @@ LifeForm::Update(void) {
 	for (int i=0; i < Generation::GetColumns(); i++) {
 		for (int j=0; j < Generation::GetRows(); j++) {
 			if(Generation::IsOccupied(i, j)) {
-				__lifeFieldCanvas -> FillRectangle(COLOR_CELL, Osp::Graphics::Rectangle(
+				__lifeFieldCanvas -> FillRectangle(*COLOR_CELL, Osp::Graphics::Rectangle(
 						i*__seedSize,
 						j*__seedSize,
 						__seedSize-1,
@@ -202,4 +204,35 @@ LifeForm::InitializeField(void) {
 		__lifeFieldCanvas->GetBounds().width/__seedSize,
 		__lifeFieldCanvas->GetBounds().height/__seedSize
 	);
+}
+
+void
+LifeForm::RePaint(void) {
+
+	AppLog("Repainting started");
+
+	Osp::Graphics::Canvas __buttonCanvas;
+	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
+	Osp::Graphics::Bitmap __buttonBitmap;
+
+	__buttonCanvas.Construct(__buttonRectangle);
+	__buttonCanvas.FillRectangle(*(Constants::GetColor(COLOR_CONTROL_NORMAL_BACKGROUND_ID)), __buttonRectangle);
+	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
+
+
+	__seedButton = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));
+	__seedButton->SetNormalBackgroundBitmap(__buttonBitmap);
+
+	__startButton = static_cast<Button *>(GetControl("IDC_BUTTON_START"));
+	__startButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+
+	AppLog("Used COLOR_FORM_BACKGROUND is (%d, %d, %d)", COLOR_FORM_BACKGROUND -> GetRed(), COLOR_FORM_BACKGROUND -> GetGreen(), COLOR_FORM_BACKGROUND -> GetBlue());
+	AppLog("Color Object reference is %d", Constants::GetColor(COLOR_FORM_BACKGROUND_ID));
+
+	SetBackgroundColor(*Constants::GetColor(COLOR_FORM_BACKGROUND_ID));
+
+	RequestRedraw(true);
+
+	AppLog("Repainting ended");
+
 }

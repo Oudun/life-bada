@@ -31,7 +31,9 @@ SurfaceForm::Initialize(void) {
 
 result
 SurfaceForm::OnInitializing(void) {
-	SetBackgroundColor(COLOR_FORM_BACKGROUND);
+
+	//SetBackgroundColor(COLOR_FORM_BACKGROUND);
+//	SetBackgroundColor(FORM_BACKGROUND);
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 	Bitmap* __bitmapButton = pAppResource->GetBitmapN(L"Button.png");
@@ -51,7 +53,7 @@ SurfaceForm::OnInitializing(void) {
 	{
 		__buttonCancel -> SetNormalBackgroundBitmap(*__bitmapButton);
 		__buttonCancel -> SetActionId(IDC_BUTTON_CANCEL);
-		__buttonCancel -> SetTextColor(COLOR_TEXT);
+		__buttonCancel -> SetTextColor(*COLOR_TEXT);
 		__buttonCancel -> SetText(Constants::GetString(STRING_CANCEL));
 		__buttonCancel -> AddActionEventListener(*this);
 	}
@@ -61,7 +63,7 @@ SurfaceForm::OnInitializing(void) {
 	{
 		__buttonApply -> SetNormalBackgroundBitmap(*__bitmapButton);
 		__buttonApply -> SetActionId(IDC_BUTTON_APPLY);
-		__buttonApply -> SetTextColor(COLOR_TEXT);
+		__buttonApply -> SetTextColor(*COLOR_TEXT);
 		__buttonApply -> SetText(Constants::GetString(STRING_APPLY));
 		__buttonApply -> AddActionEventListener(*this);
 	}
