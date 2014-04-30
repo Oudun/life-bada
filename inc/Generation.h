@@ -25,6 +25,7 @@ public:
 	static void IncreaseCounter(void);
 	static void ResetCounter(void);
 	static int GetCounter(void);
+	static bool MakeAlive(bool isAlive, int siblingsNum);
 };
 
 static int columns;
