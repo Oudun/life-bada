@@ -20,4 +20,9 @@
         <layout height="30" mode="Portrait" width="115" x="125" y="370"/>
         <layout height="24" mode="Landscape" width="166" x="166" y="93"/>
     </Button>
+    <Label id="IDC_LABEL1" parent="RULES_FORM">
+        <property BGBitmapPath="" BGColor="" BGColorOpacity="100" hAlign="ALIGN_LEFT" text="" textColor="" textSize="22" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_TOP"/>
+        <layout height="41" mode="Portrait" width="161" x="40" y="30"/>
+        <layout height="30" mode="Landscape" width="285" x="66" y="18"/>
+    </Label>
 </Scene>

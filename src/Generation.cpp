@@ -83,6 +83,12 @@ Generation::Calculate(void) {
 
 	if (surface == SURFACE_THOR) {
 
+		//	   _C|D____C|D_
+		//		B|A    B|A
+		//		 |      |
+		//     _C|D____C|D_
+		//		B|A    B|A
+
 		for (int i = 0; i < columns-1; i++) {
 			top[i] = currentGeneration[i][rows-1];
 			bottom[i] = currentGeneration[i][0];
@@ -97,6 +103,12 @@ Generation::Calculate(void) {
 		bottomLeft = currentGeneration[columns-1][0];
 
 	} else if (surface == SURFACE_KLEIN) {
+
+		//	   _D|C____D|C_
+		//		B|A    B|A
+		//		 |      |
+		//     _C|D____C|D_
+		//		A|B    A|B
 
 		for (int i = 0; i < columns-1; i++) {
 			top[i] = currentGeneration[columns-1-i][rows-1];
@@ -113,6 +125,12 @@ Generation::Calculate(void) {
 
 	} else if (surface == SURFACE_PROJECTIVE) {
 
+		//	   _B|C____D|A_
+		//		D|A    B|C
+		//		 |      |
+		//     _A|D____C|B_
+		//		C|B    A|D
+
 		for (int i = 0; i < columns-1; i++) {
 			top[i] = currentGeneration[columns-1-i][rows-1];
 			bottom[i] = currentGeneration[columns-1-i][0];
@@ -126,17 +144,6 @@ Generation::Calculate(void) {
 		bottomRight = currentGeneration[0][rows-1];
 		bottomLeft = currentGeneration[columns-1][rows-1];
 	}
-
-
-//	top;
-//	right;
-//	bottom;
-//	left;
-//
-//	topLeft;
-//	topRight;
-//	bottomRight;
-//	bottomLeft;
 
 // END SETTING EDGE CELLS
 
@@ -160,16 +167,6 @@ Generation::Calculate(void) {
 		nextGeneration[i][0] = MakeAlive(currentGeneration[i][0], siblingNum);
 
 		// LAST ROW
-
-
-//		N|1_2_3________|_
-//		 |             |
-//		 |             |
-//		 |             |
-//		 |             |
-//		 |             |
-//		_|*_*_*_*_*_*_*|_
-//		 |1 2 3       N|
 
 
 		AppLog("Calculating Bottom");

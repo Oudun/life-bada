@@ -32,21 +32,13 @@ SurfaceForm::Initialize(void) {
 result
 SurfaceForm::OnInitializing(void) {
 
-	//SetBackgroundColor(COLOR_FORM_BACKGROUND);
-//	SetBackgroundColor(FORM_BACKGROUND);
+	SetBackgroundColor(*COLOR_FORM_BACKGROUND);
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 	Bitmap* __bitmapButton = pAppResource->GetBitmapN(L"Button.png");
 
-//	__listSpeed -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
-//	__listSpeed -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_TEXT);
-//	__listSpeed -> AddItem(Constants::GetStringPointer(STRING_SPEED_FASTEST), null, null, null, INDEX_FASTEST);
-//	__listSpeed -> AddItem(Constants::GetStringPointer(STRING_SPEED_TEN_FPS), null, null, null, INDEX_TEN);
-//	__listSpeed -> AddItem(Constants::GetStringPointer(STRING_SPEED_FIVE_FPS), null, null, null, INDEX_FIVE);
-//	__listSpeed -> AddItem(Constants::GetStringPointer(STRING_SPEED_ONE_FPS), null, null, null, INDEX_ONE);
-//
-//	int indexChecked = __listSpeed -> GetItemIndexFromItemId(delay);
-//	__listSpeed -> SetItemChecked(indexChecked, true);
+
+
 
 	Button *__buttonCancel = static_cast<Button *>(GetControl("IDC_BUTTON_CANCEL"));
 	if (__buttonCancel)
