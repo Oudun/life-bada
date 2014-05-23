@@ -10,10 +10,11 @@
 
 #include <FUi.h>
 #include <FApp.h>
+#include "AbstractForm.h"
 
 class AboutForm :
  	public Osp::Ui::IActionEventListener,
- 	public Osp::Ui::Controls::Form {
+ 	public AbstractForm {
 
 	public:
 		AboutForm();

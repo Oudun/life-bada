@@ -5,9 +5,11 @@
 #include <FUi.h>
 #include <FApp.h>
 
+#include "AbstractForm.h"
+
 class LifeForm :
-	public Osp::Ui::Controls::Form,
-	public Osp::Ui::IActionEventListener
+	public Osp::Ui::IActionEventListener,
+	public AbstractForm
 {
 
 // Construction
