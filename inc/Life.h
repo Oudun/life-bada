@@ -18,6 +18,8 @@
 #include "ColorForm.h"
 #include "AbstractSettingsForm.h"
 
+#include "forms/NewColorForm.h"
+
 /**
  * [Life] application must inherit from Application class
  * which provides basic features necessary to define an application.
@@ -76,6 +78,7 @@ private:
 	SpeedForm* speedForm;
 	ColorForm* colorForm;
 	AbstractSettingsForm* abstractSettingsForm;
+	NewColorForm* newColorForm;
 
 	Evolution* evolution;
 

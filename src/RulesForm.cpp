@@ -16,6 +16,7 @@ using namespace Osp::App;
 
 RulesForm::RulesForm() {
 	FORM_EVENT_CODE = EVENT_APPLY_RULES;
+	LABEL_TEXT = Constants::GetString(STRING_GAME_RULES);
 }
 
 RulesForm::~RulesForm() {

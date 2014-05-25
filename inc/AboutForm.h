@@ -8,7 +8,6 @@
 #ifndef ABOUTFORM_H_
 #define ABOUTFORM_H_
 
-#include <FUi.h>
 #include <FApp.h>
 #include "AbstractForm.h"
 

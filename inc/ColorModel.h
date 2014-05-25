@@ -29,12 +29,25 @@ class ColorModel {
 		Color controlPressedBkgColor;
 		Color textColor;
 		Color cellColor;
+
 		Bitmap normalBackgroundBitmap;
 		Bitmap pressedBackgroundBitmap;
 
+		Bitmap* conwayBitmap;
+		Bitmap* surfaceThorBitmap;
+		Bitmap* surfaceKleinBitmap;
+		Bitmap* surfaceProjectiveBitmap;
+		Bitmap* sizeThreeBitmap;
+		Bitmap* sizeFiveBitmap;
+		Bitmap* sizeTenBitmap;
+		Bitmap* sizeTwentyBitmap;
+		Bitmap* colorXrayBitmap;
+		Bitmap* colorAmberBitmap;
+		Bitmap* colorGreenBitmap;
 
 };
 
 
 
 #endif /* COLORMODEL_H_ */
+

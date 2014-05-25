@@ -7,13 +7,18 @@
 
 #include "ColorModel.h"
 
+using namespace Osp::App;
+
 ColorModel::ColorModel() {
 	AppLog("ColorModel::ColorModel()");
 	ColorModel(1);
 }
 
 ColorModel::ColorModel(int id) {
+
 	AppLog("ColorModel::ColorModel(%d)", id);
+
+	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 
 	if (id == 1) { //GREEN
 		formBkgColor = Color(0, 0, 0);
@@ -35,6 +40,7 @@ ColorModel::ColorModel(int id) {
 		cellColor = Color(100, 100, 200);
 	}
 
+
 	Osp::Graphics::Canvas __buttonCanvas;
 	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
 
@@ -44,6 +50,25 @@ ColorModel::ColorModel(int id) {
 
 	__buttonCanvas.FillRectangle(controlPressedBkgColor, __buttonRectangle);
 	pressedBackgroundBitmap.Construct(__buttonCanvas,__buttonRectangle);
+
+//	Bitmap* __bitmapGreen = pAppResource->GetBitmapN(L"GreenScheme.png");
+//	Bitmap* __bitmapAmber = pAppResource->GetBitmapN(L"AmberScheme.png");
+//	Bitmap* __bitmapXray = pAppResource->GetBitmapN(L"XrayScheme.png");
+
+//	Bitmap surfaceThorBitmap;
+//	Bitmap surfaceKleinBitmap;
+//	Bitmap surfaceProjectiveBitmap;
+//	Bitmap sizeThreeBitmap;
+//	Bitmap sizeFiveBitmap;
+//	Bitmap sizeTenBitmap;
+//	Bitmap sizeTwentyBitmap;
+//	Bitmap colorXrayBitmap;
+//	Bitmap colorAmberBitmap;
+
+	colorXrayBitmap = pAppResource -> GetBitmapN(L"XrayScheme.png");
+	colorAmberBitmap = pAppResource -> GetBitmapN(L"AmberScheme.png");
+	colorGreenBitmap = pAppResource -> GetBitmapN(L"GreenScheme.png");
+
 
 }
 

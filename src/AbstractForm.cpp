@@ -24,6 +24,6 @@ AbstractForm::SetColorModel(ColorModel* colorModel) {
 
 ColorModel*
 AbstractForm::GetColorModel(void) {
-	AppLog("AbstractForm::GetColorModel(void)");
+	//AppLog("AbstractForm::GetColorModel(void)");
 	return __colorModel;
 }

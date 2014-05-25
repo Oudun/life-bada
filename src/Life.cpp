@@ -73,6 +73,9 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	abstractSettingsForm = new AbstractSettingsForm();
 	abstractSettingsForm -> Initialize();
 
+	newColorForm = new NewColorForm();
+	newColorForm -> Initialize();
+
 	// Add the form to the frame
 
 	lifeFrame = GetAppFrame()->GetFrame();
@@ -85,6 +88,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*surfaceForm);
 	lifeFrame -> AddControl(*rulesForm);
 	lifeFrame -> AddControl(*abstractSettingsForm);
+	lifeFrame -> AddControl(*newColorForm);
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -165,11 +169,17 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			break;
 		}
 		case EVENT_SHOW_COLOR_SCHEME: {
-			AppLog("Showing colorForm");
-			lifeFrame -> SetCurrentForm(*colorForm);
-			colorForm -> Draw();
-			colorForm -> Show();
-			AppLog("ended -> Showing colorForm form");
+//			AppLog("Showing colorForm");
+//			lifeFrame -> SetCurrentForm(*colorForm);
+//			colorForm -> Draw();
+//			colorForm -> Show();
+//			AppLog("ended -> Showing colorForm form");
+//			break;
+			AppLog("Showing newColorForm");
+			lifeFrame -> SetCurrentForm(*newColorForm);
+			newColorForm -> Draw();
+			newColorForm -> Show();
+			AppLog("ended -> Showing newColorForm form");
 			break;
 		}
 		case EVENT_SHOW_CELL_SIZE: {

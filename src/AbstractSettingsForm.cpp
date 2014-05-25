@@ -7,6 +7,8 @@
 
 #include "AbstractSettingsForm.h"
 
+using namespace Osp::Base;
+using namespace Osp::Base::Collection;
 using namespace Osp::Ui::Controls;
 
 AbstractSettingsForm::AbstractSettingsForm() {
@@ -30,6 +32,8 @@ AbstractSettingsForm::OnInitializing(void) {
 	SetBackgroundColor(GetColorModel()->formBkgColor);
 
 	__list = static_cast<List *>(GetControl("IDC_LIST"));
+	__list -> SetBackgroundColor(GetColorModel() -> formBkgColor);
+	__list -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel() -> textColor);
 
 	PopulateList();
 
@@ -50,6 +54,7 @@ AbstractSettingsForm::OnInitializing(void) {
 	__label = static_cast<Label *>(GetControl("IDC_LABEL"));
 	__label -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__label -> SetTextColor(GetColorModel()->textColor);
+	__label -> SetText(LABEL_TEXT);
 
 	return E_SUCCESS;
 
@@ -68,12 +73,11 @@ AbstractSettingsForm::OnActionPerformed(const Osp::Ui::Control& source, int acti
 			break;
 		}
 		case IDC_BUTTON_APPLY: {
-//			IList* args = new ArrayList();
-//			int checkedIndex = __listCellSize -> GetFirstCheckedItemIndex();
-//			int checkedItemId = __listCellSize -> GetItemIdAt(checkedIndex);
-//			cellSize = checkedItemId;
-//			args -> Add(*(new Integer(checkedItemId)));
-//			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_APPLY_CELL_SIZE, args);
+			IList* args = new ArrayList();
+			int checkedIndex = __list -> GetFirstCheckedItemIndex();
+			int checkedItemId = __list -> GetItemIdAt(checkedIndex);
+			args -> Add(*(new Integer(checkedItemId)));
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_APPLY_CELL_SIZE, args);
 			AppLog("FORM_EVENT_CODE is %d", FORM_EVENT_CODE);
 			Osp::App::Application::GetInstance() -> SendUserEvent(FORM_EVENT_CODE, null);
 			break;

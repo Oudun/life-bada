@@ -33,9 +33,9 @@ ColorForm::OnInitializing(void) {
 	SetBackgroundColor(GetColorModel()->formBkgColor);
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-	Bitmap* __bitmapGreen = pAppResource->GetBitmapN(L"GreenScheme.png");
-	Bitmap* __bitmapAmber = pAppResource->GetBitmapN(L"AmberScheme.png");
-	Bitmap* __bitmapXray = pAppResource->GetBitmapN(L"XrayScheme.png");
+//	Bitmap* __bitmapGreen = pAppResource->GetBitmapN(L"GreenScheme.png");
+//	Bitmap* __bitmapAmber = pAppResource->GetBitmapN(L"AmberScheme.png");
+//	Bitmap* __bitmapXray = pAppResource->GetBitmapN(L"XrayScheme.png");
 
 	__listColor =  static_cast<List *>(GetControl("IDC_LIST_COLOR"));
 //todo
@@ -45,9 +45,9 @@ ColorForm::OnInitializing(void) {
 
 	__listColor -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__listColor -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel()->textColor);
-	__listColor -> AddItem(&__greenScheme, null, __bitmapGreen, null, INDEX_GREEN);
-	__listColor -> AddItem(&__amberScheme, null, __bitmapAmber, null, INDEX_AMBER);
-	__listColor -> AddItem(&__xrayScheme, null, __bitmapXray, null, INDEX_XRAY);
+	__listColor -> AddItem(&__greenScheme, null, GetColorModel()->colorGreenBitmap, null, INDEX_GREEN);
+	__listColor -> AddItem(&__amberScheme, null, GetColorModel()->colorAmberBitmap, null, INDEX_AMBER);
+	__listColor -> AddItem(&__xrayScheme, null, GetColorModel()->colorXrayBitmap, null, INDEX_XRAY);
 
 	__listColor -> AddItemEventListener(*this);
 

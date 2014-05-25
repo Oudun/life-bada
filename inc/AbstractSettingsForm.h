@@ -26,16 +26,16 @@ class AbstractSettingsForm :
 		virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
 		virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 		virtual void PopulateList(void);
-		virtual int GetActionCode(void);
 
-	private:
+	protected:
 		Osp::Ui::Controls::List* __list;
 		Osp::Ui::Controls::Label* __label;
 		Osp::Ui::Controls::Button* __buttonApply;
 		Osp::Ui::Controls::Button* __buttonCancel;
 
 	protected:
-		int FORM_EVENT_CODE;// = EVENT_SHOW_SETTINGS;//&EVENT_SHOW_GAME_RULES;
+		int FORM_EVENT_CODE;
+		String LABEL_TEXT;
 
 	private:
 		const static int IDC_BUTTON_CANCEL = 0;
