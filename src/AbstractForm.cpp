@@ -9,7 +9,7 @@
 
 AbstractForm::AbstractForm() {
 	AppLog("AbstractForm::AbstractForm()");
-	__colorModel = new ColorModel(3);
+	__colorModel = new ColorModel(1);
 }
 
 AbstractForm::~AbstractForm() {

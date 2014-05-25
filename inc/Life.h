@@ -16,6 +16,7 @@
 #include "RulesForm.h"
 #include "SpeedForm.h"
 #include "ColorForm.h"
+#include "AbstractSettingsForm.h"
 
 /**
  * [Life] application must inherit from Application class
@@ -74,6 +75,7 @@ private:
 	RulesForm* rulesForm;
 	SpeedForm* speedForm;
 	ColorForm* colorForm;
+	AbstractSettingsForm* abstractSettingsForm;
 
 	Evolution* evolution;
 

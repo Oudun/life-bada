@@ -50,6 +50,7 @@ static const int EVENT_SHOW_BACK = 37;
 static const int EVENT_APPLY_CELL_SIZE = 41;
 static const int EVENT_APPLY_SPEED = 51;
 static const int EVENT_APPLY_COLOR = 61;
+static const int EVENT_APPLY_RULES = 71;
 
 
 // Color schemes
@@ -129,3 +130,4 @@ static String STRING_ABOUT_INTRO_TEXT("ABOUT_INTRO_TEXT");
 static String STRING_ABOUT_TEXT("ABOUT_TEXT");
 
 #endif /* CONSTANTS_H_ */
+

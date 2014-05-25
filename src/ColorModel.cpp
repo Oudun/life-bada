@@ -31,7 +31,7 @@ ColorModel::ColorModel(int id) {
 		formBkgColor = Color(200, 200, 255);
 		controlNormalBkgColor = Color(100, 100, 200);
 		controlPressedBkgColor = Color(100, 100, 200);
-		textColor = Color(200, 200, 255);
+		textColor = Color(255, 255, 255);
 		cellColor = Color(100, 100, 200);
 	}
 

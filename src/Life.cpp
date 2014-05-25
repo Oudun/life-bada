@@ -70,6 +70,9 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	speedForm = new SpeedForm();
 	speedForm -> Initialize();
 
+	abstractSettingsForm = new AbstractSettingsForm();
+	abstractSettingsForm -> Initialize();
+
 	// Add the form to the frame
 
 	lifeFrame = GetAppFrame()->GetFrame();
@@ -81,7 +84,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*speedForm);
 	lifeFrame -> AddControl(*surfaceForm);
 	lifeFrame -> AddControl(*rulesForm);
-
+	lifeFrame -> AddControl(*abstractSettingsForm);
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -200,6 +203,15 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			rulesForm -> Show();
 			AppLog("ended -> Showing rulesForm");
 			break;
+
+//
+//			AppLog("Showing abstractSettingsForm");
+//			lifeFrame -> SetCurrentForm(*abstractSettingsForm);
+//			abstractSettingsForm -> Draw();
+//			abstractSettingsForm -> Show();
+//			AppLog("ended -> Showing abstractSettingsForm");
+//			break;
+
 		}
 		case EVENT_APPLY_CELL_SIZE: {
 			AppLog("Show Life Form with updated size");
@@ -232,6 +244,13 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			lifeFrame -> Draw();
 			lifeFrame -> Show();
 			AppLog("ended -> Showing speedForm");
+			break;
+		}
+		case EVENT_APPLY_RULES: {
+			AppLog("Show Life Form with updated rules");
+			lifeFrame -> SetCurrentForm(*lifeForm);
+			lifeFrame -> Draw();
+			lifeFrame -> Show();
 			break;
 		}
 		default: {
