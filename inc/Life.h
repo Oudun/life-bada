@@ -19,6 +19,7 @@
 #include "AbstractSettingsForm.h"
 
 #include "forms/NewColorForm.h"
+#include "forms/NewSurfaceForm.h"
 
 /**
  * [Life] application must inherit from Application class
@@ -79,6 +80,7 @@ private:
 	ColorForm* colorForm;
 	AbstractSettingsForm* abstractSettingsForm;
 	NewColorForm* newColorForm;
+	NewSurfaceForm* newSurfaceForm;
 
 	Evolution* evolution;
 

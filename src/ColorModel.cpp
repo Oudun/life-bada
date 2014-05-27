@@ -55,9 +55,10 @@ ColorModel::ColorModel(int id) {
 //	Bitmap* __bitmapAmber = pAppResource->GetBitmapN(L"AmberScheme.png");
 //	Bitmap* __bitmapXray = pAppResource->GetBitmapN(L"XrayScheme.png");
 
-//	Bitmap surfaceThorBitmap;
-//	Bitmap surfaceKleinBitmap;
-//	Bitmap surfaceProjectiveBitmap;
+	surfaceThorBitmap = pAppResource -> GetBitmapN(L"Torus.png");
+	surfaceKleinBitmap = pAppResource -> GetBitmapN(L"Klein.png");
+	surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"Projective.png");
+
 //	Bitmap sizeThreeBitmap;
 //	Bitmap sizeFiveBitmap;
 //	Bitmap sizeTenBitmap;
@@ -75,3 +76,41 @@ ColorModel::ColorModel(int id) {
 ColorModel::~ColorModel() {
 	// TODO Auto-generated destructor stub
 }
+
+ColorModel*
+ColorModel::GetInstance(int id) {
+	AppLog("ColorModel::GetInstance(%d)", id);
+	TryLog(__greenInstance != null, "The __greenInstance is null.");
+	if (id == 1) { //why if (id == COLOR_SCHEME_GREEN) { does not work?
+		AppLog("1");
+		if (__greenInstance == null) {
+			AppLog("2");
+			__greenInstance = new ColorModel(1);
+			AppLog("3");
+		}
+		AppLog("4");
+		return __greenInstance;
+	} else  if (id == 2) {
+		AppLog("5");
+		if (__amberInstance == null) {
+			AppLog("6");
+			__amberInstance = new ColorModel(2);
+			AppLog("7");
+		}
+		AppLog("8");
+		return __amberInstance;
+	} else if (id == 3) {
+		AppLog("9");
+		if (__xrayInstance == null) {
+			AppLog("10");
+			__xrayInstance = new ColorModel(3);
+			AppLog("11");
+		}
+		return __xrayInstance;
+	} else {
+		AppLog("12");
+		AppLog("There is no Color Scheme with ID = %d", id);
+		return null;
+	}
+}
+

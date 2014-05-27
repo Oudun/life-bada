@@ -26,6 +26,7 @@ public:
 	static void ResetCounter(void);
 	static int GetCounter(void);
 	static bool MakeAlive(bool isAlive, int siblingsNum);
+	static void SetSurface(int id);
 };
 
 static int columns;

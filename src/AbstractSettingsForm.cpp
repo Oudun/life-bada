@@ -76,10 +76,10 @@ AbstractSettingsForm::OnActionPerformed(const Osp::Ui::Control& source, int acti
 			IList* args = new ArrayList();
 			int checkedIndex = __list -> GetFirstCheckedItemIndex();
 			int checkedItemId = __list -> GetItemIdAt(checkedIndex);
+			AppLog("Checked option id is %d", checkedItemId);
 			args -> Add(*(new Integer(checkedItemId)));
-			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_APPLY_CELL_SIZE, args);
 			AppLog("FORM_EVENT_CODE is %d", FORM_EVENT_CODE);
-			Osp::App::Application::GetInstance() -> SendUserEvent(FORM_EVENT_CODE, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(FORM_EVENT_CODE, args);
 			break;
 		}
 	}

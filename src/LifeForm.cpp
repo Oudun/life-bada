@@ -168,6 +168,11 @@ LifeForm::Update(void) {
 }
 
 void
+LifeForm::UpdateGenerationSurface(int id) {
+	Generation::SetSurface(id);
+}
+
+void
 LifeForm::UpdateGenerationNumber(void) {
 	if (Generation::GetCounter() > 0) {
 		String __counterStr = Constants::GetString(STRING_GENERATION_NUM);
@@ -222,7 +227,7 @@ LifeForm::RePaint(void) {
 	__settingsButton -> SetTextColor(GetColorModel()->textColor);
 
 	__counterLabel -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
-	__counterLabel -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
+	__counterLabel -> SetTextColor(GetColorModel()->textColor);
 
 	RequestRedraw(true);
 

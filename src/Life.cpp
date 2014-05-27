@@ -76,6 +76,12 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	newColorForm = new NewColorForm();
 	newColorForm -> Initialize();
 
+	newSurfaceForm = new NewSurfaceForm();
+	newSurfaceForm -> Initialize();
+
+
+
+
 	// Add the form to the frame
 
 	lifeFrame = GetAppFrame()->GetFrame();
@@ -89,6 +95,8 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*rulesForm);
 	lifeFrame -> AddControl(*abstractSettingsForm);
 	lifeFrame -> AddControl(*newColorForm);
+	lifeFrame -> AddControl(*newSurfaceForm);
+
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -204,12 +212,20 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			break;
 		}
 		case EVENT_SHOW_SURFACE: {
-			AppLog("Showing surfaceForm");
-			lifeFrame -> SetCurrentForm(*surfaceForm);
-			surfaceForm -> Draw();
-			surfaceForm -> Show();
-			AppLog("ended -> Showing surfaceForm");
+//			AppLog("Showing surfaceForm");
+//			lifeFrame -> SetCurrentForm(*surfaceForm);
+//			surfaceForm -> Draw();
+//			surfaceForm -> Show();
+//			AppLog("ended -> Showing surfaceForm");
+//			break;
+
+			AppLog("Showing newSurfaceForm");
+			lifeFrame -> SetCurrentForm(*newSurfaceForm);
+			newSurfaceForm -> Draw();
+			newSurfaceForm -> Show();
+			AppLog("ended -> Showing newSurfaceForm");
 			break;
+
 		}
 		case EVENT_SHOW_GAME_RULES: {
 			AppLog("Showing rulesForm");
@@ -254,11 +270,22 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 		}
 		case EVENT_APPLY_COLOR: {
 			AppLog("Show Life Form with updated color");
-			//lifeForm -> RePaint();
+			if(pArgs == null) {
+				AppLog("pArgs is null");
+			} else if(pArgs -> GetAt(0) == null) {
+				AppLog("pArgs -> GetAt(0) is null");
+			} else {
+				Integer* colorSchemeId = (Integer*)(pArgs -> GetAt(0));
+				AppLog("Color scheme id is %d", colorSchemeId -> ToInt());
+				lifeForm -> SetColorModel(ColorModel::GetInstance(colorSchemeId -> ToInt()));
+			}
 			lifeFrame -> SetCurrentForm(*lifeForm);
+			lifeForm -> RePaint();
+			lifeForm -> Update();
 			lifeFrame -> Draw();
 			lifeFrame -> Show();
 			AppLog("ended -> Showing speedForm");
+
 			break;
 		}
 		case EVENT_APPLY_RULES: {
@@ -266,6 +293,21 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			lifeFrame -> SetCurrentForm(*lifeForm);
 			lifeFrame -> Draw();
 			lifeFrame -> Show();
+			break;
+		}
+		case EVENT_APPLY_SURFACE: {
+			AppLog("Show Life Form with updated surface");
+			if(pArgs == null) {
+				AppLog("pArgs is null");
+			} else if(pArgs -> GetAt(0) == null) {
+				AppLog("pArgs -> GetAt(0) is null");
+			} else {
+				Integer* surfaceId = (Integer*)(pArgs -> GetAt(0));
+			lifeFrame -> SetCurrentForm(*lifeForm);
+			lifeForm -> UpdateGenerationSurface(surfaceId -> ToInt());
+			lifeFrame -> Draw();
+			lifeFrame -> Show();
+			}
 			break;
 		}
 		default: {

@@ -327,3 +327,7 @@ Generation::GetCounter(void){
 	return counter;
 }
 
+void
+Generation::SetSurface(int id) {
+	surface = id;
+}

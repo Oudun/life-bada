@@ -45,10 +45,11 @@ static const int EVENT_APPLY_CELL_SIZE = 41;
 static const int EVENT_APPLY_SPEED = 51;
 static const int EVENT_APPLY_COLOR = 61;
 static const int EVENT_APPLY_RULES = 71;
+static const int EVENT_APPLY_SURFACE = 81;
 
 // Color schemes
 
-static int COLOR_SCHEME_GREEN(1);
+static int COLOR_SCHEME_GREEN = 1;
 static int COLOR_SCHEME_AMBER = 2;
 static int COLOR_SCHEME_XRAY = 3;
 
@@ -81,6 +82,10 @@ static String STRING_SPEED_LABEL("SPEED_LABEL");
 
 static String STRING_ABOUT_INTRO_TEXT("ABOUT_INTRO_TEXT");
 static String STRING_ABOUT_TEXT("ABOUT_TEXT");
+
+static String STRING_SURFACE_TORUS("SURFACE_TORUS");
+static String STRING_SURFACE_KLEIN("SURFACE_KLEIN");
+static String STRING_SURFACE_PROJECTIVE("SURFACE_PROJECTIVE");
 
 #endif /* CONSTANTS_H_ */
 

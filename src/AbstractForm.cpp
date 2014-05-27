@@ -18,6 +18,7 @@ AbstractForm::~AbstractForm() {
 
 void
 AbstractForm::SetColorModel(ColorModel* colorModel) {
+	AppLog("Setting color model");
 	__colorModel = colorModel;
 }
 

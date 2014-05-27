@@ -21,6 +21,7 @@ class ColorModel {
 	public:
 		ColorModel();
 		ColorModel(int id);
+		static ColorModel* GetInstance(int id);
 		virtual ~ColorModel();
 
 	public:
@@ -47,7 +48,9 @@ class ColorModel {
 
 };
 
-
+static ColorModel* __greenInstance;
+static ColorModel* __amberInstance;
+static ColorModel* __xrayInstance;
 
 #endif /* COLORMODEL_H_ */
 

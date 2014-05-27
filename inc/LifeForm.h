@@ -19,6 +19,7 @@ public:
 	bool Initialize(void);
 	void Update(void);
 	void UpdateGenerationNumber(void);
+	void UpdateGenerationSurface(int id);
 	void SetStartLabel(Osp::Base::String labelText);
 	void SetCellSize(int size);
 	int GetCellSize(void);
