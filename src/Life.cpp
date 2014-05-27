@@ -270,17 +270,20 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 		}
 		case EVENT_APPLY_COLOR: {
 			AppLog("Show Life Form with updated color");
-			if(pArgs == null) {
-				AppLog("pArgs is null");
-			} else if(pArgs -> GetAt(0) == null) {
-				AppLog("pArgs -> GetAt(0) is null");
-			} else {
-				Integer* colorSchemeId = (Integer*)(pArgs -> GetAt(0));
-				AppLog("Color scheme id is %d", colorSchemeId -> ToInt());
-				lifeForm -> SetColorModel(ColorModel::GetInstance(colorSchemeId -> ToInt()));
-			}
-			lifeFrame -> SetCurrentForm(*lifeForm);
+			Integer* colorSchemeId = (Integer*)(pArgs -> GetAt(0));
+			AppLog("Color scheme id is %d", colorSchemeId -> ToInt());
+
+			ColorModel* selectedModel = ColorModel::GetInstance(colorSchemeId -> ToInt());
+
+			lifeForm -> SetColorModel(selectedModel);
+			settingsForm -> SetColorModel(selectedModel);
+			newSurfaceForm -> SetColorModel(selectedModel);
+
 			lifeForm -> RePaint();
+			settingsForm -> RePaint();
+			newSurfaceForm -> RePaint();
+
+			lifeFrame -> SetCurrentForm(*lifeForm);
 			lifeForm -> Update();
 			lifeFrame -> Draw();
 			lifeFrame -> Show();

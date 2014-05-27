@@ -17,6 +17,7 @@ class AbstractForm : public Osp::Ui::Controls::Form {
 		virtual ~AbstractForm();
 		void SetColorModel(ColorModel* colorModel);
 		ColorModel* GetColorModel(void);
+		virtual void RePaint(void);
 	public:
 		ColorModel* __colorModel;
 };

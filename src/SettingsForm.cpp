@@ -150,3 +150,8 @@ SettingsForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId) {
 		}
 	}
 }
+
+void
+SettingsForm::RePaint(void) {
+	AppLog("Re-painting Settings form");
+}

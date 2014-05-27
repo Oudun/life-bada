@@ -57,7 +57,7 @@ ColorModel::ColorModel(int id) {
 
 	surfaceThorBitmap = pAppResource -> GetBitmapN(L"Torus.png");
 	surfaceKleinBitmap = pAppResource -> GetBitmapN(L"Klein.png");
-	surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"Projective.png");
+	surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"ProjPlane.png");
 
 //	Bitmap sizeThreeBitmap;
 //	Bitmap sizeFiveBitmap;

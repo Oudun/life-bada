@@ -22,6 +22,7 @@ class SettingsForm :
 public:
 	SettingsForm();
 	virtual ~SettingsForm();
+	void RePaint(void);
 	bool Initialize(void);
 
 public:

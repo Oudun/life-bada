@@ -89,3 +89,25 @@ void
 AbstractSettingsForm::PopulateList(void) {
 	AppLog("AbstractSettingsForm::PopulateList");
 }
+
+void
+AbstractSettingsForm::RePaint(void) {
+
+	AppLog("Repainting abstract settings form");
+
+	this -> SetBackgroundColor(GetColorModel()->formBkgColor);
+
+	__buttonCancel -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
+	__buttonCancel -> SetTextColor(GetColorModel()->textColor);
+
+	__buttonApply -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
+	__buttonApply -> SetTextColor(GetColorModel()->textColor);
+
+	__label -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
+	__label -> SetTextColor(GetColorModel()->textColor);
+
+	//RequestRedraw(true);
+
+	AppLog("Done repainting abstract settings form");
+
+}

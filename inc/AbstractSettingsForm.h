@@ -26,6 +26,7 @@ class AbstractSettingsForm :
 		virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
 		virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 		virtual void PopulateList(void);
+		virtual void RePaint(void);
 
 	protected:
 		Osp::Ui::Controls::List* __list;
