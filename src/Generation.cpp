@@ -76,9 +76,6 @@ Generation::Calculate(void) {
 	}
 
 
-	AppLog("Assigning edge cells");
-
-
 // START SETTING EDGE CELLS
 
 	if (surface == SURFACE_THOR) {
@@ -151,8 +148,6 @@ Generation::Calculate(void) {
 
 		// FIRST ROW
 
-		AppLog("Calculating Top");
-
 		siblingNum = 0;
 
 		siblingNum += (int) currentGeneration[i-1][1];
@@ -167,9 +162,6 @@ Generation::Calculate(void) {
 		nextGeneration[i][0] = MakeAlive(currentGeneration[i][0], siblingNum);
 
 		// LAST ROW
-
-
-		AppLog("Calculating Bottom");
 
 		siblingNum = 0;
 
