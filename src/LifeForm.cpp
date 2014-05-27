@@ -21,7 +21,6 @@ LifeForm::Initialize()
 {
 	// Construct an XML form
 	Construct(L"LIFE_FORM");
-
 	return true;
 }
 
@@ -32,16 +31,6 @@ LifeForm::OnInitializing(void)
 	AppLog("Initializing Life Form");
 
 	result r = E_SUCCESS;
-
-//	Osp::Graphics::Canvas __buttonCanvas;
-//	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
-//	Osp::Graphics::Bitmap __buttonBitmap;
-//
-//	__buttonCanvas.Construct(__buttonRectangle);
-//	__buttonCanvas.FillRectangle(GetColorModel()->controlNormalBkgColor, __buttonRectangle);
-//	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
-
-	// TODO: Add your initialization code here
 
 	__seedButton = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));
 	if (__seedButton)
@@ -134,20 +123,25 @@ LifeForm::Update(void) {
 
 	AppLog("!!!Updating");
 
-//	Osp::Graphics::Canvas* canvas;
-//	Control* control = GetControl(L"LIFE_FORM");
-//	canvas = control -> GetCanvasN();
-
 	result r = __lifeFieldCanvas -> FillRectangle(GetColorModel()->formBkgColor, GetBounds());
 
 	if (__lifeFieldCanvas == null) {
 		AppLog("Canvas is null");
 	}
+
 	AppLog("Canvas filling result is %s", GetErrorMessage(r));
+
+	AppLog("Cell Color is (%d, %d, %d)",
+			GetColorModel()->cellColor.GetRed(),
+			GetColorModel()->cellColor.GetGreen(),
+			GetColorModel()->cellColor.GetBlue());
+
+	int c = 0;
 
 	for (int i=0; i < Generation::GetColumns(); i++) {
 		for (int j=0; j < Generation::GetRows(); j++) {
 			if(Generation::IsOccupied(i, j)) {
+				c++;
 				__lifeFieldCanvas -> FillRectangle(GetColorModel()->cellColor,
 					Osp::Graphics::Rectangle(
 						i*__seedSize,
@@ -160,6 +154,7 @@ LifeForm::Update(void) {
 		}
 	}
 
+	AppLog("%d cells painted", c);
 	AppLog("!!!Showing now");
 
 	r = __lifeFieldCanvas -> Show();
@@ -215,31 +210,19 @@ LifeForm::RePaint(void) {
 
 	AppLog("Repainting started");
 
-	Osp::Graphics::Canvas __buttonCanvas;
-	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
-	Osp::Graphics::Bitmap __buttonBitmap;
+	this -> SetBackgroundColor(GetColorModel()->formBkgColor);
 
-	__buttonCanvas.Construct(__buttonRectangle);
-	__buttonCanvas.FillRectangle(GetColorModel()->controlNormalBkgColor, __buttonRectangle);
-//	__buttonCanvas.FillRectangle(Color::COLOR_CYAN, __buttonRectangle);
-	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
-
-	__seedButton = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));
-	__seedButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+	__seedButton -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
 	__seedButton -> SetTextColor(GetColorModel()->textColor);
 
-
-	__startButton = static_cast<Button *>(GetControl("IDC_BUTTON_START"));
-	__startButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+	__startButton -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
 	__startButton -> SetTextColor(GetColorModel()->textColor);
 
-	__settingsButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+	__settingsButton -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
 	__settingsButton -> SetTextColor(GetColorModel()->textColor);
 
 	__counterLabel -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
 	__counterLabel -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
-
-	SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
 
 	RequestRedraw(true);
 

@@ -112,6 +112,11 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 	switch (requestId) {
 
 		case EVENT_SEED: {
+			AppLog("Seed button pressed");
+			if (evolution -> IsStarted())
+				AppLog("Evolution started");
+			if (evolution -> IsSuspended())
+				AppLog("Evolution suspended");
 			if (evolution -> IsStarted()&&!evolution -> IsSuspended()) {
 				evolution -> Suspend();
 				lifeForm -> SetStartLabel(Constants::GetString(STRING_RESUME));
@@ -249,7 +254,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 		}
 		case EVENT_APPLY_COLOR: {
 			AppLog("Show Life Form with updated color");
-			lifeForm -> RePaint();
+			//lifeForm -> RePaint();
 			lifeFrame -> SetCurrentForm(*lifeForm);
 			lifeFrame -> Draw();
 			lifeFrame -> Show();
@@ -319,7 +324,7 @@ void
 Life::OnScreenOff (void)
 {
 	// TODO:
-	//  Unless there is a strong reason to do otherwise, release resources (such as 3D, media, and sensors) to allow the device to enter the sleep mode to save the battery.
+	// Unless there is a strong reason to do otherwise, release resources (such as 3D, media, and sensors) to allow the device to enter the sleep mode to save the battery.
 	// Invoking a lengthy asynchronous method within this listener method can be risky, because it is not guaranteed to invoke a callback before the device enters the sleep mode.
 	// Similarly, do not perform lengthy operations in this listener method. Any operation must be a quick one.
 }
