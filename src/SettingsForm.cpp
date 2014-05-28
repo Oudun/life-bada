@@ -159,8 +159,8 @@ SettingsForm::RePaint(void) {
 	SetBackgroundColor(GetColorModel()->formBkgColor);
 
 	__settingsList -> SetBackgroundColor(GetColorModel() -> formBkgColor);
-	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel() -> textColor);
-	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT2, GetColorModel() -> textColor);
+	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel() -> formTextColor);
+	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT2, GetColorModel() -> formTextColor);
 
 	__settingsLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__settingsLabel -> SetTextColor(GetColorModel()->textColor);

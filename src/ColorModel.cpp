@@ -37,7 +37,7 @@ ColorModel::ColorModel(int id) {
 		formTextColor = Color(255, 126, 0);
 		controlNormalBkgColor = Color(130, 62, 0);
 		controlPressedBkgColor = Color(255, 126, 0);
-		textColor = Color(255, 126, 0);
+		textColor = Color(255, 175, 96);
 		cellColor = Color(255, 126, 0);
 		conwayBitmap = pAppResource -> GetBitmapN(L"ConwayAmber.png");
 		sizeThreeBitmap = pAppResource -> GetBitmapN(L"3x3xAmber.png");
