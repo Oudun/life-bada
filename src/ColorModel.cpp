@@ -32,6 +32,9 @@ ColorModel::ColorModel(int id) {
 		sizeFiveBitmap = pAppResource -> GetBitmapN(L"5x5xGreen.png");
 		sizeTenBitmap = pAppResource -> GetBitmapN(L"10x10xGreen.png");
 		sizeTwentyBitmap = pAppResource -> GetBitmapN(L"20x20xGreen.png");
+		surfaceThorBitmap = pAppResource -> GetBitmapN(L"TorusGreen.png");
+		surfaceKleinBitmap = pAppResource -> GetBitmapN(L"KleinGreen.png");
+		surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"ProjPlaneGreen.png");
 	} else if (id ==2 ) { // AMBER
 		formBkgColor = Color(0, 0, 0);
 		formTextColor = Color(255, 126, 0);
@@ -44,6 +47,9 @@ ColorModel::ColorModel(int id) {
 		sizeFiveBitmap = pAppResource -> GetBitmapN(L"5x5xAmber.png");
 		sizeTenBitmap = pAppResource -> GetBitmapN(L"10x10xAmber.png");
 		sizeTwentyBitmap = pAppResource -> GetBitmapN(L"20x20xAmber.png");
+		surfaceThorBitmap = pAppResource -> GetBitmapN(L"TorusAmber.png");
+		surfaceKleinBitmap = pAppResource -> GetBitmapN(L"KleinAmber.png");
+		surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"ProjPlaneAmber.png");
 	} else {
 		formBkgColor = Color(200, 200, 255);
 		formTextColor = Color(100, 100, 200);
@@ -56,6 +62,9 @@ ColorModel::ColorModel(int id) {
 		sizeFiveBitmap = pAppResource -> GetBitmapN(L"5x5xXray.png");
 		sizeTenBitmap = pAppResource -> GetBitmapN(L"10x10xXray.png");
 		sizeTwentyBitmap = pAppResource -> GetBitmapN(L"20x20xXray.png");
+		surfaceThorBitmap = pAppResource -> GetBitmapN(L"TorusXray.png");
+		surfaceKleinBitmap = pAppResource -> GetBitmapN(L"KleinXray.png");
+		surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"ProjPlaneXray.png");
 	}
 
 
@@ -68,10 +77,6 @@ ColorModel::ColorModel(int id) {
 
 	__buttonCanvas.FillRectangle(controlPressedBkgColor, __buttonRectangle);
 	pressedBackgroundBitmap.Construct(__buttonCanvas,__buttonRectangle);
-
-	surfaceThorBitmap = pAppResource -> GetBitmapN(L"Torus.png");
-	surfaceKleinBitmap = pAppResource -> GetBitmapN(L"Klein.png");
-	surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"ProjPlane.png");
 
 	colorXrayBitmap = pAppResource -> GetBitmapN(L"XrayScheme.png");
 	colorAmberBitmap = pAppResource -> GetBitmapN(L"AmberScheme.png");

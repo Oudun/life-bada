@@ -11,13 +11,13 @@
         <layout mode="Landscape" style="FORM_STYLE_NORMAL"/>
     </Form>
     <List id="SETTINGS_LIST" parent="SETTINGS_FORM">
-        <property ListItemFormat="LIST_ITEM_SINGLE_TEXT" colorOfEmptyListText="" column1Width="160" column2Width="50" row1Height="30" row2Height="50" textOfEmptyList=""/>
-        <layout height="201" mode="Portrait" style="LIST_STYLE_NORMAL" width="160" x="40" y="140"/>
+        <property ListItemFormat="LIST_ITEM_SINGLE_TEXT" colorOfEmptyListText="" column1Width="160" column2Width="50" row1Height="50" row2Height="50" textOfEmptyList=""/>
+        <layout height="260" mode="Portrait" style="LIST_STYLE_NORMAL" width="160" x="40" y="101"/>
         <layout height="36" mode="Landscape" style="LIST_STYLE_NORMAL" width="166" x="146" y="81"/>
     </List>
     <Label id="SETTINGS_LABEL" parent="SETTINGS_FORM">
         <property BGBitmapPath="" BGColor="" BGColorOpacity="100" hAlign="ALIGN_CENTER" text="" textColor="" textSize="22" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_MIDDLE"/>
-        <layout height="32" mode="Portrait" width="160" x="40" y="70"/>
+        <layout height="32" mode="Portrait" width="160" x="40" y="51"/>
         <layout height="19" mode="Landscape" width="166" x="68" y="20"/>
     </Label>
     <Button id="IDC_BUTTON_BACK" parent="SETTINGS_FORM">

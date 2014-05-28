@@ -44,7 +44,7 @@ SettingsForm::OnInitializing(void) {
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_GAME_RULES), null, null, null, INDEX_GAME_RULES);
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SPEED), null, null, null, INDEX_SPEED);
 
-	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel()->textColor);
+	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel()->formTextColor);
 	__settingsList -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__settingsList -> AddItemEventListener(*this);
 
