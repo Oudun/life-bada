@@ -35,8 +35,8 @@ SettingsForm::OnInitializing(void) {
 	SetBackgroundColor(GetColorModel()->formBkgColor);
 	__settingsList = new List();
 	__settingsList = static_cast<List *>(GetControl("SETTINGS_LIST"));
-	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-	Bitmap* __bgImage = pAppResource->GetBitmapN(L"Splash_type3.png");
+	//AppResource* pAppResource = Application::GetInstance()->GetAppResource();
+	//Bitmap* __bgImage = pAppResource->GetBitmapN(L"Splash_type3.png");
 
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SURFACE), null, null, null, INDEX_SURFACE);
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_CELL_SIZE), null, null, null, INDEX_CELL_SIZE);
@@ -48,12 +48,12 @@ SettingsForm::OnInitializing(void) {
 	__settingsList -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__settingsList -> AddItemEventListener(*this);
 
-	Label *__settingsLabel = static_cast<Label *>(GetControl("SETTINGS_LABEL"));
+	__settingsLabel = static_cast<Label *>(GetControl("SETTINGS_LABEL"));
 	__settingsLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__settingsLabel -> SetTextColor(GetColorModel()->textColor);
 	__settingsLabel -> SetText(Constants::GetString(STRING_SETTINGS));
 
-	Button *__backButton = static_cast<Button *>(GetControl("IDC_BUTTON_BACK"));
+	__backButton = static_cast<Button *>(GetControl("IDC_BUTTON_BACK"));
 	if (__backButton)
 	{
 		__backButton -> SetActionId(IDC_BUTTON_BACK);
@@ -63,7 +63,7 @@ SettingsForm::OnInitializing(void) {
 		__backButton -> AddActionEventListener(*this);
 	}
 
-	Button *__aboutButton = static_cast<Button *>(GetControl("IDC_BUTTON_ABOUT"));
+	__aboutButton = static_cast<Button *>(GetControl("IDC_BUTTON_ABOUT"));
 	if (__aboutButton)
 	{
 		__aboutButton -> SetActionId(IDC_BUTTON_ABOUT);
@@ -153,5 +153,23 @@ SettingsForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId) {
 
 void
 SettingsForm::RePaint(void) {
+
 	AppLog("Re-painting Settings form");
+
+	SetBackgroundColor(GetColorModel()->formBkgColor);
+
+	__settingsList -> SetBackgroundColor(GetColorModel() -> formBkgColor);
+	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel() -> textColor);
+	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT2, GetColorModel() -> textColor);
+
+	__settingsLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
+	__settingsLabel -> SetTextColor(GetColorModel()->textColor);
+
+	__backButton -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
+	__backButton -> SetTextColor(GetColorModel()->textColor);
+
+	__aboutButton -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
+	__aboutButton -> SetTextColor(GetColorModel()->textColor);
+
 }
+

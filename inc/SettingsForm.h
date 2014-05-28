@@ -34,6 +34,10 @@ public:
 
 private:
 	Osp::Ui::Controls::List* __settingsList;
+	Osp::Ui::Controls::Label* __settingsLabel;
+	Osp::Ui::Controls::Button* __backButton;
+	Osp::Ui::Controls::Button* __aboutButton;
+
 	static const int INDEX_ABOUT_GAME = 1;
 	static const int INDEX_SURFACE = 2;
 	static const int INDEX_CELL_SIZE = 3;

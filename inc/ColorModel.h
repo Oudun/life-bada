@@ -28,6 +28,7 @@ class ColorModel {
 		Color formBkgColor;
 		Color controlNormalBkgColor;
 		Color controlPressedBkgColor;
+		Color formTextColor;
 		Color textColor;
 		Color cellColor;
 

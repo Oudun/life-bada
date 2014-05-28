@@ -78,10 +78,10 @@ AboutForm::RePaint(void)
 	SetBackgroundColor(GetColorModel()->formBkgColor);
 
 	__textIntroLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
-	__textIntroLabel -> SetTextColor(GetColorModel()->textColor);
+	__textIntroLabel -> SetTextColor(GetColorModel()->formTextColor);
 
 	__textLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
-	__textLabel -> SetTextColor(GetColorModel()->textColor);
+	__textLabel -> SetTextColor(GetColorModel()->formTextColor);
 
 	__buttonBack -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
 	__buttonBack -> SetTextColor(GetColorModel()->textColor);

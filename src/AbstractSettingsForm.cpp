@@ -33,7 +33,7 @@ AbstractSettingsForm::OnInitializing(void) {
 
 	__list = static_cast<List *>(GetControl("IDC_LIST"));
 	__list -> SetBackgroundColor(GetColorModel() -> formBkgColor);
-	__list -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel() -> textColor);
+	__list -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel() -> formTextColor);
 	__list -> SetItemTextColor(LIST_ITEM_TEXT2, GetColorModel() -> textColor);
 
 	PopulateList();
@@ -95,6 +95,8 @@ void
 AbstractSettingsForm::RePaint(void) {
 
 	AppLog("Repainting abstract settings form");
+
+	PopulateList();
 
 	this -> SetBackgroundColor(GetColorModel()->formBkgColor);
 

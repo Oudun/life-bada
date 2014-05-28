@@ -22,25 +22,40 @@ ColorModel::ColorModel(int id) {
 
 	if (id == 1) { //GREEN
 		formBkgColor = Color(0, 0, 0);
+		formTextColor = Color(0, 255, 0);
 		controlNormalBkgColor = Color(0, 128, 64);
 		controlPressedBkgColor = Color(0, 128, 64);
 		textColor = Color(0, 255, 0);
 		cellColor = Color(0, 255, 0);
 		conwayBitmap = pAppResource -> GetBitmapN(L"ConwayGreen.png");
+		sizeThreeBitmap = pAppResource -> GetBitmapN(L"3x3xGreen.png");
+		sizeFiveBitmap = pAppResource -> GetBitmapN(L"5x5xGreen.png");
+		sizeTenBitmap = pAppResource -> GetBitmapN(L"10x10xGreen.png");
+		sizeTwentyBitmap = pAppResource -> GetBitmapN(L"20x20xGreen.png");
 	} else if (id ==2 ) { // AMBER
 		formBkgColor = Color(0, 0, 0);
+		formTextColor = Color(255, 126, 0);
 		controlNormalBkgColor = Color(130, 62, 0);
 		controlPressedBkgColor = Color(255, 126, 0);
 		textColor = Color(255, 126, 0);
 		cellColor = Color(255, 126, 0);
 		conwayBitmap = pAppResource -> GetBitmapN(L"ConwayAmber.png");
+		sizeThreeBitmap = pAppResource -> GetBitmapN(L"3x3xAmber.png");
+		sizeFiveBitmap = pAppResource -> GetBitmapN(L"5x5xAmber.png");
+		sizeTenBitmap = pAppResource -> GetBitmapN(L"10x10xAmber.png");
+		sizeTwentyBitmap = pAppResource -> GetBitmapN(L"20x20xAmber.png");
 	} else {
 		formBkgColor = Color(200, 200, 255);
+		formTextColor = Color(100, 100, 200);
 		controlNormalBkgColor = Color(100, 100, 200);
 		controlPressedBkgColor = Color(100, 100, 200);
 		textColor = Color(255, 255, 255);
 		cellColor = Color(100, 100, 200);
 		conwayBitmap = pAppResource -> GetBitmapN(L"ConwayXray.png");
+		sizeThreeBitmap = pAppResource -> GetBitmapN(L"3x3xXray.png");
+		sizeFiveBitmap = pAppResource -> GetBitmapN(L"5x5xXray.png");
+		sizeTenBitmap = pAppResource -> GetBitmapN(L"10x10xXray.png");
+		sizeTwentyBitmap = pAppResource -> GetBitmapN(L"20x20xXray.png");
 	}
 
 
@@ -57,11 +72,6 @@ ColorModel::ColorModel(int id) {
 	surfaceThorBitmap = pAppResource -> GetBitmapN(L"Torus.png");
 	surfaceKleinBitmap = pAppResource -> GetBitmapN(L"Klein.png");
 	surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"ProjPlane.png");
-
-	sizeThreeBitmap = pAppResource -> GetBitmapN(L"3x3.png");
-	sizeFiveBitmap = pAppResource -> GetBitmapN(L"3x3.png");
-	sizeTenBitmap = pAppResource -> GetBitmapN(L"3x3.png");
-	sizeTwentyBitmap = pAppResource -> GetBitmapN(L"3x3.png");
 
 	colorXrayBitmap = pAppResource -> GetBitmapN(L"XrayScheme.png");
 	colorAmberBitmap = pAppResource -> GetBitmapN(L"AmberScheme.png");

@@ -23,6 +23,7 @@ NewColorForm::PopulateList(void) {
 	String __amberScheme("Amber");
 	String __xrayScheme("X-Ray");
 
+	__list -> RemoveAllItems();
 	__list -> AddItem(&__greenScheme, null, GetColorModel()->colorGreenBitmap, null, COLOR_SCHEME_GREEN);
 	__list -> AddItem(&__amberScheme, null, GetColorModel()->colorAmberBitmap, null, COLOR_SCHEME_AMBER);
 	__list -> AddItem(&__xrayScheme, null, GetColorModel()->colorXrayBitmap, null, COLOR_SCHEME_XRAY);
