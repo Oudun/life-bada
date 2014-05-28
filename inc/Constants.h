@@ -53,6 +53,20 @@ static int COLOR_SCHEME_GREEN = 1;
 static int COLOR_SCHEME_AMBER = 2;
 static int COLOR_SCHEME_XRAY = 3;
 
+// Generation update speed
+
+static int SPEED_FASTEST = 0;
+static int SPEED_TEN_FPS = 100;
+static int SPEED_FIVE_FPS = 200;
+static int SPEED_ONE_FPS = 1000;
+
+// Cell Size
+
+const static int SIZE_THREE = 3;
+const static int SIZE_FIVE = 5;
+const static int SIZE_TEN = 10;
+const static int SIZE_TWENTY = 20;
+
 // Strings
 
 static String STRING_SUSPEND("SUSPEND");

@@ -55,23 +55,8 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	aboutForm = new AboutForm();
 	aboutForm -> Initialize();
 
-	cellSizeForm = new CellSizeForm(lifeForm -> GetCellSize());
-	cellSizeForm -> Initialize();
-
-	colorForm = new ColorForm();
-	colorForm -> Initialize();
-
-	surfaceForm = new SurfaceForm();
-	surfaceForm -> Initialize();
-
 	rulesForm = new RulesForm();
 	rulesForm -> Initialize();
-
-	speedForm = new SpeedForm();
-	speedForm -> Initialize();
-
-	abstractSettingsForm = new AbstractSettingsForm();
-	abstractSettingsForm -> Initialize();
 
 	newColorForm = new NewColorForm();
 	newColorForm -> Initialize();
@@ -79,8 +64,11 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	newSurfaceForm = new NewSurfaceForm();
 	newSurfaceForm -> Initialize();
 
+	newCellSizeForm = new NewCellSizeForm();
+	newCellSizeForm -> Initialize();
 
-
+	newSpeedForm = new NewSpeedForm();
+	newSpeedForm -> Initialize();
 
 	// Add the form to the frame
 
@@ -88,14 +76,11 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*lifeForm);
 	lifeFrame -> AddControl(*settingsForm);
 	lifeFrame -> AddControl(*aboutForm);
-	lifeFrame -> AddControl(*colorForm);
-	lifeFrame -> AddControl(*cellSizeForm);
-	lifeFrame -> AddControl(*speedForm);
-	lifeFrame -> AddControl(*surfaceForm);
 	lifeFrame -> AddControl(*rulesForm);
-	lifeFrame -> AddControl(*abstractSettingsForm);
 	lifeFrame -> AddControl(*newColorForm);
 	lifeFrame -> AddControl(*newSurfaceForm);
+	lifeFrame -> AddControl(*newCellSizeForm);
+	lifeFrame -> AddControl(*newSpeedForm);
 
 
 	// Set the current form
@@ -182,12 +167,6 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			break;
 		}
 		case EVENT_SHOW_COLOR_SCHEME: {
-//			AppLog("Showing colorForm");
-//			lifeFrame -> SetCurrentForm(*colorForm);
-//			colorForm -> Draw();
-//			colorForm -> Show();
-//			AppLog("ended -> Showing colorForm form");
-//			break;
 			AppLog("Showing newColorForm");
 			lifeFrame -> SetCurrentForm(*newColorForm);
 			newColorForm -> Draw();
@@ -196,29 +175,22 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			break;
 		}
 		case EVENT_SHOW_CELL_SIZE: {
-			AppLog("Showing cellSizeForm");
-			lifeFrame -> SetCurrentForm(*cellSizeForm);
-			cellSizeForm -> Draw();
-			cellSizeForm -> Show();
-			AppLog("ended -> Showing cellSizeForm");
+			AppLog("Showing newCellSizeForm");
+			lifeFrame -> SetCurrentForm(*newCellSizeForm);
+			newCellSizeForm -> Draw();
+			newCellSizeForm -> Show();
+			AppLog("ended -> Showing newCellSizeForm");
 			break;
 		}
 		case EVENT_SHOW_SPEED: {
-			AppLog("Showing speedForm");
-			lifeFrame -> SetCurrentForm(*speedForm);
-			speedForm -> Draw();
-			speedForm -> Show();
+			AppLog("Showing newSpeedForm");
+			lifeFrame -> SetCurrentForm(*newSpeedForm);
+			newSpeedForm -> Draw();
+			newSpeedForm -> Show();
 			AppLog("ended -> Showing speedForm");
 			break;
 		}
 		case EVENT_SHOW_SURFACE: {
-//			AppLog("Showing surfaceForm");
-//			lifeFrame -> SetCurrentForm(*surfaceForm);
-//			surfaceForm -> Draw();
-//			surfaceForm -> Show();
-//			AppLog("ended -> Showing surfaceForm");
-//			break;
-
 			AppLog("Showing newSurfaceForm");
 			lifeFrame -> SetCurrentForm(*newSurfaceForm);
 			newSurfaceForm -> Draw();
@@ -234,15 +206,6 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			rulesForm -> Show();
 			AppLog("ended -> Showing rulesForm");
 			break;
-
-//
-//			AppLog("Showing abstractSettingsForm");
-//			lifeFrame -> SetCurrentForm(*abstractSettingsForm);
-//			abstractSettingsForm -> Draw();
-//			abstractSettingsForm -> Show();
-//			AppLog("ended -> Showing abstractSettingsForm");
-//			break;
-
 		}
 		case EVENT_APPLY_CELL_SIZE: {
 			AppLog("Show Life Form with updated size");
@@ -278,10 +241,18 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			lifeForm -> SetColorModel(selectedModel);
 			settingsForm -> SetColorModel(selectedModel);
 			newSurfaceForm -> SetColorModel(selectedModel);
+			newCellSizeForm -> SetColorModel(selectedModel);
+			newSpeedForm -> SetColorModel(selectedModel);
+			newColorForm -> SetColorModel(selectedModel);
+			aboutForm -> SetColorModel(selectedModel);
 
 			lifeForm -> RePaint();
 			settingsForm -> RePaint();
 			newSurfaceForm -> RePaint();
+			newCellSizeForm -> RePaint();
+			newSpeedForm -> RePaint();
+			newColorForm -> RePaint();
+			aboutForm -> RePaint();
 
 			lifeFrame -> SetCurrentForm(*lifeForm);
 			lifeForm -> Update();

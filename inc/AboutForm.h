@@ -21,6 +21,15 @@ class AboutForm :
 		virtual result OnInitializing(void);
 		bool Initialize(void);
 		virtual void OnActionPerformed(const Osp::Ui::Control &source, int actionId);
+		void RePaint(void);
+
+	private:
+		Osp::Graphics::Bitmap* __bitmapButton;
+		Osp::Ui::Controls::Label* __textIntroLabel;
+		Osp::Ui::Controls::Label* __textLabel;
+		Osp::Ui::Controls::Button *__buttonBack;
+		Osp::Ui::Controls::Label *__labelConway;
+
 
 };
 

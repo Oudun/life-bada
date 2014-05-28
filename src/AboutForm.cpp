@@ -33,36 +33,32 @@ AboutForm::OnInitializing(void) {
 
 	SetBackgroundColor(GetColorModel()->formBkgColor);
 
-	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-	Bitmap* __bitmapConway = pAppResource->GetBitmapN(L"Conway.png");
-	Bitmap* __bitmapButton = pAppResource->GetBitmapN(L"Button.png");
-
-	Label* __textIntroLabel = static_cast<Label *>(GetControl("IDC_ABOUT_INTRO_LABEL"));
+	__textIntroLabel = static_cast<Label *>(GetControl("IDC_ABOUT_INTRO_LABEL"));
 	__textIntroLabel -> SetEnabled(false);
 	__textIntroLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__textIntroLabel -> SetTextColor(GetColorModel()->textColor);
 	__textIntroLabel -> SetText(Constants::GetString(STRING_ABOUT_INTRO_TEXT));
 
-	Label* __textLabel = static_cast<Label *>(GetControl("IDC_ABOUT_LABEL"));
+	__textLabel = static_cast<Label *>(GetControl("IDC_ABOUT_LABEL"));
 	__textLabel -> SetEnabled(false);
 	__textLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__textLabel -> SetTextColor(GetColorModel()->textColor);
 	__textLabel -> SetText(Constants::GetString(STRING_ABOUT_TEXT));
 
-	Button *pButton_about_back = static_cast<Button *>(GetControl("IDC_BUTTON_ABOUT_BACK"));
-	if (pButton_about_back)
+	__buttonBack = static_cast<Button *>(GetControl("IDC_BUTTON_ABOUT_BACK"));
+	if (__buttonBack)
 	{
-		pButton_about_back -> SetActionId(1);
-		pButton_about_back -> AddActionEventListener(*this);
-		pButton_about_back -> SetNormalBackgroundBitmap(*__bitmapButton);
-		pButton_about_back -> SetTextColor(GetColorModel()->textColor);
-		pButton_about_back -> SetText(Constants::GetString(STRING_BACK));
+		__buttonBack -> SetActionId(1);
+		__buttonBack -> AddActionEventListener(*this);
+		__buttonBack -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
+		__buttonBack -> SetTextColor(GetColorModel()->textColor);
+		__buttonBack -> SetText(Constants::GetString(STRING_BACK));
 	}
 
-	Label *__labelConway = static_cast<Label *>(GetControl("IDC_LABEL_CONWAY"));
+	__labelConway = static_cast<Label *>(GetControl("IDC_LABEL_CONWAY"));
 	if (__labelConway)
 	{
-		__labelConway -> SetBackgroundBitmap(*__bitmapConway);
+		__labelConway -> SetBackgroundBitmap(*(GetColorModel()->conwayBitmap));
 		__labelConway -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	}
 
@@ -75,3 +71,24 @@ AboutForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId)
 {
 	Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_SETTINGS, null);
 }
+
+void
+AboutForm::RePaint(void)
+{
+	SetBackgroundColor(GetColorModel()->formBkgColor);
+
+	__textIntroLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
+	__textIntroLabel -> SetTextColor(GetColorModel()->textColor);
+
+	__textLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
+	__textLabel -> SetTextColor(GetColorModel()->textColor);
+
+	__buttonBack -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
+	__buttonBack -> SetTextColor(GetColorModel()->textColor);
+
+	__labelConway -> SetBackgroundBitmap(*(GetColorModel()->conwayBitmap));
+	__labelConway -> SetBackgroundColor(GetColorModel()->formBkgColor);
+	__labelConway -> SetTextColor(GetColorModel()->textColor);
+
+}
+

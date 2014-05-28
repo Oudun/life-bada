@@ -26,18 +26,21 @@ ColorModel::ColorModel(int id) {
 		controlPressedBkgColor = Color(0, 128, 64);
 		textColor = Color(0, 255, 0);
 		cellColor = Color(0, 255, 0);
+		conwayBitmap = pAppResource -> GetBitmapN(L"ConwayGreen.png");
 	} else if (id ==2 ) { // AMBER
 		formBkgColor = Color(0, 0, 0);
 		controlNormalBkgColor = Color(130, 62, 0);
 		controlPressedBkgColor = Color(255, 126, 0);
 		textColor = Color(255, 126, 0);
 		cellColor = Color(255, 126, 0);
+		conwayBitmap = pAppResource -> GetBitmapN(L"ConwayAmber.png");
 	} else {
 		formBkgColor = Color(200, 200, 255);
 		controlNormalBkgColor = Color(100, 100, 200);
 		controlPressedBkgColor = Color(100, 100, 200);
 		textColor = Color(255, 255, 255);
 		cellColor = Color(100, 100, 200);
+		conwayBitmap = pAppResource -> GetBitmapN(L"ConwayXray.png");
 	}
 
 
@@ -51,20 +54,14 @@ ColorModel::ColorModel(int id) {
 	__buttonCanvas.FillRectangle(controlPressedBkgColor, __buttonRectangle);
 	pressedBackgroundBitmap.Construct(__buttonCanvas,__buttonRectangle);
 
-//	Bitmap* __bitmapGreen = pAppResource->GetBitmapN(L"GreenScheme.png");
-//	Bitmap* __bitmapAmber = pAppResource->GetBitmapN(L"AmberScheme.png");
-//	Bitmap* __bitmapXray = pAppResource->GetBitmapN(L"XrayScheme.png");
-
 	surfaceThorBitmap = pAppResource -> GetBitmapN(L"Torus.png");
 	surfaceKleinBitmap = pAppResource -> GetBitmapN(L"Klein.png");
 	surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"ProjPlane.png");
 
-//	Bitmap sizeThreeBitmap;
-//	Bitmap sizeFiveBitmap;
-//	Bitmap sizeTenBitmap;
-//	Bitmap sizeTwentyBitmap;
-//	Bitmap colorXrayBitmap;
-//	Bitmap colorAmberBitmap;
+	sizeThreeBitmap = pAppResource -> GetBitmapN(L"3x3.png");
+	sizeFiveBitmap = pAppResource -> GetBitmapN(L"3x3.png");
+	sizeTenBitmap = pAppResource -> GetBitmapN(L"3x3.png");
+	sizeTwentyBitmap = pAppResource -> GetBitmapN(L"3x3.png");
 
 	colorXrayBitmap = pAppResource -> GetBitmapN(L"XrayScheme.png");
 	colorAmberBitmap = pAppResource -> GetBitmapN(L"AmberScheme.png");

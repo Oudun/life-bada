@@ -34,6 +34,7 @@ AbstractSettingsForm::OnInitializing(void) {
 	__list = static_cast<List *>(GetControl("IDC_LIST"));
 	__list -> SetBackgroundColor(GetColorModel() -> formBkgColor);
 	__list -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel() -> textColor);
+	__list -> SetItemTextColor(LIST_ITEM_TEXT2, GetColorModel() -> textColor);
 
 	PopulateList();
 
@@ -97,16 +98,18 @@ AbstractSettingsForm::RePaint(void) {
 
 	this -> SetBackgroundColor(GetColorModel()->formBkgColor);
 
+	__list -> SetBackgroundColor(GetColorModel() -> formBkgColor);
+	__list -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel() -> textColor);
+	__list -> SetItemTextColor(LIST_ITEM_TEXT2, GetColorModel() -> textColor);
+
 	__buttonCancel -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
 	__buttonCancel -> SetTextColor(GetColorModel()->textColor);
 
 	__buttonApply -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
 	__buttonApply -> SetTextColor(GetColorModel()->textColor);
 
-	__label -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
+	__label -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__label -> SetTextColor(GetColorModel()->textColor);
-
-	//RequestRedraw(true);
 
 	AppLog("Done repainting abstract settings form");
 
