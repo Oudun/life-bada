@@ -16,7 +16,11 @@ class RulesForm : public AbstractSettingsForm {
 public:
 	RulesForm();
 	virtual ~RulesForm();
-	virtual void PopulateList(void);
+	virtual result OnInitializing(void);
+	bool Initialize(void);
+	void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
+	void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
+	void PopulateList(void);
 
 };
 

@@ -25,4 +25,9 @@
         <layout height="41" mode="Portrait" width="161" x="40" y="30"/>
         <layout height="30" mode="Landscape" width="285" x="66" y="18"/>
     </Label>
+    <List id="IDC_LIST1" parent="RULES_FORM">
+        <property ListItemFormat="LIST_ITEM_SINGLE_IMAGE" colorOfEmptyListText="" column1Width="50" column2Width="50" row1Height="80" row2Height="50" textOfEmptyList=""/>
+        <layout height="251" mode="Portrait" style="LIST_STYLE_NORMAL" width="161" x="40" y="90"/>
+        <layout height="150" mode="Landscape" style="LIST_STYLE_NORMAL" width="268" x="66" y="54"/>
+    </List>
 </Scene>

@@ -23,6 +23,20 @@ RulesForm::~RulesForm() {
 	// TODO Auto-generated destructor stub
 }
 
+
+result
+RulesForm::OnInitializing(void) {
+
+	SetBackgroundColor(GetColorModel()->formBkgColor);
+	__list = static_cast<List *>(GetControl("IDC_LIST"));
+	return E_SUCCESS;
+}
+
+bool
+RulesForm::Initialize(void) {
+	return true;
+}
+
 void
 RulesForm::PopulateList(void) {
 	AppLog("RulesForm::PopulateList");
