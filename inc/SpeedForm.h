@@ -10,7 +10,9 @@
 
 #include <FUi.h>
 
-class SpeedForm : public Osp::Ui::Controls::Form,
+#include "AbstractForm.h"
+
+class SpeedForm : public AbstractForm,
 	public Osp::Ui::IItemEventListener,
 	public Osp::Ui::IActionEventListener {
 

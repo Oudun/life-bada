@@ -33,35 +33,24 @@ LifeForm::OnInitializing(void)
 
 	result r = E_SUCCESS;
 
-	Osp::Graphics::Canvas __buttonCanvas;
-	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
-	Osp::Graphics::Bitmap __buttonBitmap;
-
-	__buttonCanvas.Construct(__buttonRectangle);
-//	__buttonCanvas.FillRectangle(*COLOR_CONTROL_NORMAL_BACKGROUND, __buttonRectangle);
-	if(GetColorModel() == null) {
-		AppLog("Color Model is null");
-	} else {
-		AppLog("Color Model is OK");
-		if (GetColorModel()->controlNormalBkgColor == null) {
-			AppLog("Color Model Color is null");
-		} else {
-			AppLog("Color Model ref is %d", GetColorModel()->controlNormalBkgColor);
-			AppLog("Green is %d", GetColorModel()->controlNormalBkgColor->GetGreen());
-		}
-	}
-	__buttonCanvas.FillRectangle(*(GetColorModel()->controlNormalBkgColor), __buttonRectangle);
-	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
+//	Osp::Graphics::Canvas __buttonCanvas;
+//	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
+//	Osp::Graphics::Bitmap __buttonBitmap;
+//
+//	__buttonCanvas.Construct(__buttonRectangle);
+//	__buttonCanvas.FillRectangle(GetColorModel()->controlNormalBkgColor, __buttonRectangle);
+//	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
 
 	// TODO: Add your initialization code here
 
 	__seedButton = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));
 	if (__seedButton)
 	{
-		__seedButton->SetActionId(IDC_BUTTON_SEED);
-		__seedButton->AddActionEventListener(*this);
-		__seedButton->SetNormalBackgroundBitmap(__buttonBitmap);
+		__seedButton -> SetActionId(IDC_BUTTON_SEED);
+		__seedButton -> AddActionEventListener(*this);
+		__seedButton -> SetNormalBackgroundBitmap(GetColorModel()-> normalBackgroundBitmap);
 		__seedButton -> SetText(Constants::GetString(STRING_SEED));
+		__seedButton -> SetTextColor(GetColorModel()->textColor);
 	}
 
 	__startButton = static_cast<Button *>(GetControl("IDC_BUTTON_START"));
@@ -69,25 +58,26 @@ LifeForm::OnInitializing(void)
 	{
 		__startButton -> SetActionId(IDC_BUTTON_START);
 		__startButton -> AddActionEventListener(*this);
-		__startButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+		__startButton -> SetNormalBackgroundBitmap(GetColorModel()-> normalBackgroundBitmap);
 		__startButton -> SetText(Constants::GetString(STRING_START));
+		__startButton -> SetTextColor(GetColorModel()->textColor);
 	}
 
 	__settingsButton = static_cast<Button *>(GetControl("IDC_BUTTON_SETTINGS"));
 	if (__settingsButton)
 	{
-		__settingsButton->SetActionId(IDC_BUTTON_SETTINGS);
-		__settingsButton->AddActionEventListener(*this);
-		__settingsButton->SetNormalBackgroundBitmap(__buttonBitmap);
+		__settingsButton -> SetActionId(IDC_BUTTON_SETTINGS);
+		__settingsButton -> AddActionEventListener(*this);
+		__settingsButton -> SetNormalBackgroundBitmap(GetColorModel()-> normalBackgroundBitmap);
+		__settingsButton -> SetTextColor(GetColorModel()->textColor);
 	}
 
 	__counterLabel = static_cast<Label *>(GetControl("IDC_LABEL_GENERATION"));
 	__counterLabel -> SetText(Constants::GetString(STRING_GENERATION_ZERO));
+	__counterLabel -> SetTextColor(GetColorModel()->textColor);
+	__counterLabel -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
 
-	//this->SetBackgroundColor(Osp::Graphics::Color::COLOR_BLACK);
-
-	AppLog("Initializing LifeForm - Color Object reference is %d", &COLOR_FORM_BACKGROUND);
-	SetBackgroundColor(*COLOR_FORM_BACKGROUND);
+	SetBackgroundColor(GetColorModel()->formBkgColor);
 
 	Control* control = GetControl(L"LIFE_FORM");
 	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 340);
@@ -148,9 +138,7 @@ LifeForm::Update(void) {
 //	Control* control = GetControl(L"LIFE_FORM");
 //	canvas = control -> GetCanvasN();
 
-	result r = __lifeFieldCanvas -> FillRectangle(
-			*(Constants::GetColor(COLOR_FORM_BACKGROUND_ID)),
-			GetBounds());
+	result r = __lifeFieldCanvas -> FillRectangle(GetColorModel()->formBkgColor, GetBounds());
 
 	if (__lifeFieldCanvas == null) {
 		AppLog("Canvas is null");
@@ -160,12 +148,14 @@ LifeForm::Update(void) {
 	for (int i=0; i < Generation::GetColumns(); i++) {
 		for (int j=0; j < Generation::GetRows(); j++) {
 			if(Generation::IsOccupied(i, j)) {
-				__lifeFieldCanvas -> FillRectangle(*(Constants::GetColor(COLOR_CELL_ID)), Osp::Graphics::Rectangle(
+				__lifeFieldCanvas -> FillRectangle(GetColorModel()->cellColor,
+					Osp::Graphics::Rectangle(
 						i*__seedSize,
 						j*__seedSize,
 						__seedSize-1,
 						__seedSize-1
-				));
+					)
+				);
 			}
 		}
 	}
@@ -230,30 +220,26 @@ LifeForm::RePaint(void) {
 	Osp::Graphics::Bitmap __buttonBitmap;
 
 	__buttonCanvas.Construct(__buttonRectangle);
-	__buttonCanvas.FillRectangle(*(Constants::GetColor(COLOR_CONTROL_NORMAL_BACKGROUND_ID)), __buttonRectangle);
+	__buttonCanvas.FillRectangle(GetColorModel()->controlNormalBkgColor, __buttonRectangle);
 //	__buttonCanvas.FillRectangle(Color::COLOR_CYAN, __buttonRectangle);
 	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
 
 	__seedButton = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));
 	__seedButton -> SetNormalBackgroundBitmap(__buttonBitmap);
-	__seedButton -> SetTextColor(*(Constants::GetColor(COLOR_TEXT_ID)));
+	__seedButton -> SetTextColor(GetColorModel()->textColor);
 
 
 	__startButton = static_cast<Button *>(GetControl("IDC_BUTTON_START"));
 	__startButton -> SetNormalBackgroundBitmap(__buttonBitmap);
-	__startButton -> SetTextColor(*(Constants::GetColor(COLOR_TEXT_ID)));
+	__startButton -> SetTextColor(GetColorModel()->textColor);
 
 	__settingsButton -> SetNormalBackgroundBitmap(__buttonBitmap);
-	__settingsButton -> SetTextColor(*(Constants::GetColor(COLOR_TEXT_ID)));
+	__settingsButton -> SetTextColor(GetColorModel()->textColor);
 
-	__counterLabel -> SetBackgroundColor(*(Constants::GetColor(COLOR_CONTROL_NORMAL_BACKGROUND_ID)));
-	__counterLabel -> SetBackgroundColor(*(Constants::GetColor(COLOR_CONTROL_NORMAL_BACKGROUND_ID)));
+	__counterLabel -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
+	__counterLabel -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
 
-	Color* c = Constants::GetColor(COLOR_CONTROL_NORMAL_BACKGROUND_ID);
-	AppLog("Used COLOR_CONTROL_NORMAL_BACKGROUND is (%d, %d, %d)", c -> GetRed(), c -> GetGreen(), c -> GetBlue());
-	AppLog("Color Object reference is %d", c);
-
-	SetBackgroundColor(*Constants::GetColor(COLOR_FORM_BACKGROUND_ID));
+	SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
 
 	RequestRedraw(true);
 

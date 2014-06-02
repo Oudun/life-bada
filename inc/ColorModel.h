@@ -14,6 +14,7 @@
 #include <FUi.h>
 
 using Osp::Graphics::Color;
+using Osp::Graphics::Bitmap;
 
 class ColorModel {
 
@@ -23,11 +24,13 @@ class ColorModel {
 		virtual ~ColorModel();
 
 	public:
-		Color* formBkgColor;
-		Color* controlNormalBkgColor;
-		Color* controlPressedBkgColor;
-		Color* textColor;
-		Color* cellColor;
+		Color formBkgColor;
+		Color controlNormalBkgColor;
+		Color controlPressedBkgColor;
+		Color textColor;
+		Color cellColor;
+		Bitmap normalBackgroundBitmap;
+		Bitmap pressedBackgroundBitmap;
 
 
 };

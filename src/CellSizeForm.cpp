@@ -31,13 +31,12 @@ CellSizeForm::Initialize(void) {
 result
 CellSizeForm::OnInitializing(void) {
 
-	SetBackgroundColor(*COLOR_FORM_BACKGROUND);
+	SetBackgroundColor(GetColorModel()->formBkgColor);
 
 	__listCellSize = static_cast<List *>(GetControl("IDC_LIST_SIZE_FORM"));
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 
-	Bitmap* __bitmapButton = pAppResource->GetBitmapN(L"Button.png");
 	Bitmap* __bitmap3x3 = pAppResource->GetBitmapN(L"3x3.png");
 	Bitmap* __bitmap5x5 = pAppResource->GetBitmapN(L"5x5.png");
 	Bitmap* __bitmap10x10 = pAppResource->GetBitmapN(L"10x10.png");
@@ -48,8 +47,8 @@ CellSizeForm::OnInitializing(void) {
 	Osp::Base::String str10x10(L"10x10");
 	Osp::Base::String str20x20(L"20x20");
 
-	__listCellSize -> SetBackgroundColor(*COLOR_FORM_BACKGROUND);
-	__listCellSize -> SetItemTextColor(LIST_ITEM_TEXT1, *COLOR_TEXT);
+	__listCellSize -> SetBackgroundColor(GetColorModel()->formBkgColor);
+	__listCellSize -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel()->textColor);
 	__listCellSize -> AddItem(&str3x3, null, __bitmap3x3, null, INDEX_THREE);
 	__listCellSize -> AddItem(&str5x5, null, __bitmap5x5, null, INDEX_FIVE);
 	__listCellSize -> AddItem(&str10x10, null, __bitmap10x10, null, INDEX_TEN);
@@ -62,8 +61,8 @@ CellSizeForm::OnInitializing(void) {
 	if (__buttonCancel)
 	{
 		__buttonCancel -> SetActionId(IDC_BUTTON_CANCEL);
-		__buttonCancel -> SetNormalBackgroundBitmap(*__bitmapButton);
-		__buttonCancel -> SetTextColor(*COLOR_TEXT);
+		__buttonCancel -> SetNormalBackgroundBitmap(GetColorModel()-> normalBackgroundBitmap);
+		__buttonCancel -> SetTextColor(GetColorModel()->textColor);
 		__buttonCancel -> SetText(Constants::GetString(STRING_CANCEL));
 		__buttonCancel -> AddActionEventListener(*this);
 	}
@@ -72,8 +71,8 @@ CellSizeForm::OnInitializing(void) {
 	if (__buttonApply)
 	{
 		__buttonApply -> SetActionId(IDC_BUTTON_APPLY);
-		__buttonApply -> SetNormalBackgroundBitmap(*__bitmapButton);
-		__buttonApply -> SetTextColor(*COLOR_TEXT);
+		__buttonApply -> SetNormalBackgroundBitmap(GetColorModel()-> normalBackgroundBitmap);
+		__buttonApply -> SetTextColor(GetColorModel()->textColor);
 		__buttonApply -> SetText(Constants::GetString(STRING_APPLY));
 		__buttonApply -> AddActionEventListener(*this);
 	}
@@ -81,8 +80,8 @@ CellSizeForm::OnInitializing(void) {
 	Label *__labelCellSize = static_cast<Label *>(GetControl("IDC_LABEL_SIZE_FORM"));
 	if (__labelCellSize)
 	{
-		__labelCellSize -> SetBackgroundColor(*COLOR_FORM_BACKGROUND);
-		__labelCellSize -> SetTextColor(*COLOR_TEXT);
+		__labelCellSize -> SetBackgroundColor(GetColorModel()->formBkgColor);
+		__labelCellSize -> SetTextColor(GetColorModel()->textColor);
 		__labelCellSize -> SetText(Constants::GetString(STRING_CELL_SIZE));
 	}
 

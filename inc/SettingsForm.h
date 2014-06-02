@@ -12,8 +12,10 @@
 #include <FUi.h>
 #include <FApp.h>
 
+#include "AbstractForm.h"
+
 class SettingsForm :
-	public Osp::Ui::Controls::Form,
+	public AbstractForm,
 	public Osp::Ui::IItemEventListener,
  	public Osp::Ui::IActionEventListener
 	{

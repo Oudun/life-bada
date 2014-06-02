@@ -33,7 +33,6 @@ result
 RulesForm::OnInitializing(void) {
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-	Bitmap* __bitmapButton = pAppResource->GetBitmapN(L"Button.png");
 
 //	__listSpeed -> SetBackgroundColor(COLOR_FORM_BACKGROUND);
 //	__listSpeed -> SetItemTextColor(LIST_ITEM_TEXT1, COLOR_TEXT);
@@ -48,9 +47,10 @@ RulesForm::OnInitializing(void) {
 	Button *__buttonCancel = static_cast<Button *>(GetControl("IDC_BUTTON_CANCEL"));
 	if (__buttonCancel)
 	{
-		__buttonCancel -> SetNormalBackgroundBitmap(*__bitmapButton);
+		__buttonCancel -> SetNormalBackgroundBitmap(GetColorModel()-> normalBackgroundBitmap);
+		__buttonCancel -> SetPressedBackgroundBitmap(GetColorModel()-> pressedBackgroundBitmap);
 		__buttonCancel -> SetActionId(IDC_BUTTON_CANCEL);
-		__buttonCancel -> SetTextColor(*COLOR_TEXT);
+		__buttonCancel -> SetTextColor(GetColorModel()->textColor);
 		__buttonCancel -> SetText(Constants::GetString(STRING_CANCEL));
 		__buttonCancel -> AddActionEventListener(*this);
 	}
@@ -58,9 +58,9 @@ RulesForm::OnInitializing(void) {
 	Button *__buttonApply = static_cast<Button *>(GetControl("IDC_BUTTON_APPLY"));
 	if (__buttonApply)
 	{
-		__buttonApply -> SetNormalBackgroundBitmap(*__bitmapButton);
+		__buttonApply -> SetNormalBackgroundBitmap(GetColorModel()-> normalBackgroundBitmap);
 		__buttonApply -> SetActionId(IDC_BUTTON_APPLY);
-		__buttonApply -> SetTextColor(*COLOR_TEXT);
+		__buttonApply -> SetTextColor(GetColorModel()->textColor);
 		__buttonApply -> SetText(Constants::GetString(STRING_APPLY));
 		__buttonApply -> AddActionEventListener(*this);
 	}

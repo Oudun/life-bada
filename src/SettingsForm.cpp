@@ -32,8 +32,7 @@ SettingsForm::Initialize(void) {
 result
 SettingsForm::OnInitializing(void) {
 
-	AppLog("Initializing SettingsForm - Color Object reference is %d", &COLOR_FORM_BACKGROUND);
-	SetBackgroundColor(*COLOR_FORM_BACKGROUND);
+	SetBackgroundColor(GetColorModel()->formBkgColor);
 	__settingsList = new List();
 	__settingsList = static_cast<List *>(GetControl("SETTINGS_LIST"));
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
@@ -45,30 +44,22 @@ SettingsForm::OnInitializing(void) {
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_GAME_RULES), null, null, null, INDEX_GAME_RULES);
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SPEED), null, null, null, INDEX_SPEED);
 
-	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, *COLOR_TEXT);
-	__settingsList -> SetBackgroundColor(*COLOR_FORM_BACKGROUND);
+	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel()->textColor);
+	__settingsList -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__settingsList -> AddItemEventListener(*this);
 
 	Label *__settingsLabel = static_cast<Label *>(GetControl("SETTINGS_LABEL"));
-	__settingsLabel -> SetBackgroundColor(*COLOR_FORM_BACKGROUND);
-	__settingsLabel -> SetTextColor(*COLOR_TEXT);
+	__settingsLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
+	__settingsLabel -> SetTextColor(GetColorModel()->textColor);
 	__settingsLabel -> SetText(Constants::GetString(STRING_SETTINGS));
-
-	Osp::Graphics::Canvas __buttonCanvas;
-	Osp::Graphics::Rectangle __buttonRectangle(0,0,30,80);
-	Osp::Graphics::Bitmap __buttonBitmap;
-
-	__buttonCanvas.Construct(__buttonRectangle);
-	__buttonCanvas.FillRectangle(*COLOR_CONTROL_NORMAL_BACKGROUND, __buttonRectangle);
-	__buttonBitmap.Construct(__buttonCanvas,__buttonRectangle);
 
 	Button *__backButton = static_cast<Button *>(GetControl("IDC_BUTTON_BACK"));
 	if (__backButton)
 	{
 		__backButton -> SetActionId(IDC_BUTTON_BACK);
-		__backButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+		__backButton -> SetNormalBackgroundBitmap(GetColorModel()-> normalBackgroundBitmap);
 		__backButton -> SetText(Constants::GetString(STRING_BACK));
-		__backButton -> SetTextColor(*COLOR_TEXT);
+		__backButton -> SetTextColor(GetColorModel()->textColor);
 		__backButton -> AddActionEventListener(*this);
 	}
 
@@ -76,9 +67,9 @@ SettingsForm::OnInitializing(void) {
 	if (__aboutButton)
 	{
 		__aboutButton -> SetActionId(IDC_BUTTON_ABOUT);
-		__aboutButton -> SetNormalBackgroundBitmap(__buttonBitmap);
+		__aboutButton -> SetNormalBackgroundBitmap(GetColorModel()-> normalBackgroundBitmap);
 		__aboutButton -> SetText(Constants::GetString(STRING_ABOUT_GAME));
-		__aboutButton -> SetTextColor(*COLOR_TEXT);
+		__aboutButton -> SetTextColor(GetColorModel()->textColor);
 		__aboutButton -> AddActionEventListener(*this);
 	}
 

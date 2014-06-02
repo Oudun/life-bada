@@ -9,9 +9,10 @@
 #define CELLSIZEFORM_H_
 
 #include <FUi.h>
+#include "AbstractForm.h"
 
 class CellSizeForm :
-	public Osp::Ui::Controls::Form,
+	public AbstractForm,
 	public Osp::Ui::IItemEventListener,
 	public Osp::Ui::IActionEventListener {
 

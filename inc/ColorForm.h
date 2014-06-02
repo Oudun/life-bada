@@ -9,10 +9,10 @@
 #define COLORFORM_H_
 
 #include <FUi.h>
-
+#include "AbstractForm.h"
 
 class ColorForm :
-	public Osp::Ui::Controls::Form,
+	public AbstractForm,
 	public Osp::Ui::IItemEventListener,
 	public Osp::Ui::IActionEventListener {
 

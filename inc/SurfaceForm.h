@@ -10,7 +10,9 @@
 
 #include <FUi.h>
 
-class SurfaceForm : public Osp::Ui::Controls::Form,
+#include "AbstractForm.h"
+
+class SurfaceForm : public AbstractForm,
 	public Osp::Ui::IItemEventListener,
 	public Osp::Ui::IActionEventListener {
 

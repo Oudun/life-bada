@@ -9,8 +9,9 @@
 #define RULESFORM_H_
 
 #include <FUi.h>
+#include "AbstractForm.h"
 
-class RulesForm : public Osp::Ui::Controls::Form ,
+class RulesForm : public AbstractForm ,
 	public Osp::Ui::IItemEventListener,
 	public Osp::Ui::IActionEventListener {
 
