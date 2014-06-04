@@ -101,5 +101,7 @@ static String STRING_SURFACE_TORUS("SURFACE_TORUS");
 static String STRING_SURFACE_KLEIN("SURFACE_KLEIN");
 static String STRING_SURFACE_PROJECTIVE("SURFACE_PROJECTIVE");
 
+static bool const IS_DEMO = 1;
+
 #endif /* CONSTANTS_H_ */
 

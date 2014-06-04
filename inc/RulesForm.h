@@ -8,15 +8,25 @@
 #ifndef RULESFORM_H_
 #define RULESFORM_H_
 
-#include <FUi.h>
-#include "AbstractSettingsForm.h"
+#include "AbstractForm.h"
 
-class RulesForm : public AbstractSettingsForm {
+class RulesForm :
+	public AbstractForm,
+	public Osp::Ui::IItemEventListener,
+	public Osp::Ui::IActionEventListener {
 
 public:
 	RulesForm();
 	virtual ~RulesForm();
-	virtual void PopulateList(void);
+	void PopulateList(void);
+	virtual bool Initialize(void);
+	virtual result OnInitializing(void);
+	void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
+	void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
+
+private:
+	Osp::Ui::Controls::CustomList* __list;
+
 
 };
 
