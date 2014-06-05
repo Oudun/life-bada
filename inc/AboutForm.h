@@ -12,7 +12,6 @@
 #include "AbstractForm.h"
 
 class AboutForm :
- 	public Osp::Ui::IActionEventListener,
  	public AbstractForm {
 
 	public:

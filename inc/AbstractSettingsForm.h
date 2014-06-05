@@ -13,20 +13,17 @@
 #include "Constants.h"
 
 class AbstractSettingsForm :
-	public AbstractForm,
-	public Osp::Ui::IItemEventListener,
-	public Osp::Ui::IActionEventListener {
+	public AbstractForm {
 
 	public:
 		AbstractSettingsForm();
 		virtual ~AbstractSettingsForm();
-
-		virtual bool Initialize(void);
-		virtual result OnInitializing(void);
-		virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
-		virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 		virtual void PopulateList(void);
 		virtual void RePaint(void);
+		virtual result OnInitializing(void);
+		virtual bool Initialize(void);
+		virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
+		virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 
 	protected:
 		Osp::Ui::Controls::List* __list;

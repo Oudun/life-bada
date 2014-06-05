@@ -46,29 +46,31 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 
 	// Creating forms
 
-	lifeForm = new LifeForm();
-	lifeForm -> Initialize();
+	AppLog("1");
 
-	settingsForm = new SettingsForm();
-	settingsForm -> Initialize();
+	lifeForm = new LifeForm();AppLog("2");
+	lifeForm -> Initialize();AppLog("3");
 
-	aboutForm = new AboutForm();
-	aboutForm -> Initialize();
+	settingsForm = new SettingsForm();AppLog("4");
+	settingsForm -> Initialize();AppLog("5");
 
-	rulesForm = new RulesForm();
-	rulesForm -> Initialize();
+	aboutForm = new AboutForm();AppLog("6");
+	aboutForm -> Initialize();AppLog("7");
 
-	newColorForm = new NewColorForm();
-	newColorForm -> Initialize();
+	rulesForm = new RulesForm();AppLog("8");
+	rulesForm -> Initialize();AppLog("9");
 
-	newSurfaceForm = new NewSurfaceForm();
-	newSurfaceForm -> Initialize();
+	newColorForm = new NewColorForm();AppLog("10");
+	newColorForm -> Initialize();AppLog("11");
 
-	newCellSizeForm = new NewCellSizeForm();
-	newCellSizeForm -> Initialize();
+	newSurfaceForm = new NewSurfaceForm();AppLog("12");
+	newSurfaceForm -> Initialize();AppLog("13");
 
-	newSpeedForm = new NewSpeedForm();
-	newSpeedForm -> Initialize();
+	newCellSizeForm = new NewCellSizeForm();AppLog("14");
+	newCellSizeForm -> Initialize();AppLog("15");
+
+	newSpeedForm = new NewSpeedForm();AppLog("16");
+	newSpeedForm -> Initialize();AppLog("17");
 
 	// Add the form to the frame
 

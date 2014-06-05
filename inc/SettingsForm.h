@@ -15,9 +15,7 @@
 #include "AbstractForm.h"
 
 class SettingsForm :
-	public AbstractForm,
-	public Osp::Ui::IItemEventListener,
- 	public Osp::Ui::IActionEventListener
+	public AbstractForm
 	{
 public:
 	SettingsForm();
