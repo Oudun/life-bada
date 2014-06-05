@@ -12,9 +12,7 @@
 
 #include "AbstractForm.h"
 
-class SurfaceForm : public AbstractForm,
-	public Osp::Ui::IItemEventListener,
-	public Osp::Ui::IActionEventListener {
+class SurfaceForm : public AbstractForm {
 
 public:
 	SurfaceForm();

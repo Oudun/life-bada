@@ -12,9 +12,8 @@
 
 #include "AbstractForm.h"
 
-class SpeedForm : public AbstractForm,
-	public Osp::Ui::IItemEventListener,
-	public Osp::Ui::IActionEventListener {
+class SpeedForm : public AbstractForm
+{
 
 public:
 	SpeedForm();

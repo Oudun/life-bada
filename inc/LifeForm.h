@@ -8,7 +8,6 @@
 #include "AbstractForm.h"
 
 class LifeForm :
-	public Osp::Ui::IActionEventListener,
 	public AbstractForm
 {
 
