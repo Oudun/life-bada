@@ -63,7 +63,7 @@ LifeForm::OnInitializing(void)
 
 	__counterLabel = static_cast<Label *>(GetControl("IDC_LABEL_GENERATION"));
 	__counterLabel -> SetText(Constants::GetString(STRING_GENERATION_ZERO));
-	__counterLabel -> SetTextColor(GetColorModel()->textColor);
+	__counterLabel -> SetTextColor(GetColorModel()->formTextColor);
 	__counterLabel -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
 
 	SetBackgroundColor(GetColorModel()->formBkgColor);
@@ -72,6 +72,8 @@ LifeForm::OnInitializing(void)
 	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 340);
 
 	InitializeField();
+
+	AppLog("Initializing Life Form - done");
 
 	return r;
 

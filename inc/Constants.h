@@ -40,6 +40,7 @@ static const int EVENT_SHOW_COLOR_SCHEME = 34;
 static const int EVENT_SHOW_GAME_RULES = 35;
 static const int EVENT_SHOW_SPEED = 36;
 static const int EVENT_SHOW_BACK = 37;
+static const int EVENT_SHOW_WARNING = 38;
 
 static const int EVENT_APPLY_CELL_SIZE = 41;
 static const int EVENT_APPLY_SPEED = 51;
@@ -100,6 +101,11 @@ static String STRING_ABOUT_TEXT("ABOUT_TEXT");
 static String STRING_SURFACE_TORUS("SURFACE_TORUS");
 static String STRING_SURFACE_KLEIN("SURFACE_KLEIN");
 static String STRING_SURFACE_PROJECTIVE("SURFACE_PROJECTIVE");
+
+static String STRING_RULES("RULES");
+static String STRING_HISTORY("HISTORY");
+
+static String STRING_NOTAVALIABLE("NOT_AVAIALBLE");
 
 static bool const IS_DEMO = 1;
 

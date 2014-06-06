@@ -50,7 +50,7 @@ SettingsForm::OnInitializing(void) {
 
 	__settingsLabel = static_cast<Label *>(GetControl("SETTINGS_LABEL"));
 	__settingsLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
-	__settingsLabel -> SetTextColor(GetColorModel()->textColor);
+	__settingsLabel -> SetTextColor(GetColorModel()->formTextColor);
 	__settingsLabel -> SetText(Constants::GetString(STRING_SETTINGS));
 
 	__backButton = static_cast<Button *>(GetControl("IDC_BUTTON_BACK"));
@@ -142,7 +142,8 @@ SettingsForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId) {
 			__bgCanvas -> Clear();
 			__bgCanvas -> FillRectangle(Color::COLOR_RED, Rectangle(0,0,240,400));
 			RequestRedraw(true);
-			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_ABOUT_GAME, null);
+			//Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_ABOUT_GAME, null);
+			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_GAME_RULES, null);
 			break;
 		}
 		default: {

@@ -30,5 +30,18 @@
     <text id="SURFACE_TORUS">Torus</text>
     <text id="SURFACE_KLEIN">Klein Bottle</text>
     <text id="SURFACE_PROJECTIVE">Projective Plain</text>
+    <text id="RULES">
+The universe of the Game of Life is an infinite grid of square cells, each of which is alive or dead. Every cell interacts with its eight neighbours. 
+At each step in time, the following transitions occur:
+Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+Any live cell with two or three live neighbours lives on to the next generation.
+Any live cell with more than three live neighbours dies, as if by overcrowding.
+Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+The initial pattern constitutes the seed of the system.  
+The rules continue to be applied repeatedly to create further generations.
+    </text>
+    <text id="HISTORY">History</text>
+    <text id="NOT_AVAIALBLE">I am sorry but this feature is not available in demo version.</text>
+    
     
 </string_table>

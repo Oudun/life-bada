@@ -10,6 +10,7 @@
 
 #include <FUi.h>
 #include "ColorModel.h"
+#include "Constants.h"
 
 class AbstractForm :
 	public Osp::Ui::Controls::Form,
@@ -29,6 +30,7 @@ class AbstractForm :
 
 	public:
 		ColorModel* __colorModel;
+
 };
 
 #endif /* ABSTRACTFORM_H_ */

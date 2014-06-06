@@ -4,11 +4,11 @@
 
 #include <FBase.h>
 #include <FUi.h>
-
+#include "AbstractForm.h"
 
 
 class RulesForm :
-	public Osp::Ui::Controls::Form
+	public AbstractForm
 {
 
 // Construction
@@ -18,12 +18,17 @@ public:
 	bool Initialize();
 	result OnInitializing(void);
 	result OnTerminating(void);
+	void RePaint(void);
+	virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
 
-// Implementation
-protected:
+private:
+	Osp::Ui::Controls::Label* __label;
+	Osp::Ui::Controls::Button* __buttonBack;
+	Osp::Ui::Controls::Button* __buttonAbout;
 
-// Generated call-back functions
-public:
+private:
+	const static int IDC_BUTTON_BACK = 0;
+	const static int IDC_BUTTON_ABOUT = 1;
 
 };
 

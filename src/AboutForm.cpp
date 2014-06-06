@@ -35,13 +35,13 @@ AboutForm::OnInitializing(void) {
 	__textIntroLabel = static_cast<Label *>(GetControl("IDC_ABOUT_INTRO_LABEL"));
 	__textIntroLabel -> SetEnabled(false);
 	__textIntroLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
-	__textIntroLabel -> SetTextColor(GetColorModel()->textColor);
+	__textIntroLabel -> SetTextColor(GetColorModel()->formTextColor);
 	__textIntroLabel -> SetText(Constants::GetString(STRING_ABOUT_INTRO_TEXT));
 
 	__textLabel = static_cast<Label *>(GetControl("IDC_ABOUT_LABEL"));
 	__textLabel -> SetEnabled(false);
 	__textLabel -> SetBackgroundColor(GetColorModel()->formBkgColor);
-	__textLabel -> SetTextColor(GetColorModel()->textColor);
+	__textLabel -> SetTextColor(GetColorModel()->formTextColor);
 	__textLabel -> SetText(Constants::GetString(STRING_ABOUT_TEXT));
 
 	__buttonBack = static_cast<Button *>(GetControl("IDC_BUTTON_ABOUT_BACK"));
@@ -50,7 +50,7 @@ AboutForm::OnInitializing(void) {
 		__buttonBack -> SetActionId(1);
 		__buttonBack -> AddActionEventListener(*this);
 		__buttonBack -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
-		__buttonBack -> SetTextColor(GetColorModel()->textColor);
+		__buttonBack -> SetTextColor(GetColorModel()->formTextColor);
 		__buttonBack -> SetText(Constants::GetString(STRING_BACK));
 	}
 

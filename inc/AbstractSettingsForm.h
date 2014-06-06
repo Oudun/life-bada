@@ -18,7 +18,6 @@ class AbstractSettingsForm :
 	public:
 		AbstractSettingsForm();
 		virtual ~AbstractSettingsForm();
-
 		virtual bool Initialize(void);
 		virtual result OnInitializing(void);
 		virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);

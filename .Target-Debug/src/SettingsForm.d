@@ -276,6 +276,7 @@ src/SettingsForm.d src/SettingsForm.o: ../src/SettingsForm.cpp \
  D:/bada/2.0.3/include/FAppJarInfo.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/AbstractForm.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/ColorModel.h \
+ D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h
 
 D:/bada/2.0.3/IDE/workspace/Life/inc/SettingsForm.h:
@@ -883,5 +884,7 @@ D:/bada/2.0.3/include/FAppJarInfo.h:
 D:/bada/2.0.3/IDE/workspace/Life/inc/AbstractForm.h:
 
 D:/bada/2.0.3/IDE/workspace/Life/inc/ColorModel.h:
+
+D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h:
 
 D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h:

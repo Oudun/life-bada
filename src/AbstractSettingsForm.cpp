@@ -34,7 +34,7 @@ AbstractSettingsForm::OnInitializing(void) {
 	__list = static_cast<List *>(GetControl("IDC_LIST"));
 	__list -> SetBackgroundColor(GetColorModel() -> formBkgColor);
 	__list -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel() -> formTextColor);
-	__list -> SetItemTextColor(LIST_ITEM_TEXT2, GetColorModel() -> textColor);
+	__list -> SetItemTextColor(LIST_ITEM_TEXT2, GetColorModel() -> formTextColor);
 
 	PopulateList();
 
@@ -54,7 +54,7 @@ AbstractSettingsForm::OnInitializing(void) {
 
 	__label = static_cast<Label *>(GetControl("IDC_LABEL"));
 	__label -> SetBackgroundColor(GetColorModel()->formBkgColor);
-	__label -> SetTextColor(GetColorModel()->textColor);
+	__label -> SetTextColor(GetColorModel()->formTextColor);
 	__label -> SetText(LABEL_TEXT);
 
 	return E_SUCCESS;
@@ -74,13 +74,17 @@ AbstractSettingsForm::OnActionPerformed(const Osp::Ui::Control& source, int acti
 			break;
 		}
 		case IDC_BUTTON_APPLY: {
-			IList* args = new ArrayList();
-			int checkedIndex = __list -> GetFirstCheckedItemIndex();
-			int checkedItemId = __list -> GetItemIdAt(checkedIndex);
-			AppLog("Checked option id is %d", checkedItemId);
-			args -> Add(*(new Integer(checkedItemId)));
-			AppLog("FORM_EVENT_CODE is %d", FORM_EVENT_CODE);
-			Osp::App::Application::GetInstance() -> SendUserEvent(FORM_EVENT_CODE, args);
+			if (IS_DEMO) {
+				Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_WARNING, null);
+			} else {
+				IList* args = new ArrayList();
+				int checkedIndex = __list -> GetFirstCheckedItemIndex();
+				int checkedItemId = __list -> GetItemIdAt(checkedIndex);
+				AppLog("Checked option id is %d", checkedItemId);
+				args -> Add(*(new Integer(checkedItemId)));
+				AppLog("FORM_EVENT_CODE is %d", FORM_EVENT_CODE);
+				Osp::App::Application::GetInstance() -> SendUserEvent(FORM_EVENT_CODE, args);
+			}
 			break;
 		}
 	}

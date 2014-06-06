@@ -275,7 +275,8 @@ src/AbstractForm.d src/AbstractForm.o: ../src/AbstractForm.cpp \
  D:/bada/2.0.3/include/FAppIGuestPackageEventListener.h \
  D:/bada/2.0.3/include/FAppGuestPackageInfo.h \
  D:/bada/2.0.3/include/FAppJavaAppManager.h \
- D:/bada/2.0.3/include/FAppJarInfo.h
+ D:/bada/2.0.3/include/FAppJarInfo.h \
+ D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h
 
 D:/bada/2.0.3/IDE/workspace/Life/inc/AbstractForm.h:
 
@@ -880,3 +881,5 @@ D:/bada/2.0.3/include/FAppGuestPackageInfo.h:
 D:/bada/2.0.3/include/FAppJavaAppManager.h:
 
 D:/bada/2.0.3/include/FAppJarInfo.h:
+
+D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h:

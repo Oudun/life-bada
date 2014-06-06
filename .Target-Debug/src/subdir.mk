@@ -9,6 +9,7 @@ CPP_SRCS += \
 ../src/AbstractSettingsForm.cpp \
 ../src/ColorModel.cpp \
 ../src/Constants.cpp \
+../src/DemoForm.cpp \
 ../src/Evolution.cpp \
 ../src/Generation.cpp \
 ../src/Life.cpp \
@@ -25,6 +26,7 @@ OBJS += \
 ./src/AbstractSettingsForm.o \
 ./src/ColorModel.o \
 ./src/Constants.o \
+./src/DemoForm.o \
 ./src/Evolution.o \
 ./src/Generation.o \
 ./src/Life.o \
@@ -41,6 +43,7 @@ CPP_DEPS += \
 ./src/AbstractSettingsForm.d \
 ./src/ColorModel.d \
 ./src/Constants.d \
+./src/DemoForm.d \
 ./src/Evolution.d \
 ./src/Generation.d \
 ./src/Life.d \
