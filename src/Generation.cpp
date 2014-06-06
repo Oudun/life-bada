@@ -44,6 +44,7 @@ Generation::Initialize(int aColumns, int aRows) {
 		currentGeneration[i]= new bool[rows];
 		nextGeneration[i]= new bool[rows];
 	}
+	AppLog("Initializing Generation - done");
 }
 
 void

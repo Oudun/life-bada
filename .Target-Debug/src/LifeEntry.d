@@ -288,15 +288,17 @@ src/LifeEntry.d src/LifeEntry.o: ../src/LifeEntry.cpp \
  D:/bada/2.0.3/include/FUiRelativeLayout.h \
  D:/bada/2.0.3/include/FUiGridLayout.h \
  D:/bada/2.0.3/include/FUiCustomControlBase.h \
+ D:/bada/2.0.3/IDE/workspace/Life/inc/Evolution.h \
+ D:/bada/2.0.3/include/FBaseRt.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/AboutForm.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/AbstractForm.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/ColorModel.h \
+ D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/LifeForm.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/SettingsForm.h \
- D:/bada/2.0.3/IDE/workspace/Life/inc/Evolution.h \
- D:/bada/2.0.3/include/FBaseRt.h \
+ D:/bada/2.0.3/IDE/workspace/Life/inc/RulesForm.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/AbstractSettingsForm.h \
- D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h \
+ D:/bada/2.0.3/IDE/workspace/Life/inc/DemoForm.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/forms/NewColorForm.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/AbstractSettingsForm.h \
  D:/bada/2.0.3/IDE/workspace/Life/inc/forms/NewSurfaceForm.h \
@@ -937,23 +939,27 @@ D:/bada/2.0.3/include/FUiGridLayout.h:
 
 D:/bada/2.0.3/include/FUiCustomControlBase.h:
 
+D:/bada/2.0.3/IDE/workspace/Life/inc/Evolution.h:
+
+D:/bada/2.0.3/include/FBaseRt.h:
+
 D:/bada/2.0.3/IDE/workspace/Life/inc/AboutForm.h:
 
 D:/bada/2.0.3/IDE/workspace/Life/inc/AbstractForm.h:
 
 D:/bada/2.0.3/IDE/workspace/Life/inc/ColorModel.h:
 
+D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h:
+
 D:/bada/2.0.3/IDE/workspace/Life/inc/LifeForm.h:
 
 D:/bada/2.0.3/IDE/workspace/Life/inc/SettingsForm.h:
 
-D:/bada/2.0.3/IDE/workspace/Life/inc/Evolution.h:
-
-D:/bada/2.0.3/include/FBaseRt.h:
+D:/bada/2.0.3/IDE/workspace/Life/inc/RulesForm.h:
 
 D:/bada/2.0.3/IDE/workspace/Life/inc/AbstractSettingsForm.h:
 
-D:/bada/2.0.3/IDE/workspace/Life/inc/Constants.h:
+D:/bada/2.0.3/IDE/workspace/Life/inc/DemoForm.h:
 
 D:/bada/2.0.3/IDE/workspace/Life/inc/forms/NewColorForm.h:
 

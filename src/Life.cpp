@@ -62,16 +62,26 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	aboutForm -> SetColorModel(__colorModel);
 	aboutForm -> Initialize();
 
-//	rulesForm = new RulesForm();
-//	rulesForm -> Initialize();
+	AppLog("1");
+
+	rulesForm = new RulesForm();
+	AppLog("2");
+	rulesForm -> SetColorModel(__colorModel);
+	AppLog("3");
+	rulesForm -> Initialize();
+	AppLog("4");
 
 	newColorForm = new NewColorForm();
 	newColorForm -> SetColorModel(__colorModel);
 	newColorForm -> Initialize();
 
+	AppLog("5");
+
 	newSurfaceForm = new NewSurfaceForm();
 	newSurfaceForm -> SetColorModel(__colorModel);
 	newSurfaceForm -> Initialize();
+
+	AppLog("6");
 
 	newCellSizeForm = new NewCellSizeForm();
 	newCellSizeForm -> SetColorModel(__colorModel);
@@ -81,18 +91,21 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	newSpeedForm -> SetColorModel(__colorModel);
 	newSpeedForm -> Initialize();
 
+	demoForm = new DemoForm();
+	demoForm -> Initialize();
+
 	// Add the form to the frame
 
 	lifeFrame = GetAppFrame()->GetFrame();
 	lifeFrame -> AddControl(*lifeForm);
 	lifeFrame -> AddControl(*settingsForm);
 	lifeFrame -> AddControl(*aboutForm);
-//	lifeFrame -> AddControl(*rulesForm);
+	lifeFrame -> AddControl(*rulesForm);
 	lifeFrame -> AddControl(*newColorForm);
 	lifeFrame -> AddControl(*newSurfaceForm);
 	lifeFrame -> AddControl(*newCellSizeForm);
 	lifeFrame -> AddControl(*newSpeedForm);
-
+	lifeFrame -> AddControl(*demoForm);
 
 	// Set the current form
 	lifeFrame -> SetCurrentForm(*lifeForm);
@@ -177,6 +190,21 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("ended -> Showing about form");
 			break;
 		}
+		case EVENT_SHOW_GAME_RULES: {
+			AppLog("Showing rules");
+			lifeFrame -> SetCurrentForm(*rulesForm);
+			rulesForm -> Draw();
+			rulesForm -> Show();
+			AppLog("ended -> Showing rules form");
+			break;
+		}
+		case EVENT_SHOW_WARNING: {
+			AppLog("Showing warning");
+			lifeFrame -> SetCurrentForm(*demoForm);
+			demoForm -> Draw();
+			demoForm -> Show();
+			break;
+		}
 
 // "SHOW SETTINGS" CASES
 
@@ -258,6 +286,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			newSpeedForm -> SetColorModel(selectedModel);
 			newColorForm -> SetColorModel(selectedModel);
 			aboutForm -> SetColorModel(selectedModel);
+			rulesForm -> SetColorModel(selectedModel);
 
 			lifeForm -> RePaint();
 			settingsForm -> RePaint();
@@ -266,6 +295,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			newSpeedForm -> RePaint();
 			newColorForm -> RePaint();
 			aboutForm -> RePaint();
+			rulesForm -> RePaint();
 
 			lifeFrame -> SetCurrentForm(*lifeForm);
 			lifeForm -> Update();

@@ -47,7 +47,7 @@ all: Life.exe
 Life.exe: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: bada C++ Linker'
-	@echo 'ldflags: -nostartfiles -Wl,-u__gnu_thumb1_case_si,-u__gnu_thumb1_case_sqi,-u__gnu_thumb1_case_uqi,-u__gnu_thumb1_case_shi,-u__gnu_thumb1_case_uhi -lgcc_sa -L"D:/bada/2.0.3/Model/WaveWQVGA/Target" -L"D:/bada/2.0.3/IDE/workspace/Life/lib" -shared -o"Life.exe" ./src/forms/NewCellSizeForm.o ./src/forms/NewColorForm.o ./src/forms/NewSpeedForm.o ./src/forms/NewSurfaceForm.o ./src/AboutForm.o ./src/AbstractForm.o ./src/AbstractSettingsForm.o ./src/ColorModel.o ./src/Constants.o ./src/Evolution.o ./src/Generation.o ./src/Life.o ./src/LifeEntry.o ./src/LifeForm.o ./src/RulesForm.o ./src/SettingsForm.o ./src/SpeedForm.o ./src/SurfaceForm.o '
+	@echo 'ldflags: -nostartfiles -Wl,-u__gnu_thumb1_case_si,-u__gnu_thumb1_case_sqi,-u__gnu_thumb1_case_uqi,-u__gnu_thumb1_case_shi,-u__gnu_thumb1_case_uhi -lgcc_sa -L"D:/bada/2.0.3/Model/WaveWQVGA/Target" -L"D:/bada/2.0.3/IDE/workspace/Life/lib" -shared -o"Life.exe" ./src/forms/NewCellSizeForm.o ./src/forms/NewColorForm.o ./src/forms/NewSpeedForm.o ./src/forms/NewSurfaceForm.o ./src/AboutForm.o ./src/AbstractForm.o ./src/AbstractSettingsForm.o ./src/ColorModel.o ./src/Constants.o ./src/DemoForm.o ./src/Evolution.o ./src/Generation.o ./src/Life.o ./src/LifeEntry.o ./src/LifeForm.o ./src/RulesForm.o ./src/SettingsForm.o ./src/SpeedForm.o ./src/SurfaceForm.o '
 	arm-samsung-nucleuseabi-g++ @ldflags @ldobjs  $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '

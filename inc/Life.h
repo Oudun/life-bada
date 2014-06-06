@@ -6,13 +6,14 @@
 #include <FSystem.h>
 #include <FUi.h>
 
+#include "Evolution.h"
+
 #include "AboutForm.h"
 #include "LifeForm.h"
 #include "SettingsForm.h"
-#include "Evolution.h"
-
-//#include "RulesForm.h"
+#include "RulesForm.h"
 #include "AbstractSettingsForm.h"
+#include "DemoForm.h"
 
 #include "forms/NewColorForm.h"
 #include "forms/NewSurfaceForm.h"
@@ -72,12 +73,13 @@ private:
 	LifeForm* lifeForm;
 	SettingsForm* settingsForm;
 	AboutForm* aboutForm;
-//	RulesForm* rulesForm;
+	RulesForm* rulesForm;
 	AbstractSettingsForm* abstractSettingsForm;
 	NewColorForm* newColorForm;
 	NewSurfaceForm* newSurfaceForm;
 	NewCellSizeForm* newCellSizeForm;
 	NewSpeedForm* newSpeedForm;
+	DemoForm* demoForm;
 
 	Evolution* evolution;
 
