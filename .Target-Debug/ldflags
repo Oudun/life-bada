@@ -1,0 +1,1 @@
+-nostartfiles -Wl,-u__gnu_thumb1_case_si,-u__gnu_thumb1_case_sqi,-u__gnu_thumb1_case_uqi,-u__gnu_thumb1_case_shi,-u__gnu_thumb1_case_uhi -lgcc_sa -L"D:/bada/2.0.3/Model/WaveWQVGA/Target" -L"D:/bada/2.0.3/IDE/workspace/Life/lib" -shared -o"Life.exe"

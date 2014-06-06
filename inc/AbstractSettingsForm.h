@@ -13,9 +13,7 @@
 #include "Constants.h"
 
 class AbstractSettingsForm :
-	public AbstractForm,
-	public Osp::Ui::IItemEventListener,
-	public Osp::Ui::IActionEventListener {
+	public AbstractForm {
 
 	public:
 		AbstractSettingsForm();

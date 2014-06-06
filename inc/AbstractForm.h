@@ -11,13 +11,22 @@
 #include <FUi.h>
 #include "ColorModel.h"
 
-class AbstractForm : public Osp::Ui::Controls::Form {
+class AbstractForm :
+	public Osp::Ui::Controls::Form,
+	public Osp::Ui::IItemEventListener,
+	public Osp::Ui::IActionEventListener
+{
 	public:
 		AbstractForm();
 		virtual ~AbstractForm();
 		void SetColorModel(ColorModel* colorModel);
 		ColorModel* GetColorModel(void);
 		virtual void RePaint(void);
+		virtual bool Initialize(void);
+		virtual result OnInitializing(void);
+		virtual void OnItemStateChanged(const Osp::Ui::Control& source, int index, int itemId, Osp::Ui::ItemStatus status);
+		virtual void OnActionPerformed(const Osp::Ui::Control& source, int actionId);
+
 	public:
 		ColorModel* __colorModel;
 };
