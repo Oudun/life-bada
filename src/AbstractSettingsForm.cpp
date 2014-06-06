@@ -116,3 +116,8 @@ AbstractSettingsForm::RePaint(void) {
 	AppLog("Done repainting abstract settings form");
 
 }
+
+void
+AbstractSettingsForm::SetParam(int param) {
+	__list -> SetItemChecked(__list -> GetItemIndexFromItemId(param), true);
+}

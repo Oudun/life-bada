@@ -10,7 +10,22 @@
 #include "Constants.h"
 
 Evolution::Evolution() {
-	delay = 100;
+
+	if (IS_DEMO) {
+		int rand = Osp::Base::Utility::Math::Rand();
+		if (rand < 8000) {
+			delay = SPEED_FASTEST;
+		} else if (rand <16000) {
+			delay = SPEED_TEN_FPS;
+		} else if (rand <24000) {
+			delay = SPEED_FIVE_FPS;
+		} else {
+			delay = SPEED_ONE_FPS;
+		}
+	} else {
+		delay = SPEED_FIVE_FPS;
+	}
+
 	result r = E_SUCCESS;
 	r = Thread::Construct(Osp::Base::Runtime::THREAD_TYPE_EVENT_DRIVEN);
 	AppLog("Created");
@@ -70,3 +85,7 @@ Evolution::SetDelay(int aDelay) {
 	delay = aDelay;
 }
 
+int
+Evolution::GetDelay(void) {
+	return delay;
+}

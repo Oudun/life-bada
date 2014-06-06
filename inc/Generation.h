@@ -27,6 +27,7 @@ public:
 	static int GetCounter(void);
 	static bool MakeAlive(bool isAlive, int siblingsNum);
 	static void SetSurface(int id);
+	static int GetSurface(void);
 };
 
 static int columns;
@@ -49,3 +50,4 @@ static const int SURFACE_KLEIN = 1;
 static const int SURFACE_PROJECTIVE = 2;
 
 #endif /* GENERATION_H_ */
+

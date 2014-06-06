@@ -6,6 +6,7 @@
  */
 
 #include "ColorModel.h"
+#include "Constants.h"
 
 using namespace Osp::App;
 
@@ -14,13 +15,14 @@ ColorModel::ColorModel() {
 	ColorModel(1);
 }
 
-ColorModel::ColorModel(int id) {
+ColorModel::ColorModel(int pId) {
 
 	AppLog("ColorModel::ColorModel(%d)", id);
 
 	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 
-	if (id == 1) { //GREEN
+	if (pId == 1) { //GREEN
+		id = 1;
 		formBkgColor = Color(0, 0, 0);
 		formTextColor = Color(0, 255, 0);
 		controlNormalBkgColor = Color(0, 128, 64);
@@ -35,7 +37,8 @@ ColorModel::ColorModel(int id) {
 		surfaceThorBitmap = pAppResource -> GetBitmapN(L"TorusGreen.png");
 		surfaceKleinBitmap = pAppResource -> GetBitmapN(L"KleinGreen.png");
 		surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"ProjPlaneGreen.png");
-	} else if (id ==2 ) { // AMBER
+	} else if (pId ==2 ) { // AMBER
+		id = 2;
 		formBkgColor = Color(0, 0, 0);
 		formTextColor = Color(255, 126, 0);
 		controlNormalBkgColor = Color(130, 62, 0);
@@ -51,6 +54,7 @@ ColorModel::ColorModel(int id) {
 		surfaceKleinBitmap = pAppResource -> GetBitmapN(L"KleinAmber.png");
 		surfaceProjectiveBitmap = pAppResource -> GetBitmapN(L"ProjPlaneAmber.png");
 	} else {
+		id = 3;
 		formBkgColor = Color(200, 200, 255);
 		formTextColor = Color(100, 100, 200);
 		controlNormalBkgColor = Color(100, 100, 200);
@@ -90,10 +94,10 @@ ColorModel::~ColorModel() {
 }
 
 ColorModel*
-ColorModel::GetInstance(int id) {
-	AppLog("ColorModel::GetInstance(%d)", id);
+ColorModel::GetInstance(int pId) {
+	AppLog("ColorModel::GetInstance(%d)", pId);
 	TryLog(__greenInstance != null, "The __greenInstance is null.");
-	if (id == 1) { //why if (id == COLOR_SCHEME_GREEN) { does not work?
+	if (pId == 1) { //why if (id == COLOR_SCHEME_GREEN) { does not work?
 		AppLog("1");
 		if (__greenInstance == null) {
 			AppLog("2");
@@ -102,7 +106,7 @@ ColorModel::GetInstance(int id) {
 		}
 		AppLog("4");
 		return __greenInstance;
-	} else  if (id == 2) {
+	} else  if (pId == 2) {
 		AppLog("5");
 		if (__amberInstance == null) {
 			AppLog("6");
@@ -111,7 +115,7 @@ ColorModel::GetInstance(int id) {
 		}
 		AppLog("8");
 		return __amberInstance;
-	} else if (id == 3) {
+	} else if (pId == 3) {
 		AppLog("9");
 		if (__xrayInstance == null) {
 			AppLog("10");
@@ -121,8 +125,24 @@ ColorModel::GetInstance(int id) {
 		return __xrayInstance;
 	} else {
 		AppLog("12");
-		AppLog("There is no Color Scheme with ID = %d", id);
+		AppLog("There is no Color Scheme with ID = %d", pId);
 		return null;
 	}
 }
 
+ColorModel*
+ColorModel::GetRandom() {
+
+	int rand = Osp::Base::Utility::Math::Rand();
+
+	AppLog("Random is %d", rand);
+
+	if (rand < 10000) {
+		return GetInstance(COLOR_SCHEME_GREEN);
+	} else if (rand < 20000) {
+		return GetInstance(COLOR_SCHEME_AMBER);
+	} else {
+		return GetInstance(COLOR_SCHEME_XRAY);
+	}
+
+}

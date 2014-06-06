@@ -24,10 +24,14 @@ public:
 	void Suspend(void);
 	bool IsStarted(void);
 	bool IsSuspended(void);
+	void SetDelay(int);
+	int GetDelay(void);
+
 	virtual bool OnStart(void);
 	virtual void OnStop(void);
-	virtual void SetDelay(int);
 	virtual void OnUserEventReceivedN(RequestId requestId, Osp::Base::Collection::IList *pArgs);
+
+
 
 public:
 	bool isSuspended;

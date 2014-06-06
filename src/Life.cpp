@@ -44,30 +44,41 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 
 	AppLog("String is %s and %S address is %d", STRING_SUSPEND.GetPointer(), STRING_SUSPEND.GetPointer(), &STRING_SUSPEND);
 
+	// Getting Color Model
+
+	ColorModel* __colorModel = ColorModel::GetRandom();
+
 	// Creating forms
 
 	lifeForm = new LifeForm();
+	lifeForm -> SetColorModel(__colorModel);
 	lifeForm -> Initialize();
 
 	settingsForm = new SettingsForm();
+	settingsForm -> SetColorModel(__colorModel);
 	settingsForm -> Initialize();
 
 	aboutForm = new AboutForm();
+	aboutForm -> SetColorModel(__colorModel);
 	aboutForm -> Initialize();
 
-	rulesForm = new RulesForm();
-	rulesForm -> Initialize();
+//	rulesForm = new RulesForm();
+//	rulesForm -> Initialize();
 
 	newColorForm = new NewColorForm();
+	newColorForm -> SetColorModel(__colorModel);
 	newColorForm -> Initialize();
 
 	newSurfaceForm = new NewSurfaceForm();
+	newSurfaceForm -> SetColorModel(__colorModel);
 	newSurfaceForm -> Initialize();
 
 	newCellSizeForm = new NewCellSizeForm();
+	newCellSizeForm -> SetColorModel(__colorModel);
 	newCellSizeForm -> Initialize();
 
 	newSpeedForm = new NewSpeedForm();
+	newSpeedForm -> SetColorModel(__colorModel);
 	newSpeedForm -> Initialize();
 
 	// Add the form to the frame
@@ -76,7 +87,7 @@ Life::OnAppInitializing(AppRegistry& appRegistry) {
 	lifeFrame -> AddControl(*lifeForm);
 	lifeFrame -> AddControl(*settingsForm);
 	lifeFrame -> AddControl(*aboutForm);
-	lifeFrame -> AddControl(*rulesForm);
+//	lifeFrame -> AddControl(*rulesForm);
 	lifeFrame -> AddControl(*newColorForm);
 	lifeFrame -> AddControl(*newSurfaceForm);
 	lifeFrame -> AddControl(*newCellSizeForm);
@@ -166,9 +177,13 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 			AppLog("ended -> Showing about form");
 			break;
 		}
+
+// "SHOW SETTINGS" CASES
+
 		case EVENT_SHOW_COLOR_SCHEME: {
 			AppLog("Showing newColorForm");
 			lifeFrame -> SetCurrentForm(*newColorForm);
+			newColorForm -> SetParam(newColorForm -> GetColorModel() -> id);
 			newColorForm -> Draw();
 			newColorForm -> Show();
 			AppLog("ended -> Showing newColorForm form");
@@ -177,6 +192,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 		case EVENT_SHOW_CELL_SIZE: {
 			AppLog("Showing newCellSizeForm");
 			lifeFrame -> SetCurrentForm(*newCellSizeForm);
+			newCellSizeForm -> SetParam(lifeForm -> GetCellSize());
 			newCellSizeForm -> Draw();
 			newCellSizeForm -> Show();
 			AppLog("ended -> Showing newCellSizeForm");
@@ -185,6 +201,7 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 		case EVENT_SHOW_SPEED: {
 			AppLog("Showing newSpeedForm");
 			lifeFrame -> SetCurrentForm(*newSpeedForm);
+			newSpeedForm -> SetParam(evolution->GetDelay());
 			newSpeedForm -> Draw();
 			newSpeedForm -> Show();
 			AppLog("ended -> Showing speedForm");
@@ -193,20 +210,16 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 		case EVENT_SHOW_SURFACE: {
 			AppLog("Showing newSurfaceForm");
 			lifeFrame -> SetCurrentForm(*newSurfaceForm);
+			newSurfaceForm -> SetParam(Generation::GetSurface());
 			newSurfaceForm -> Draw();
 			newSurfaceForm -> Show();
 			AppLog("ended -> Showing newSurfaceForm");
 			break;
 
 		}
-		case EVENT_SHOW_GAME_RULES: {
-			AppLog("Showing rulesForm");
-			lifeFrame -> SetCurrentForm(*rulesForm);
-			rulesForm -> Draw();
-			rulesForm -> Show();
-			AppLog("ended -> Showing rulesForm");
-			break;
-		}
+
+// "APPLY SETTINGS" CASES
+
 		case EVENT_APPLY_CELL_SIZE: {
 			AppLog("Show Life Form with updated size");
 			Integer* size = (Integer*)(pArgs -> GetAt(0));
@@ -262,13 +275,13 @@ Life::OnUserEventReceivedN (RequestId requestId, Osp::Base::Collection::IList *p
 
 			break;
 		}
-		case EVENT_APPLY_RULES: {
-			AppLog("Show Life Form with updated rules");
-			lifeFrame -> SetCurrentForm(*lifeForm);
-			lifeFrame -> Draw();
-			lifeFrame -> Show();
-			break;
-		}
+//		case EVENT_APPLY_RULES: {
+//			AppLog("Show Life Form with updated rules");
+//			lifeFrame -> SetCurrentForm(*lifeForm);
+//			lifeFrame -> Draw();
+//			lifeFrame -> Show();
+//			break;
+//		}
 		case EVENT_APPLY_SURFACE: {
 			AppLog("Show Life Form with updated surface");
 			if(pArgs == null) {

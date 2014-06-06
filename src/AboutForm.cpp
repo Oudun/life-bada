@@ -14,7 +14,6 @@ using namespace Osp::App;
 
 AboutForm::AboutForm() {
 	// TODO Auto-generated constructor stub
-
 }
 
 AboutForm::~AboutForm() {

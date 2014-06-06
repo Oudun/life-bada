@@ -22,9 +22,13 @@ class ColorModel {
 		ColorModel();
 		ColorModel(int id);
 		static ColorModel* GetInstance(int id);
+		static ColorModel* GetRandom();
 		virtual ~ColorModel();
 
 	public:
+
+		int id;
+
 		Color formBkgColor;
 		Color controlNormalBkgColor;
 		Color controlPressedBkgColor;

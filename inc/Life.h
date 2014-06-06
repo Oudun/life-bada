@@ -11,7 +11,7 @@
 #include "SettingsForm.h"
 #include "Evolution.h"
 
-#include "RulesForm.h"
+//#include "RulesForm.h"
 #include "AbstractSettingsForm.h"
 
 #include "forms/NewColorForm.h"
@@ -72,7 +72,7 @@ private:
 	LifeForm* lifeForm;
 	SettingsForm* settingsForm;
 	AboutForm* aboutForm;
-	RulesForm* rulesForm;
+//	RulesForm* rulesForm;
 	AbstractSettingsForm* abstractSettingsForm;
 	NewColorForm* newColorForm;
 	NewSurfaceForm* newSurfaceForm;

@@ -6,9 +6,21 @@
  */
 
 #include "Generation.h"
+#include "Constants.h"
 
 Generation::Generation() {
-	surface = SURFACE_PROJECTIVE;
+	if (IS_DEMO) {
+		int rand = Osp::Base::Utility::Math::Rand();
+		if (rand < 10000) {
+			surface = SURFACE_THOR;
+		} else if (rand <20000) {
+			surface = SURFACE_KLEIN;
+		} else {
+			surface = SURFACE_PROJECTIVE;
+		}
+	} else {
+		surface = SURFACE_THOR;
+	}
 }
 
 Generation::~Generation() {
@@ -330,4 +342,9 @@ Generation::GetCounter(void){
 void
 Generation::SetSurface(int id) {
 	surface = id;
+}
+
+int
+Generation::GetSurface(void) {
+	return surface;
 }

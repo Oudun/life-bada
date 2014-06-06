@@ -41,7 +41,7 @@ SettingsForm::OnInitializing(void) {
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SURFACE), null, null, null, INDEX_SURFACE);
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_CELL_SIZE), null, null, null, INDEX_CELL_SIZE);
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_COLOR_SCHEME), null, null, null, INDEX_COLOR_SCHEME);
-	__settingsList -> AddItem(Constants::GetStringPointer(STRING_GAME_RULES), null, null, null, INDEX_GAME_RULES);
+//	__settingsList -> AddItem(Constants::GetStringPointer(STRING_GAME_RULES), null, null, null, INDEX_GAME_RULES);
 	__settingsList -> AddItem(Constants::GetStringPointer(STRING_SPEED), null, null, null, INDEX_SPEED);
 
 	__settingsList -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel()->formTextColor);
