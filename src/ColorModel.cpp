@@ -137,6 +137,18 @@ ColorModel::GetRandom() {
 
 	AppLog("Random is %d", rand);
 
+	rand = Osp::Base::Utility::Math::Rand();
+
+	AppLog("Random is %d", rand);
+
+	rand = Osp::Base::Utility::Math::Rand();
+
+	AppLog("Random is %d", rand);
+
+	rand = Osp::Base::Utility::Math::Rand();
+
+	AppLog("Random is %d", rand);
+
 	if (rand < 10000) {
 		return GetInstance(COLOR_SCHEME_GREEN);
 	} else if (rand < 20000) {
