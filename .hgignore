@@ -3,3 +3,5 @@ syntax: regexp
 ^DebugInfo$
 syntax: regexp
 ^Life\.htb$
+syntax: regexp
+^\.Target-Debug$
