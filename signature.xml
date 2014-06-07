@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Signature>
   <FileList>
-    <File>/Bin/Life.exe</File>
+    <File>/Bin/LifeDemo.exe</File>
     <File>/Info/manifest.xml</File>
   </FileList>
   <certificateChain>
@@ -14,10 +14,10 @@ MIICaDCCAdGgAwIBAAIJAPoO2ouFgE4LMA0GCSqGSIb3DQEBBQUAMHIxCzAJBgNVBAYTAktSMRwwGgYD
   </certificateChain>
   <SignValue>
     <Package>
-ChA47Bv+CDniB1V525O/+/sS2oxOT7XfJHSp08y/QfJ1oPU6IKAPtdqC4HUc//niKH1Uow/JSV58tHY4caJnuFbi6kU5s4ilk0xXLR3bSB+ziSUiGG6vFFXnoYIrfogKsxHmdlbxXfyAuNRi8l2+Eq6XdgIYUJPDk+aXtyolB9I=
+UHkZDhxCvPBRGU6DtJzNIZ/a20j+dCNbzcWcGEEDrsYt+ilSTanp7j8M+JKIqGwKuPitwRTMya0QROmQZdduJmaKqo21fTvAsbfZpkz/x/wpdWKB4WUJ1B2PWmRM9je0pLFJCWXenP3aMPP+vhuSLDI/nOdl/W/jMfu20xMxqj4=
     </Package>
     <AppSignature>
-dGr1sz21WR4ngjJY/CmOAKVVB1TmKHxWfs6kAv8ZSpAU8x4X0QIVNT/2ncpB+kEmIvxsWROkVO225Mskmjq6OxmC4Qk7k06zpT5cuc7ZYsh3zWumiy5OWZpohypX5zLM5GJJyKY9XkvooYHjoj2w4IYdIZvjwqkNV7SKvEkxf14=
+f8QR+7NiLQ3MxWjR7BY/Z2XE6CQVwQNjvwthlnnQSyKntLhu5+P2Kv7fvCvFQxPsVkzdUMSo5uSe5Gcn4fQLGxcBqnTednvxSaHaqbDnBvGImATEJOHOMCar0BKIsNsxcDbt+gbF3uDx8zgoQXQ5NZ1waxH9VdNeQDOrPg+4s50=
     </AppSignature>
   </SignValue>
 </Signature>
