@@ -107,7 +107,7 @@ static String STRING_HISTORY("HISTORY");
 
 static String STRING_NOTAVALIABLE("NOT_AVAIALBLE");
 
-static bool const IS_DEMO = 1;
+static bool const IS_DEMO = 0;
 
 #endif /* CONSTANTS_H_ */
 
