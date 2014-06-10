@@ -50,7 +50,7 @@ AboutForm::OnInitializing(void) {
 		__buttonBack -> SetActionId(1);
 		__buttonBack -> AddActionEventListener(*this);
 		__buttonBack -> SetNormalBackgroundBitmap(GetColorModel()->normalBackgroundBitmap);
-		__buttonBack -> SetTextColor(GetColorModel()->formTextColor);
+		__buttonBack -> SetTextColor(GetColorModel()->textColor);
 		__buttonBack -> SetText(Constants::GetString(STRING_BACK));
 	}
 

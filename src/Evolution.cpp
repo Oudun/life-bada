@@ -12,7 +12,7 @@
 Evolution::Evolution() {
 
 	if (IS_DEMO) {
-		int rand = Osp::Base::Utility::Math::Rand();
+		int rand = Constants::GetRandom();
 		if (rand < 8000) {
 			delay = SPEED_FASTEST;
 		} else if (rand <16000) {
@@ -23,7 +23,7 @@ Evolution::Evolution() {
 			delay = SPEED_ONE_FPS;
 		}
 	} else {
-		delay = SPEED_FIVE_FPS;
+		delay = Constants::GetStored(STORED_SPEED);
 	}
 
 	result r = E_SUCCESS;

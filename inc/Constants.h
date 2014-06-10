@@ -10,20 +10,30 @@
 #define CONSTANTS_H_
 
 #include <FBase.h>
+#include <FSystem.h>
 #include <FApp.h>
 #include <FApp.h>
 #include <FUi.h>
+#include <FBaseUtil.h>
 
 using Osp::Base::String;
 
 class Constants {
+
 public:
 	Constants();
 	virtual ~Constants();
 	static String GetString(String& id);
 	static String* GetStringPointer(String& id);
+	static int GetRandom(void);
+	static int GetStored(String& key);
+	static void Store(String& key, int value);
 
 };
+
+// DEMO INDICATOR
+
+static bool const IS_DEMO = 0;
 
 // Events
 
@@ -47,6 +57,13 @@ static const int EVENT_APPLY_SPEED = 51;
 static const int EVENT_APPLY_COLOR = 61;
 static const int EVENT_APPLY_RULES = 71;
 static const int EVENT_APPLY_SURFACE = 81;
+
+// Surfaces
+
+static int SURFACE_THOR = 0;
+static int SURFACE_KLEIN = 1;
+static int SURFACE_PROJECTIVE = 2;
+
 
 // Color schemes
 
@@ -76,7 +93,6 @@ static String STRING_RESUME("RESUME");
 static String STRING_SEED("SEED");
 static String STRING_GENERATION_NUM("GENERATION_NUM");
 static String STRING_START("START");
-
 static String STRING_SETTINGS("SETTINGS");
 static String STRING_EXTRA("EXTRA");
 static String STRING_ABOUT_GAME("ABOUT_GAME");
@@ -88,26 +104,26 @@ static String STRING_SPEED("SPEED");
 static String STRING_BACK("BACK");
 static String STRING_APPLY("APPLY");
 static String STRING_CANCEL("CANCEL");
-
 static String STRING_SPEED_FASTEST("FASTEST");
 static String STRING_SPEED_TEN_FPS("TEN");
 static String STRING_SPEED_FIVE_FPS("FIVE");
 static String STRING_SPEED_ONE_FPS("ONE");
 static String STRING_SPEED_LABEL("SPEED_LABEL");
-
 static String STRING_ABOUT_INTRO_TEXT("ABOUT_INTRO_TEXT");
 static String STRING_ABOUT_TEXT("ABOUT_TEXT");
-
 static String STRING_SURFACE_TORUS("SURFACE_TORUS");
 static String STRING_SURFACE_KLEIN("SURFACE_KLEIN");
 static String STRING_SURFACE_PROJECTIVE("SURFACE_PROJECTIVE");
-
 static String STRING_RULES("RULES");
 static String STRING_HISTORY("HISTORY");
-
 static String STRING_NOTAVALIABLE("NOT_AVAIALBLE");
 
-static bool const IS_DEMO = 0;
+// KEYS FOR STORED PARAMS
+
+static String STORED_SURFACE("STORED_SURFACE");
+static String STORED_COLOR("STORED_COLOR");
+static String STORED_SPEED("STORED_SPEED");
+static String STORED_SIZE("STORED_SIZE");
 
 #endif /* CONSTANTS_H_ */
 
