@@ -131,30 +131,23 @@ ColorModel::GetInstance(int pId) {
 }
 
 ColorModel*
-ColorModel::GetRandom() {
+ColorModel::GetModel() {
 
-	int rand = Osp::Base::Utility::Math::Rand();
+	if (IS_DEMO) {
 
-	AppLog("Random is %d", rand);
+		int rand = Constants::GetRandom();
 
-	rand = Osp::Base::Utility::Math::Rand();
-
-	AppLog("Random is %d", rand);
-
-	rand = Osp::Base::Utility::Math::Rand();
-
-	AppLog("Random is %d", rand);
-
-	rand = Osp::Base::Utility::Math::Rand();
-
-	AppLog("Random is %d", rand);
-
-	if (rand < 10000) {
-		return GetInstance(COLOR_SCHEME_GREEN);
-	} else if (rand < 20000) {
-		return GetInstance(COLOR_SCHEME_AMBER);
+		if (rand < 10000) {
+			return GetInstance(COLOR_SCHEME_GREEN);
+		} else if (rand < 20000) {
+			return GetInstance(COLOR_SCHEME_AMBER);
+		} else {
+			return GetInstance(COLOR_SCHEME_XRAY);
+		}
 	} else {
-		return GetInstance(COLOR_SCHEME_XRAY);
+
+		return GetInstance(Constants::GetStored(STORED_COLOR));
+
 	}
 
 }
