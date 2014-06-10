@@ -5,3 +5,7 @@ syntax: regexp
 ^Life\.htb$
 syntax: regexp
 ^\.Target-Debug$
+syntax: regexp
+^\.settings$
+syntax: regexp
+^\.settings/com\.osp\.ban\.core\.prefs$

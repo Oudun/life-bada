@@ -20,8 +20,8 @@ void
 NewSurfaceForm::PopulateList(void) {
 
 	__list -> RemoveAllItems();
-	__list -> AddItem(Constants::GetStringPointer(STRING_SURFACE_TORUS), null, GetColorModel()->surfaceThorBitmap, null, COLOR_SCHEME_GREEN);
-	__list -> AddItem(Constants::GetStringPointer(STRING_SURFACE_KLEIN), null, GetColorModel()->surfaceKleinBitmap, null, COLOR_SCHEME_AMBER);
-	__list -> AddItem(Constants::GetStringPointer(STRING_SURFACE_PROJECTIVE), null, GetColorModel()->surfaceProjectiveBitmap, null, COLOR_SCHEME_XRAY);
+	__list -> AddItem(Constants::GetStringPointer(STRING_SURFACE_TORUS), null, GetColorModel()->surfaceThorBitmap, null, SURFACE_THOR);
+	__list -> AddItem(Constants::GetStringPointer(STRING_SURFACE_KLEIN), null, GetColorModel()->surfaceKleinBitmap, null, SURFACE_KLEIN);
+	__list -> AddItem(Constants::GetStringPointer(STRING_SURFACE_PROJECTIVE), null, GetColorModel()->surfaceProjectiveBitmap, null, SURFACE_PROJECTIVE);
 
 }

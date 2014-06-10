@@ -22,7 +22,7 @@ class ColorModel {
 		ColorModel();
 		ColorModel(int id);
 		static ColorModel* GetInstance(int id);
-		static ColorModel* GetRandom();
+		static ColorModel* GetModel();
 		virtual ~ColorModel();
 
 	public:
