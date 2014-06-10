@@ -8,7 +8,22 @@ using namespace Osp::Ui::Controls;
 
 LifeForm::LifeForm(void)
 {
-	__seedSize = 10;
+	//__seedSize = 10;
+
+	if (IS_DEMO) {
+		int rand = Constants::GetRandom();
+		if (rand < 8000) {
+			__seedSize = SIZE_THREE;
+		} else if (rand <16000) {
+			__seedSize = SIZE_FIVE;
+		} else if (rand <24000) {
+			__seedSize = SIZE_TEN;
+		} else {
+			__seedSize = SIZE_TWENTY;
+		}
+	} else {
+		__seedSize = Constants::GetStored(STORED_SIZE);
+	}
 
 }
 
@@ -63,7 +78,7 @@ LifeForm::OnInitializing(void)
 
 	__counterLabel = static_cast<Label *>(GetControl("IDC_LABEL_GENERATION"));
 	__counterLabel -> SetText(Constants::GetString(STRING_GENERATION_ZERO));
-	__counterLabel -> SetTextColor(GetColorModel()->formTextColor);
+	__counterLabel -> SetTextColor(GetColorModel()->textColor);
 	__counterLabel -> SetBackgroundColor(GetColorModel()->controlNormalBkgColor);
 
 	SetBackgroundColor(GetColorModel()->formBkgColor);

@@ -9,8 +9,9 @@
 #include "Constants.h"
 
 Generation::Generation() {
+
 	if (IS_DEMO) {
-		int rand = Osp::Base::Utility::Math::Rand();
+		int rand = Constants::GetRandom();
 		if (rand < 10000) {
 			surface = SURFACE_THOR;
 		} else if (rand <20000) {
@@ -21,6 +22,7 @@ Generation::Generation() {
 	} else {
 		surface = SURFACE_THOR;
 	}
+
 }
 
 Generation::~Generation() {
