@@ -5,9 +5,12 @@
   <AppVersion>1.0.0</AppVersion>
   <ManifestVersion>1.1</ManifestVersion>
     <Privileges>
+		<Privilege>
+            <Name>IMAGE</Name>
+        </Privilege>
     </Privileges>
     <DeviceProfile>
-        <APIVersion>1.1</APIVersion>
+        <APIVersion>2.0</APIVersion>
         <CPU>ARM9</CPU>
         <ScreenSize>240x400</ScreenSize>
         <Connectivity>Bluetooth</Connectivity>
