@@ -4,7 +4,11 @@
 <Secret>CDEDF7797715E417238F0F173416878F</Secret>
 <AppVersion>1.0.0</AppVersion>
 <ManifestVersion>1.1</ManifestVersion>
-<Privileges></Privileges>
+<Privileges>
+<Privilege>
+<Name>IMAGE</Name>
+</Privilege>
+</Privileges>
 <DeviceProfile>
 <APIVersion>1.1</APIVersion>
 <CPU>ARM9</CPU>
