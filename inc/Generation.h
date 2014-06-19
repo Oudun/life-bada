@@ -45,9 +45,6 @@ static bool bottomLeft;
 static long counter;
 
 static int surface;
-static const int SURFACE_THOR = 0;
-static const int SURFACE_KLEIN = 1;
-static const int SURFACE_PROJECTIVE = 2;
 
 #endif /* GENERATION_H_ */
 
