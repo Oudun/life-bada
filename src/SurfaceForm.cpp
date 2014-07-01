@@ -34,8 +34,6 @@ SurfaceForm::OnInitializing(void) {
 
 	SetBackgroundColor(GetColorModel()->formBkgColor);
 
-	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-
 	Button *__buttonCancel = static_cast<Button *>(GetControl("IDC_BUTTON_CANCEL"));
 	if (__buttonCancel)
 	{

@@ -51,11 +51,14 @@ class ColorModel {
 		Bitmap* colorAmberBitmap;
 		Bitmap* colorGreenBitmap;
 
-};
+	private:
 
-static ColorModel* __greenInstance;
-static ColorModel* __amberInstance;
-static ColorModel* __xrayInstance;
+		static ColorModel* __greenInstance;
+		static ColorModel* __amberInstance;
+		static ColorModel* __xrayInstance;
+
+
+};
 
 #endif /* COLORMODEL_H_ */
 

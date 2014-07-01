@@ -29,11 +29,28 @@ public:
 	static int GetStored(String& key);
 	static void Store(String& key, int value);
 
+public:
+
+
+
 };
+
+// Color schemes
+
+static const int COLOR_SCHEME_GREEN = 1;
+static const int COLOR_SCHEME_AMBER = 2;
+static const int COLOR_SCHEME_XRAY = 3;
+
+// Generation update speed
+
+static const int SPEED_FASTEST = 0;
+static const int SPEED_TEN_FPS = 100;
+static const int SPEED_FIVE_FPS = 200;
+static const int SPEED_ONE_FPS = 1000;
 
 // DEMO INDICATOR
 
-static bool const IS_DEMO = 1;
+static const bool IS_DEMO = 0;
 
 // Events
 
@@ -60,23 +77,9 @@ static const int EVENT_APPLY_SURFACE = 81;
 
 // Surfaces
 
-static int SURFACE_THOR = 0;
-static int SURFACE_KLEIN = 1;
-static int SURFACE_PROJECTIVE = 2;
-
-
-// Color schemes
-
-static int COLOR_SCHEME_GREEN = 1;
-static int COLOR_SCHEME_AMBER = 2;
-static int COLOR_SCHEME_XRAY = 3;
-
-// Generation update speed
-
-static int SPEED_FASTEST = 0;
-static int SPEED_TEN_FPS = 100;
-static int SPEED_FIVE_FPS = 200;
-static int SPEED_ONE_FPS = 1000;
+static const int SURFACE_THOR = 0;
+static const int SURFACE_KLEIN = 1;
+static const int SURFACE_PROJECTIVE = 2;
 
 // Cell Size
 

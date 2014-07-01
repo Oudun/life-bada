@@ -10,6 +10,12 @@
 
 using namespace Osp::App;
 
+
+ColorModel* ColorModel::__greenInstance;
+ColorModel* ColorModel::__amberInstance;
+ColorModel* ColorModel::__xrayInstance;
+
+
 ColorModel::ColorModel() {
 	AppLog("ColorModel::ColorModel()");
 	ColorModel(1);
