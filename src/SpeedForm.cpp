@@ -38,8 +38,6 @@ SpeedForm::OnInitializing(void) {
 
 	__listSpeed = static_cast<List *>(GetControl("IDC_LIST_SPEED"));
 
-	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
-
 	__listSpeed -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__listSpeed -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel()->textColor);
 	__listSpeed -> AddItem(Constants::GetStringPointer(STRING_SPEED_FASTEST), null, null, null, INDEX_FASTEST);
