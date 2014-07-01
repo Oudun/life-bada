@@ -15,12 +15,11 @@ using namespace Osp::Graphics;
 using namespace Osp::App;
 
 SurfaceForm::SurfaceForm() {
-	// TODO Auto-generated constructor stub
 
 }
 
 SurfaceForm::~SurfaceForm() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 bool
@@ -33,8 +32,6 @@ result
 SurfaceForm::OnInitializing(void) {
 
 	SetBackgroundColor(GetColorModel()->formBkgColor);
-
-	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 
 	Button *__buttonCancel = static_cast<Button *>(GetControl("IDC_BUTTON_CANCEL"));
 	if (__buttonCancel)

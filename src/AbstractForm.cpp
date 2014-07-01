@@ -12,7 +12,7 @@ AbstractForm::AbstractForm() {
 }
 
 AbstractForm::~AbstractForm() {
-	// TODO Auto-generated destructor stub
+
 }
 
 void

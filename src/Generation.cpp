@@ -8,6 +8,22 @@
 #include "Generation.h"
 #include "Constants.h"
 
+int Generation::columns;
+int Generation::rows;
+bool** Generation::currentGeneration;
+bool** Generation::nextGeneration;
+bool* Generation::top;
+bool* Generation::right;
+bool* Generation::bottom;
+bool* Generation::left;
+bool Generation::topLeft;
+bool Generation::topRight;
+bool Generation::bottomRight;
+bool Generation::bottomLeft;
+long Generation::counter;
+
+int Generation::surface;
+
 Generation::Generation() {
 
 	if (IS_DEMO) {
@@ -26,7 +42,7 @@ Generation::Generation() {
 }
 
 Generation::~Generation() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 

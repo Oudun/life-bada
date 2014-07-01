@@ -12,7 +12,6 @@
 
 class Generation {
 
-
 public:
 	Generation();
 	virtual ~Generation();
@@ -28,23 +27,25 @@ public:
 	static bool MakeAlive(bool isAlive, int siblingsNum);
 	static void SetSurface(int id);
 	static int GetSurface(void);
+
+private:
+	static int columns;
+	static int rows;
+	static bool** currentGeneration;
+	static bool** nextGeneration;
+	static bool* top;
+	static bool* right;
+	static bool* bottom;
+	static bool* left;
+	static bool topLeft;
+	static bool topRight;
+	static bool bottomRight;
+	static bool bottomLeft;
+	static long counter;
+
+	static int surface;
+
 };
-
-static int columns;
-static int rows;
-static bool** currentGeneration;
-static bool** nextGeneration;
-static bool* top;
-static bool* right;
-static bool* bottom;
-static bool* left;
-static bool topLeft;
-static bool topRight;
-static bool bottomRight;
-static bool bottomLeft;
-static long counter;
-
-static int surface;
 
 #endif /* GENERATION_H_ */
 

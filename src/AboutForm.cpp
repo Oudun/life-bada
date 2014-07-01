@@ -17,7 +17,7 @@ AboutForm::AboutForm() {
 }
 
 AboutForm::~AboutForm() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 bool

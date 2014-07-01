@@ -32,7 +32,7 @@ Evolution::Evolution() {
 }
 
 Evolution::~Evolution() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 void

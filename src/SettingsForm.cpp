@@ -19,7 +19,7 @@ SettingsForm::SettingsForm() {
 }
 
 SettingsForm::~SettingsForm() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 bool
@@ -137,10 +137,10 @@ SettingsForm::OnActionPerformed(const Osp::Ui::Control &source, int actionId) {
 		}
 		case IDC_BUTTON_ABOUT: {
 			Control* control = GetControl(L"SETTINGS_FORM");
-			Canvas* __bgCanvas = control -> GetCanvasN(0, 0, 240, 400);
+			Canvas* __bgCanvas = control -> GetCanvasN(GetBounds());
 			//__bgCanvas -> DrawBitmap(Rectangle(0, 0, 240, 400), *__bgImage);
 			__bgCanvas -> Clear();
-			__bgCanvas -> FillRectangle(Color::COLOR_RED, Rectangle(0,0,240,400));
+			__bgCanvas -> FillRectangle(Color::COLOR_RED, Rectangle(GetBounds()));
 			RequestRedraw(true);
 			//Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_ABOUT_GAME, null);
 			Osp::App::Application::GetInstance() -> SendUserEvent(EVENT_SHOW_GAME_RULES, null);

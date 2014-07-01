@@ -26,6 +26,6 @@
     </Icons>
     <AutoScaling>
         <Enabled>true</Enabled>
-        <BaseResolution>240x400</BaseResolution>
+        <BaseResolution>NormalSize</BaseResolution>
     </AutoScaling>
 </Application>

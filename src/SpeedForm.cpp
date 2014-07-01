@@ -19,7 +19,7 @@ SpeedForm::SpeedForm() {
 }
 
 SpeedForm::~SpeedForm() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 bool
@@ -37,8 +37,6 @@ SpeedForm::OnInitializing(void) {
 
 
 	__listSpeed = static_cast<List *>(GetControl("IDC_LIST_SPEED"));
-
-	AppResource* pAppResource = Application::GetInstance()->GetAppResource();
 
 	__listSpeed -> SetBackgroundColor(GetColorModel()->formBkgColor);
 	__listSpeed -> SetItemTextColor(LIST_ITEM_TEXT1, GetColorModel()->textColor);
