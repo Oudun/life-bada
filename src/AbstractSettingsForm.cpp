@@ -16,7 +16,7 @@ AbstractSettingsForm::AbstractSettingsForm() {
 }
 
 AbstractSettingsForm::~AbstractSettingsForm() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 

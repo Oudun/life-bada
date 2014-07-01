@@ -13,7 +13,7 @@ NewCellSizeForm::NewCellSizeForm() {
 }
 
 NewCellSizeForm::~NewCellSizeForm() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 void

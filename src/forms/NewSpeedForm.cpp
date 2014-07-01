@@ -13,7 +13,7 @@ NewSpeedForm::NewSpeedForm() {
 }
 
 NewSpeedForm::~NewSpeedForm() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 void

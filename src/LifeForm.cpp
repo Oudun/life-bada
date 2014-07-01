@@ -84,7 +84,13 @@ LifeForm::OnInitializing(void)
 	SetBackgroundColor(GetColorModel()->formBkgColor);
 
 	Control* control = GetControl(L"LIFE_FORM");
-	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 340);
+
+	int marginBottom = __startButton -> GetBounds().height;
+	int marginTop = __counterLabel -> GetBounds().height;
+	int height = GetBounds().height;
+	int width = GetBounds().width;
+
+	__lifeFieldCanvas = control -> GetCanvasN(0, marginTop, width, height-marginBottom-marginTop);
 
 	InitializeField();
 
@@ -98,9 +104,6 @@ result
 LifeForm::OnTerminating(void)
 {
 	result r = E_SUCCESS;
-
-	// TODO: Add your termination code here
-
 	return r;
 }
 

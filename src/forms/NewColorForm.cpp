@@ -13,7 +13,7 @@ NewColorForm::NewColorForm() {
 }
 
 NewColorForm::~NewColorForm() {
-	// TODO Auto-generated destructor stub
+	
 }
 
 void

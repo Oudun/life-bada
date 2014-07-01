@@ -13,7 +13,7 @@ NewSurfaceForm::NewSurfaceForm() {
 }
 
 NewSurfaceForm::~NewSurfaceForm() {
-	// TODO Auto-generated destructor stub
+
 }
 
 void
