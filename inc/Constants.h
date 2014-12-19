@@ -50,7 +50,7 @@ static const int SPEED_ONE_FPS = 1000;
 
 // DEMO INDICATOR
 
-static const bool IS_DEMO = 0;
+static const bool IS_DEMO = 1;
 
 // Events
 
