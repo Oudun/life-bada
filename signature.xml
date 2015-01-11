@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Signature>
   <FileList>
-    <File>/Bin/LifeDemo.exe</File>
+    <File>/Bin/LifeGame.exe</File>
     <File>/Info/manifest.xml</File>
   </FileList>
   <certificateChain>
@@ -14,10 +14,10 @@ MIICaDCCAdGgAwIBAAIJAPoO2ouFgE4LMA0GCSqGSIb3DQEBBQUAMHIxCzAJBgNVBAYTAktSMRwwGgYD
   </certificateChain>
   <SignValue>
     <Package>
-UJXoW+ow4srKA9dUikBRWPF+Tk+PE6UJEi4qNMnEgTTgQga9bHHpbgLjKh50WQEA60q5buxklpv+cd8vf3CBEjdxkhNKPtDbnrbwl0iSiZWnbwHUhZ6JDfZmBCX+3Q7bqTpFpmIQxWQfrPnTvfGl+zFw6Iy+7XeqUUsiL0/hw5k=
+HxLyysS74pZ7f4GNZx3GwWsobRGQXuhUtv67c/oS5BQI3EtSI8BCq7EbA6sFiy8vQaIQG2gRLuIg5pNPZ3Mc88kAAcZL7fOnlYXYVSaYwOrzUddvseJGyCu7xWG4R2x+PDxgwtVWZlvYxhYpX6Flq5j9W8zT30AVWhQyFjQ+GUw=
     </Package>
     <AppSignature>
-DNrw0mT0S/2yoaQ/9QJ0TCa7MFc3kiIps9549NG+f/ARxRLz4Y54z6vCXDO2I0k02ZAkAdIFQIPBCP2lzLovYHHS5VpNPk3xwbLDG3VQbdjr+lnr7MPIvPMyI9I8P5y18gBIpFZIe//gJGzmk7Ap4kQQUxD1bOqY0NRi4pRxZn8=
+FQJodNx9RPovt4FMjNDTYQU4bYHJryP5zyw6KKj3v37K5qdKF5ZC6rMImM+eN+mGuuerB0Pp5N7cWZJShg3T7HyZS6apFxUye/kL7kYY9ybMd4lYO/xmkf+nlhqzud4RHSIqnP/r81MVp7hoAQ8keAjQM7DfvfpPlH7xrd/s8K4=
     </AppSignature>
   </SignValue>
 </Signature>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Application>
-    <Entry>LifeDemo</Entry>
+    <Entry>LifeGame</Entry>
     <Name>
-        <English>LifeDemo</English>
-        <eng-GB>LifeDemo</eng-GB>
+        <English>LifeGame</English>
+        <eng-GB>LifeGame</eng-GB>
     </Name>
     <Vendor/>
     <Description/>
