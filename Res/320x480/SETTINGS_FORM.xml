@@ -5,7 +5,7 @@
 <!DOCTYPE Scene SYSTEM "UIForm.dtd">
 
 <Scene Bversion="2.0.3.v20111206" Dversion="20100701">
-    <Form id="ABSTRACT_SETTINGS_FORM">
+    <Form id="SETTINGS_FORM">
         <property BGColor="" BGColorOpacity="100" Orientation="Portrait" softKey0NormalIcon="" softKey0PressedIcon="" softKey0Text="" softKey1NormalIcon="" softKey1PressedIcon="" softKey1Text="" title="" titleAlign="ALIGN_CENTER" titleIcon="" translucentFooter="FALSE" translucentHeader="FALSE" translucentIndicator="FALSE"/>
         <layout mode="Portrait" style="FORM_STYLE_NORMAL" type="NONE"/>
         <layout mode="Landscape" style="FORM_STYLE_NORMAL" type="NONE"/>
@@ -18,24 +18,24 @@
         <property BGBitmapPath="" color="" colorOpacity="100" descriptionText="" descriptionTextColor="" disabledButtonColor="" disabledButtonColorOpacity="100" disabledButtonTextColor="" disabledItemColor="" disabledItemColorOpacity="100" disabledItemTextColor="" headerStyle="HEADER_STYLE_TITLE" highlightedButtonColor="" highlightedButtonColorOpacity="100" highlightedButtonTextColor="" highlightedItemColor="" highlightedItemColorOpacity="100" highlightedItemTextColor="" normalButtonColor="" normalButtonColorOpacity="100" normalButtonTextColor="" normalItemColor="" normalItemColorOpacity="100" normalItemTextColor="" pressedButtonColor="" pressedButtonColorOpacity="100" pressedButtonTextColor="" pressedItemColor="" pressedItemColorOpacity="100" pressedItemTextColor="" selectedItemColor="" selectedItemColorOpacity="100" selectedItemTextColor="" titleIconPath="" titleText="" titleTextColor=""/>
         <itemSet/>
     </Header>
-    <Label id="IDC_LABEL" parent="ABSTRACT_SETTINGS_FORM">
-        <property BGBitmapPath="" BGColor="" BGColorOpacity="100" hAlign="ALIGN_LEFT" text="" textColor="" textSize="44" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_TOP"/>
-        <layout height="80" mode="Portrait" width="320" x="80" y="60"/>
-        <layout height="38" mode="Landscape" width="332" x="136" y="38"/>
-    </Label>
-    <List id="IDC_LIST" parent="ABSTRACT_SETTINGS_FORM">
-        <property ListItemFormat="LIST_ITEM_SINGLE_IMAGE_TEXT" colorOfEmptyListText="" column1Width="128" column2Width="96" row1Height="128" row2Height="50" textOfEmptyList=""/>
-        <layout height="522" mode="Portrait" style="LIST_STYLE_RADIO" width="320" x="82" y="160"/>
-        <layout height="312" mode="Landscape" style="LIST_STYLE_RADIO" width="532" x="136" y="96"/>
+    <List id="SETTINGS_LIST" parent="SETTINGS_FORM">
+        <property ListItemFormat="LIST_ITEM_SINGLE_TEXT" colorOfEmptyListText="" column1Width="213" column2Width="50" row1Height="66" row2Height="50" textOfEmptyList=""/>
+        <layout height="312" mode="Portrait" style="LIST_STYLE_NORMAL" width="213" x="53" y="121"/>
+        <layout height="48" mode="Landscape" style="LIST_STYLE_NORMAL" width="199" x="175" y="108"/>
     </List>
-    <Button id="IDC_BUTTON_CANCEL" parent="ABSTRACT_SETTINGS_FORM">
-        <property disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBGBitmapPath="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBGBitmapPath="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="28" vAlign="ALIGN_MIDDLE"/>
-        <layout height="60" mode="Portrait" width="230" x="0" y="740"/>
-        <layout height="48" mode="Landscape" width="370" x="0" y="432"/>
+    <Label id="SETTINGS_LABEL" parent="SETTINGS_FORM">
+        <property BGBitmapPath="" BGColor="" BGColorOpacity="100" hAlign="ALIGN_CENTER" text="" textColor="" textSize="29" textStyle="LABEL_TEXT_STYLE_NORMAL" vAlign="ALIGN_MIDDLE"/>
+        <layout height="38" mode="Portrait" width="213" x="53" y="61"/>
+        <layout height="25" mode="Landscape" width="199" x="81" y="26"/>
+    </Label>
+    <Button id="IDC_BUTTON_BACK" parent="SETTINGS_FORM">
+        <property disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBGBitmapPath="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBGBitmapPath="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="18" vAlign="ALIGN_MIDDLE"/>
+        <layout height="38" mode="Portrait" width="213" x="53" y="441"/>
+        <layout height="32" mode="Landscape" width="199" x="97" y="288"/>
     </Button>
-    <Button id="IDC_BUTTON_APPLY" parent="ABSTRACT_SETTINGS_FORM">
-        <property disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBGBitmapPath="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBGBitmapPath="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="28" vAlign="ALIGN_MIDDLE"/>
-        <layout height="60" mode="Portrait" width="230" x="250" y="740"/>
-        <layout height="48" mode="Landscape" width="320" x="480" y="432"/>
+    <Button id="IDC_BUTTON_ABOUT" parent="SETTINGS_FORM">
+        <property disableTextColor="" disabledBitmapPath="" disabledColor="" disabledColorOpacity="100" hAlign="ALIGN_CENTER" highlightedBGBitmapPath="" highlightedColor="" highlightedColorOpacity="100" highlightedTextColor="" normalBGBitmapPath="" normalBitmapPath="" normalColor="" normalColorOpacity="100" normalTextColor="" pressedBGBitmapPath="" pressedBitmapPath="" pressedColor="" pressedColorOpacity="100" pressedTextColor="" text="" textSize="18" vAlign="ALIGN_MIDDLE"/>
+        <layout height="38" mode="Portrait" width="213" x="53" y="0"/>
+        <layout height="32" mode="Landscape" width="199" x="207" y="22"/>
     </Button>
 </Scene>
