@@ -8,11 +8,11 @@
     <Vendor/>
     <Description/>
     <Icons>
-        <MainMenu>LifeGame_type4.png<Type1/>
+        <MainMenu>Life_type4.png<Type1/>
             <Type2/>
-            <Type3>LifeGame_type3.png</Type3>
-            <Type4>LifeGame_type4.png</Type4>
-            <Type5>LifeGame_type5.png</Type5>
+            <Type3>Life_type3.png</Type3>
+            <Type4>Life_type4.png</Type4>
+            <Type5>Life_type5.png</Type5>
         </MainMenu>
         <Setting/>
         <Ticker/>
