@@ -43,7 +43,7 @@ static const int COLOR_SCHEME_XRAY = 3;
 
 // Generation update speed
 
-static const int SPEED_FASTEST = 0;
+//static const int SPEED_FASTEST = 0;
 static const int SPEED_TEN_FPS = 100;
 static const int SPEED_FIVE_FPS = 200;
 static const int SPEED_ONE_FPS = 1000;
