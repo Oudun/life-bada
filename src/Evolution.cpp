@@ -13,9 +13,7 @@ Evolution::Evolution() {
 
 	if (IS_DEMO) {
 		int rand = Constants::GetRandom();
-		if (rand < 8000) {
-			delay = SPEED_FASTEST;
-		} else if (rand <16000) {
+		if (rand <16000) {
 			delay = SPEED_TEN_FPS;
 		} else if (rand <24000) {
 			delay = SPEED_FIVE_FPS;
