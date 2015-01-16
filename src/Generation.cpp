@@ -10,6 +10,7 @@
 
 int Generation::columns;
 int Generation::rows;
+bool** Generation::pastGeneration;
 bool** Generation::currentGeneration;
 bool** Generation::nextGeneration;
 bool* Generation::top;
@@ -52,6 +53,7 @@ Generation::Initialize(int aColumns, int aRows) {
 	columns = aColumns;
 	AppLog("Columns number set to %d", columns);
 	rows = aRows;
+	pastGeneration = new bool*[columns];
 	currentGeneration = new bool*[columns];
 	nextGeneration = new bool*[columns];
 	top = new bool[columns];
@@ -59,6 +61,7 @@ Generation::Initialize(int aColumns, int aRows) {
 	left = new bool[rows];
 	right = new bool[rows];
 	for (int i=0; i<columns; i++) {
+		pastGeneration[i]= new bool[rows];
 		currentGeneration[i]= new bool[rows];
 		nextGeneration[i]= new bool[rows];
 	}
@@ -304,6 +307,12 @@ Generation::Calculate(void) {
 	siblingNum += (int) left[rows-1];
 
 	nextGeneration[0][rows-1] = MakeAlive(currentGeneration[0][rows-1], siblingNum);
+
+	for (int i=0; i<columns; i++) {
+		for (int j=0; j<rows; j++) {
+				pastGeneration[i][j] = currentGeneration[i][j];
+		}
+	}
 
 	for (int i=0; i<columns; i++) {
 		for (int j=0; j<rows; j++) {

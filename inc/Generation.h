@@ -31,6 +31,7 @@ public:
 private:
 	static int columns;
 	static int rows;
+	static bool** pastGeneration;
 	static bool** currentGeneration;
 	static bool** nextGeneration;
 	static bool* top;
