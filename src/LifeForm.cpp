@@ -84,7 +84,12 @@ LifeForm::OnInitializing(void)
 	SetBackgroundColor(GetColorModel()->formBkgColor);
 
 	Control* control = GetControl(L"LIFE_FORM");
-	__lifeFieldCanvas = control -> GetCanvasN(0, 30, 240, 340);
+	__lifeFieldCanvas = control -> GetCanvasN(0,
+			__counterLabel->GetBounds().height,
+			GetBounds().width,
+			GetBounds().height-(
+					__counterLabel->GetBounds().height
+					+ __startButton->GetBounds().height));
 
 	InitializeField();
 
