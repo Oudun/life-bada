@@ -60,7 +60,7 @@ Constants::GetStored(String& key) {
 		} else if (key == STORED_COLOR ){
 			v = COLOR_SCHEME_GREEN;
 		} else {
-			v = 0;
+			v = SPEED_FIVE_FPS;
 		}
 	} else {
 		AppLog("Result is %S", GetErrorMessage(r));

@@ -7,6 +7,6 @@
 	<Privileges>
 	</Privileges>
 	<DeviceProfile>
-		<APIVersion>2.0</APIVersion>
+		<APIVersion>1.1</APIVersion>
 	</DeviceProfile>
 </Manifest>

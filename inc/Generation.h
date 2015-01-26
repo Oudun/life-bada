@@ -43,7 +43,7 @@ private:
 	static bool bottomRight;
 	static bool bottomLeft;
 	static long counter;
-
+	static bool isCycled;
 	static int surface;
 
 };

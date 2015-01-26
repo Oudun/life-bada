@@ -45,6 +45,7 @@ LifeForm::OnInitializing(void)
 
 	AppLog("Initializing Life Form");
 
+	SetOrientation(Osp::Ui::ORIENTATION_PORTRAIT);
 	result r = E_SUCCESS;
 
 	__seedButton = static_cast<Button *>(GetControl("IDC_BUTTON_SEED"));
