@@ -83,7 +83,7 @@ static const int SURFACE_PROJECTIVE = 2;
 
 // Cell Size
 
-const static int SIZE_THREE = 3;
+//const static int SIZE_THREE = 3;
 const static int SIZE_FIVE = 5;
 const static int SIZE_TEN = 10;
 const static int SIZE_TWENTY = 20;
