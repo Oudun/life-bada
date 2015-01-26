@@ -22,6 +22,7 @@ bool Generation::topRight;
 bool Generation::bottomRight;
 bool Generation::bottomLeft;
 long Generation::counter;
+bool Generation::isCycled;
 
 int Generation::surface;
 
@@ -39,6 +40,8 @@ Generation::Generation() {
 	} else {
 		surface = SURFACE_THOR;
 	}
+
+	isCycled = false;
 
 }
 
@@ -307,6 +310,21 @@ Generation::Calculate(void) {
 	siblingNum += (int) left[rows-1];
 
 	nextGeneration[0][rows-1] = MakeAlive(currentGeneration[0][rows-1], siblingNum);
+
+	/// checking whether generation is cycled
+
+	isCycled = true;
+
+	for (int i=0; i<columns; i++) {
+		for (int j=0; j<rows; j++) {
+			if (pastGeneration!=currentGeneration) {
+				isCycled = false;
+				break;
+			}
+		}
+	}
+
+	///
 
 	for (int i=0; i<columns; i++) {
 		for (int j=0; j<rows; j++) {

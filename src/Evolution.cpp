@@ -22,6 +22,7 @@ Evolution::Evolution() {
 		}
 	} else {
 		delay = Constants::GetStored(STORED_SPEED);
+		AppLog("!!!Stored delay is %d sec", delay);
 	}
 
 	result r = E_SUCCESS;
