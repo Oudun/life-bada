@@ -12,9 +12,7 @@ LifeForm::LifeForm(void)
 
 	if (IS_DEMO) {
 		int rand = Constants::GetRandom();
-		if (rand < 8000) {
-			__seedSize = SIZE_THREE;
-		} else if (rand <16000) {
+		if (rand <16000) {
 			__seedSize = SIZE_FIVE;
 		} else if (rand <24000) {
 			__seedSize = SIZE_TEN;
