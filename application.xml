@@ -19,7 +19,7 @@
         </LaunchImage>
     </Icons>
     <AutoScaling>
-        <Enabled>true</Enabled>
+        <Enabled>false</Enabled>
         <BaseResolution>240x400</BaseResolution>
     </AutoScaling>
 </Application>
