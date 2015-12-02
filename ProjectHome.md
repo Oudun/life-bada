@@ -1,0 +1,1 @@
+Attempt to let Conway's Life to run on Bada Based mobile phones. Game description is here - http://en.wikipedia.org/wiki/Conway's\_Game\_of\_Life
